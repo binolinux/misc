@@ -1,0 +1,52 @@
+#
+# [Bloqueio dos anuncios do Spotify]
+0.0.0.0 pubads.g.doubleclick.net
+0.0.0.0 securepubads.g.doubleclick.net
+0.0.0.0 http://www.googletagservices.com
+0.0.0.0 gads.pubmatic.com
+0.0.0.0 ads.pubmatic.com
+0.0.0.0 spclient.wg.spotify.com
+# [Fim do bloqueio dos anuncios do Spotify]
+#
+# [Meus bloqueios]
+0.0.0.0 play.leadzupc.com
+0.0.0.0 radiorox.net
+0.0.0.0 www.radiorox.net
+0.0.0.0 lp.legendsofhonor.com
+0.0.0.0 pt.hex.gameforge.com
+0.0.0.0 104.197.4.220
+0.0.0.0 freelotto.com
+0.0.0.0 make-moneyrobot.com
+0.0.0.0 1stbrowser.com
+0.0.0.0 adexc.net
+0.0.0.0 www.neocoregames.com
+0.0.0.0 pornorips.com
+0.0.0.0 keitrecker.space
+0.0.0.0 time2play-online.net
+0.0.0.0 rumorsleague.com
+0.0.0.0 iqoption.com
+0.0.0.0 trendingpatrol.com
+0.0.0.0 datumglobal.com
+0.0.0.0 import.globalsources.com
+0.0.0.0 daily-chance.info
+0.0.0.0 facebook.nxmgiufze.bid
+0.0.0.0 merkur-slots.com
+0.0.0.0 best2017games.com
+0.0.0.0 www.worldwaronline.com
+0.0.0.0 www.bet365.com
+0.0.0.0 best2017games.com
+0.0.0.0 hotoption.com
+0.0.0.0 www.easygirls.info
+0.0.0.0 mediawhirl.net
+0.0.0.0 trustaffs.com
+0.0.0.0 www.nudevista.com.br
+0.0.0.0 claim-reward.nxmgiufze.bid
+0.0.0.0 www.perfectgirls.net
+0.0.0.0 www.cameraproibida.com
+0.0.0.0 www.siterips.org
+0.0.0.0 www.revistaantenados.com
+0.0.0.0 ssl4anyone4.com
+0.0.0.0 okay-dating.com
+0.0.0.0 www.freelivegirlsguide.com
+# [Fim de meus bloqueios]
+#

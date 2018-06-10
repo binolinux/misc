@@ -1,0 +1,24 @@
+#!/bin/bash
+# Videku Web Player
+sudo wget http://www.videku.com/favicon.ico -O /usr/share/icons/videku.png ; echo -e "[Desktop Entry]\nName=Videku Web Player\nGenericName=Videku Web Player\nComment=Videku Web Player\nExec=google-chrome-stable --app=http://www.videku.com/\nCategories=Qt;KDE;AudioVideo;Player;Video;\nIcon=/usr/share/icons/videku.png\nType=Application\nX-KDE-StartupNotify=false" | sudo tee /usr/share/applications/webapp-videku-web-player.desktop
+
+# WhatsApp Web
+sudo wget https://web.whatsapp.com/favicon.ico -O /usr/share/icons/whatsapp.png
+echo -e "[Desktop Entry]\nName=WhatsApp Web\nGenericName=WhatsApp Web\nComment=WhatsApp Web\nExec=google-chrome-stable --app=https://web.whatsapp.com/\nCategories=Network;\nIcon=/usr/share/icons/whatsapp.png\nType=Application\nX-KDE-StartupNotify=false" | sudo tee /usr/share/applications/webapp-whatsapp.desktop
+
+# 2048 Web
+sudo wget https://gabrielecirulli.github.io/2048/favicon.ico -O /usr/share/icons/2048.png ; echo -e "[Desktop Entry]\nName=2048\nGenericName=2048\nComment=2048\nExec=google-chrome-stable --app=https://gabrielecirulli.github.io/2048/\nCategories=Game;\nIcon=/usr/share/icons/2048.png\nType=Application\nX-KDE-StartupNotify=false" | sudo tee /usr/share/applications/webapp-2048.desktop
+
+# Entanglement
+sudo wget http://entanglement.gopherwoodstudios.com/favicon.ico -O /usr/share/icons/entanglement.png ; echo -e "[Desktop Entry]\nName=Entanglement\nGenericName=Entanglement\nComment=Entanglement\nExec=google-chrome-stable --app=http://entanglement.gopherwoodstudios.com/pt-BR-index.html\nCategories=Game;\nIcon=/usr/share/icons/entanglement.png\nType=Application\nX-KDE-StartupNotify=false" | sudo tee /usr/share/applications/webapp-entanglement.desktop
+
+# Google Drive
+#echo -e"[Desktop Entry]\nName=Google Drive\nGenericName=Google Drive\nComment=Google Drive\nCategories=Network\nExec=google-chrome-stable --app=https://drive.google.com/drive\nIcon=/usr/share/icons/google-drive.png\nType=Application\nX-KDE-StartupNotify=false" | sudo tee webapp-googledrive.desktop
+
+# Spotify Web
+sudo wget https://open.spotify.com/favicon.ico -O /usr/share/icons/spotify.png
+echo -e "[Desktop Entry]\nName=Spotify Web\nGenericName=Spotify Web\nComment=Spotify Web\nExec=google-chrome-stable --app=https://open.spotify.com/\nCategories=Media;\nIcon=/usr/share/icons/spotify.png\nType=Application\nX-KDE-StartupNotify=false" | sudo tee /usr/share/applications/webapp-spotify.desktop
+
+
+
+
