@@ -1,1 +1,14 @@
+#!/bin/bash
+
+# Cortando arquivos de video
+ffmpeg -i "VIDEO-IN.mp4" -ss 00:00:13 -to 00:37:56 -c copy "VIDEO-OUT.mp4"
+
+#Juntando arquivos de video
+cat "VIDEO-IN-1.mp4" "VIDEO-IN-2.mp4" > "VIDEO-OUT.mp4"
+
+#VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: AAC 128k
+ffmpeg  -i "VIDEO-IN.mp4"  -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a aac -b:a 128k -ac 2 -ar 44100 -threads 2 -f mp4 "VIDEO-OUT.mp4"
+
+#VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: Lame MP3 112k
+ffmpeg  -i "VIDEO-IN.mp4"  -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 2 -f mp4 "VIDEO-OUT.mp4"
 
