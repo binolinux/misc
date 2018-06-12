@@ -48,6 +48,17 @@ sh -c "echo -e 'Defaults pwfeedback' >> /etc/sudoers"
 -#    5) break ;;
 -#esac
 -#clear ; sleep 1
+
+# .: DRIVER DE VIDEO :.
+#clear ; echo " " ; echo "DRIVER DE VIDEO" ; echo "---------------" ; echo " " ; echo "1) ATI Radeon                       2) Nvidia Nouveau" ; echo "3) Nvidia Non-free                  4) VirtualBox" ; echo "5) Nenhum" ; echo " " ; echo -n "Escolha [1-5]: " ; read g
+#case $g in
+#    1) echo "$DRAT" | tee -a /archlinux/exec-install.sh ;;
+#    2) echo "$DRNO" | tee -a /archlinux/exec-install.sh ;;
+#    3) echo "$DRNF" | tee -a /archlinux/exec-install.sh ;;
+#    4) echo "$DRVB" | tee -a /archlinux/exec-install.sh ;;
+#    5) break ;;
+#esac
+#clear ; sleep 1
 -
 -# .: UPDATE-GRUB  :.
 -#echo -e '#!/bin/bash\n# Atualiza o Grub\nsudo grub-mkconfig -o /boot/grub/grub.cfg\nclear\nexit' | tee /usr/local/bin/update-grub ; chmod +x /usr/local/bin/update-grub
