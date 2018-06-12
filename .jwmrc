@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<JWM>
+<RootMenu onroot="12">
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/terminal-tango.svg" label="Terminal">sakura</Program>
+<Separator />
+<Program icon="/usr/share/icons/gmrun.png" label="Executar">gmrun</Program>
+<Separator />
+<Menu icon="/usr/share/icons/Oranchelo/categories/scalable/applications-accessories.svg" label="Acessórios">
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/file-manager.svg" label="Arquivos">nemo </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/krusader_root.svg" label="Arquivos (root)">gksu nemo </Program>
+<Menu icon="/usr/share/icons/Oranchelo/apps/scalable/gnome-screenshot.svg" label="Captura de tela">
+	    <Program label="Janela ativa (atraso)">scrot -ud 3 -e 'mv $f ~/Imagens'</Program>            
+	    <Program label="Janela ativa">scrot -ue 'mv $f ~/Imagens'</Program>
+            <Program label="Tela completa">scrot -e 'mv $f ~/Imagens'</Program>
+            <Program label="Selecionar área">scrot -se 'mv $f ~/Imagens'</Program>
+</Menu>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/accessories-calculator.svg" label="Calculadora">gnome-calculator</Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/gnome-disk-utility.svg" label="Discos">gnome-disks</Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/geany.svg" label="Geany">geany </Program>
+  <Program icon="/usr/share/icons/hicolor/scalable/apps/geany.svg" label="Geany (root)">gksu geany </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/accessories-archiver.svg" label="Gerenciador de compactação">file-roller </Program>
+    <Program icon="/usr/share/icons/Oranchelo/apps/scalable/plank.svg" label="Plank">plank</Program>
+  <!-- <Program icon="/usr/share/icons/Oranchelo/apps/scalable/plank-config.svg" label="Plank Config">plank --preferences</Program> -->
+</Menu>
+<Menu icon="/usr/share/icons/Oranchelo/apps/scalable/configuration_section.svg" label="Configurações">
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/csd-xrandr.svg" label="ARandR">arandr</Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/mate-network-properties.svg" label="Conexões de rede">nm-connection-editor</Program>
+  <!-- <Program icon="/usr/share/icons/Oranchelo/devices/scalable/bluetooth.svg" label="Gerenciador de Bluetooth">blueman-manager</Program> -->
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/cs-panel.svg" label="Gerenciador do painel Tint2">tint2conf</Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/cs-cat-appearance.svg" label="Personalizar visual">lxappearance</Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/menulibre.svg" label="Recarregar menu">/usr/bin/jwm -reload</Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/wallpaper.svg" label="Trocar wallpaper">feh -. %F %p /opt/Wallpapers </Program>
+</Menu>
+<!-- <Menu icon="/usr/share/icons/Oranchelo/apps/scalable/libreoffice4.2-startcenter.svg" label="Escritório">
+<Program icon="/usr/share/icons/Oranchelo/apps/scalable/libreoffice3-startcenter.svg" label="LibreOffice">libreoffice </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/libreoffice4.2-base.svg" label="LibreOffice Base">libreoffice --base </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/libreoffice4.2-calc.svg" label="LibreOffice Calc">libreoffice --calc </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/libreoffice4.2-draw.svg" label="LibreOffice Draw">libreoffice --draw </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/libreoffice4.2-impress.svg" label="LibreOffice Impress">libreoffice -impress </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/libreoffice4.2-math.svg" label="LibreOffice Math">libreoffice --math </Program>
+</Menu> -->
+<!-- <Menu icon="/usr/share/icons/Oranchelo/categories/scalable/applications-graphics.svg" label="Gráficos">
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/gimp.svg" label="Gimp">gimp-2.8 </Program>
+</Menu> -->
+<Menu icon="/usr/share/icons/Oranchelo/apps/scalable/internet.svg" label="Internet">
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/firefox.svg" label="Firefox">/usr/lib/firefox/firefox </Program>
+<!-- <Program icon="/usr/share/icons/Oranchelo/apps/scalable/jdownloader.svg" label="jDownloader 2">java -jar /run/media/live/TRABALHO/jDownloader/JDownloader.jar </Program> -->
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/telegram.svg" label="Telegram Desktop">/opt/Telegram/Telegram -- %u </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/transmission.svg" label="Transmission">transmission-gtk </Program>
+</Menu>
+<Menu icon="/usr/share/icons/Oranchelo/apps/scalable/multimedia-video-player.svg" label="Multimídia">
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/multimedia-volume-control.svg" label="Controle de volume do PulseAudio">pavucontrol</Program>
+    <!-- <Program icon="/usr/share/icons/Oranchelo/apps/scalable/easytag.svg" label="EasyTAG">easytag</Program> -->
+    <!-- <Program icon="/usr/share/icons/Oranchelo/apps/scalable/hb-icon.svg" label="HandBrake">ghb</Program> -->
+    <!-- <Program icon="/usr/share/icons/hicolor/256x256/apps/mediainfo.png" label="MediaInfo">mediainfo-gui</Program> -->
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/mpv.svg" label="MPV Player">mpv --player-operation-mode=pseudo-gui </Program>
+  <!-- <Program icon="/usr/share/icons/Oranchelo/apps/scalable/smplayer.svg" label="SMPlayer">smplayer</Program> -->
+</Menu>
+<Menu icon="/usr/share/icons/Oranchelo/apps/scalable/preferences-system-session.svg" label="Sistema">
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/gparted.svg" label="GParted">/usr/bin/gparted_polkit </Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/preferences-system-performance.svg" label="Htop">xterm -e htop</Program>
+  <!-- <Program icon="/usr/share/icons/Oranchelo/apps/scalable/virtualbox.svg" label="Oracle VM VirtualBox">VirtualBox</Program> -->
+  <!-- <Program icon="/usr/share/icons/Oranchelo/apps/scalable/system-software-install.svg" label="Pamac Manager">pamac-manager </Program> -->
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/terminal-tango.svg" label="Sakura">sakura</Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/cs-panel.svg" label="Tint2">tint2</Program>
+  <Program icon="/usr/share/icons/Oranchelo/apps/scalable/xkill.svg" label="Xkill">xkill</Program>
+</Menu>
+<Separator/>
+<Program icon="/usr/share/icons/Oranchelo/actions/scalable/xfce-system-exit.svg" label="Sair">/usr/bin/oblogout</Program>
+    </RootMenu>
+    
+    <!-- Visual Styles -->
+    <WindowStyle>
+        <Font>Ubuntu Condensed-12</Font>
+        <Width>4</Width>
+        <Height>30</Height>
+        <Corner>3</Corner>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#222D32</Background>
+        <Outline>#000000</Outline>
+        <Opacity>1.0</Opacity>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#222D32</Background>
+            <Outline>#000000</Outline>
+            <Opacity>1.0</Opacity>
+        </Active>
+    </WindowStyle>
+    <TrayStyle group="true" list="all">
+        <Font>Ubuntu Condensed-12</Font>
+        <Background>#222D32</Background>
+        <Foreground>#FFFFFF</Foreground>
+        <Outline>#000000</Outline>
+        <Opacity>1.0</Opacity>
+    </TrayStyle>
+    <PagerStyle>
+        <Outline>#000000</Outline>
+        <Foreground>#555555</Foreground>
+        <Background>#222D32</Background>
+        <Text>#FFFFFF</Text>
+        <Active>
+            <Foreground>#1D575A</Foreground>
+            <Background>#004488</Background>
+        </Active>
+    </PagerStyle>
+    <MenuStyle>
+        <Font>Ubuntu Condensed-12</Font>
+        <Foreground>#FFFFFF</Foreground>
+        <Background>#222D32</Background>
+        <Outline>#000000</Outline>
+        <Active>
+            <Foreground>#FFFFFF</Foreground>
+            <Background>#1D575A</Background>
+        </Active>
+        <Opacity>1.0</Opacity>
+    </MenuStyle>
+    <PopupStyle>
+        <Font>Ubuntu Condensed-12</Font>
+        <Foreground>#000000</Foreground>
+        <Background>#999999</Background>
+    </PopupStyle>
+
+    <!-- Path where icons can be found.
+         IconPath can be listed multiple times to allow searching
+         for icons in multiple paths.
+      -->
+    <IconPath>
+        /usr/share/icons/Oranchelo
+    </IconPath>
+    <IconPath>
+        /usr/share/jwm
+    </IconPath>
+
+    <!-- Virtual Desktops -->
+    <!-- Desktop tags can be contained within Desktops for desktop names. -->
+    <Desktops width="2" height="1">
+        <!-- Default background. Note that a Background tag can be
+              contained within a Desktop tag to give a specific background
+              for that desktop.
+         -->
+      <Background type="solid">#111111</Background>
+       <!-- <Background type="scale">/opt/Wallpapers/wallhaven-217478.png</Background> -->
+    </Desktops>
+
+    <!-- Double click speed (in milliseconds) -->
+    <DoubleClickSpeed>400</DoubleClickSpeed>
+
+    <!-- Double click delta (in pixels) -->
+    <DoubleClickDelta>2</DoubleClickDelta>
+
+    <!-- The focus model (sloppy or click) -->
+    <FocusModel>sloppy</FocusModel>
+
+    <!-- The snap mode (none, screen, or border) -->
+    <SnapMode distance="10">border</SnapMode>
+
+    <!-- The move mode (outline or opaque) -->
+    <MoveMode>opaque</MoveMode>
+    
+    <!-- The resize mode (outline or opaque) -->
+    <ResizeMode>opaque</ResizeMode>
+
+    <!-- Key bindings -->
+    <Key key="Up">up</Key>
+    <Key key="Down">down</Key>
+    <Key key="Right">right</Key>
+    <Key key="Left">left</Key>
+    <Key key="h">left</Key>
+    <Key key="j">down</Key>
+    <Key key="k">up</Key>
+    <Key key="l">right</Key>
+    <Key key="Return">select</Key>
+    <Key key="Escape">escape</Key>
+
+    <Key mask="A" key="Tab">nextstacked</Key>
+    <Key mask="A" key="F4">close</Key>
+    <Key mask="A" key="#">desktop#</Key>
+    <Key mask="A" key="F1">root:1</Key>
+    <Key mask="A" key="F2">window</Key>
+    <Key mask="A" key="F10">maximize</Key>
+    <Key mask="A" key="Right">rdesktop</Key>
+    <Key mask="A" key="Left">ldesktop</Key>
+    <Key mask="A" key="Up">udesktop</Key>
+    <Key mask="A" key="Down">ddesktop</Key>
+    
+    <!-- Key bindings custom-->
+    <Key mask="4" key="d">exec:ShowDesktop</Key>
+    <Key mask="4" key="e">exec:nemo</Key>
+    <Key mask="4" key="f">exec:firefox</Key>
+    <Key mask="4" key="m">exec:smplayer</Key>
+    <Key mask="CA" key="t">exec:sakura</Key>
+    <Key mask="4" key="w">exec:feh -.  -^ feh-viewer -Z /opt/Wallpapers</Key>
+    <Key mask="A" key="z">exec:gmrun</Key>
+    <Key mask="A" key="p">exec:scrot -e 'mv $f ~/Imagens'</Key>
+    <Key mask="AC" key="p" >exec:scrot -ue 'mv $f ~/Imagens'</Key>
+    <Key mask="4" key="z">exec:expose</Key>
+    <Key mask="4" key="a">exec:mylaunchpad</Key>
+
+    <!-- Key toggle. -->
+    <Key mask="AC" key="Up">maxtop</Key>
+    <Key mask="AC" key="Down">maxbottom</Key>
+    <Key mask="AC" key="Left">maxleft</Key>
+    <Key mask="AC" key="Right">maxright</Key>
+    <Key mask="AC4" key="Up">maximize</Key>   
+    
+    <!-- Mouse bindings -->
+    <Mouse context="root" button="4">ldesktop</Mouse>
+    <Mouse context="root" button="5">rdesktop</Mouse>
+
+    <Mouse context="title" button="1">move</Mouse>
+    <Mouse context="title" button="2">move</Mouse>
+    <Mouse context="title" button="3">window</Mouse>
+    <Mouse context="title" button="4">shade</Mouse>
+    <Mouse context="title" button="5">shade</Mouse>
+    <Mouse context="title" button="11">maximize</Mouse>
+
+    <Mouse context="icon" button="1">window</Mouse>
+    <Mouse context="icon" button="2">move</Mouse>
+    <Mouse context="icon" button="3">window</Mouse>
+    <Mouse context="icon" button="4">shade</Mouse>
+    <Mouse context="icon" button="5">shade</Mouse>
+
+    <Mouse context="border" button="1">resize</Mouse>
+    <Mouse context="border" button="2">move</Mouse>
+    <Mouse context="border" button="3">window</Mouse>
+
+    <Mouse context="close" button="-1">close</Mouse>
+    <Mouse context="close" button="2">move</Mouse>
+    <Mouse context="close" button="-3">close</Mouse>
+
+    <Mouse context="maximize" button="-1">maximize</Mouse>
+    <Mouse context="maximize" button="-2">maxv</Mouse>
+    <Mouse context="maximize" button="-3">maxh</Mouse>
+
+    <Mouse context="minimize" button="-1">minimize</Mouse>
+    <Mouse context="minimize" button="2">move</Mouse>
+    <Mouse context="minimize" button="-3">shade</Mouse>
+
+    <!-- Startup for program. -->
+    <StartupCommand>/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &amp;</StartupCommand> -->
+    <StartupCommand>sh $HOME/.screenlayout/default.sh &amp;</StartupCommand> -->
+    <StartupCommand>compton -cCGfF -o 1.0 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 1.0 &amp;</StartupCommand> -->
+    <StartupCommand>sh $HOME/.fehbg &amp;</StartupCommand> -->
+    <StartupCommand>tint2 &amp;</StartupCommand> -->
+    <StartupCommand>volumeicon &amp;</StartupCommand> </StartupCommand> -->
+    <StartupCommand>nm-applet &amp;</StartupCommand> </StartupCommand> -->
+    <!-- <StartupCommand>pamac-tray &amp;</StartupCommand> </StartupCommand> -->
+    <StartupCommand>plank &amp;</StartupCommand> </StartupCommand> -->
+    <!-- <StartupCommand>xdotool behave_screen_edge bottom-right exec skippy-xd &amp;</StartupCommand> -->
+    <!-- <StartupCommand>xdotool behave_screen_edge bottom-left exec mylaunchpad &amp;</StartupCommand> -->
+    <!-- <StartupCommand>xdotool behave_screen_edge top-right exec ShowDesktop &amp;</StartupCommand> -->
+    <StartupCommand>sh /opt/conky/start-conky.sh &amp;</StartupCommand> </StartupCommand> -->
+    
+</JWM>
