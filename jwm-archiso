@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# ARCH LINUX JWM INSTALLER 
+# Atualizado em 13/06/2018
+
 trap '' INT TSTP
 
 # .: DEPENDÊNCIAS :.
@@ -11,6 +14,10 @@ mkdir -p /temp /usr/share/backgrounds/Custom/ /usr/local/bin/
 # .: REPOLOCAL :.
 git clone --depth 1 https://github.com/arch4life/repolocal ; rm -rf /repolocal/.git
 cd /repolocal/ ; repo-add ./repolocal.db.tar.gz ./*
+
+# .: RANKING DOS MIRRORS :.
+cp /archlinux/pacman.conf /archlinux/pacman.conf.repooff /etc/ ; cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+curl -s "https://www.archlinux.org/mirrorlist/?country=BR&protocol=http&protocol=https&ip_version=4" > /etc/pacman.d/mirrorlist ; sed -i '/## Brazil/,+6 s/^#//' /etc/pacman.d/mirrorlist ; pacman -Sy
 
 # .: COPIA SCRIPTS, IMAGENS E CONFIGURAÇÃO DO USUÁRIO :.
 cp  /archlinux/after-install /archlinux/addusers /archlinux/autologin /archlinux/setup-grub /archlinux/usys /usr/local/bin/ ; chmod +x /usr/local/bin/*
@@ -51,7 +58,7 @@ cd /temp ; wget --no-check-certificate https://github.com/arch4life/look/raw/mas
 cd /usr/share/backgrounds/Custom/ ; wget --no-check-certificate  https://github.com/arch4life/backgrounds/raw/master/Sunset_Ocean_wallpaper.jpg
 
 # JWM & Aplicativos
-pacman -S --noconfirm --needed wget git xorg-server xorg-xinit xorg-xkill xorg-xrandr ntfs-3g exfat-utils dosfstools alsa-utils rsync xdg-user-dirs networkmanager wireless_tools wpa_supplicant wpa_actiond dialog ttf-dejavu gtk-engines gtk-engine-murrine sakura htop network-manager-applet tint2 volumeicon geany oblogout gparted lxsession wmctrl lxappearance file-roller pcmanfm scrot galculator gsimplecal feh gmrun ; pacman -S --noconfirm --needed jwm-git xdgmenumaker ; ln -sf /usr/bin/sakura /usr/bin/xterm ; clear
+pacman -S --noconfirm --needed wget git xorg-server xorg-xinit xorg-xkill xorg-xrandr ntfs-3g exfat-utils dosfstools alsa-utils rsync xdg-user-dirs networkmanager wireless_tools wpa_supplicant wpa_actiond dialog ttf-dejavu gtk-engines gtk-engine-murrine sakura htop network-manager-applet tint2 volumeicon geany oblogout gparted lxsession wmctrl file-roller pcmanfm scrot gsimplecal feh gmrun ; pacman -S --noconfirm --needed jwm-git xdgmenumaker ; ln -sf /usr/bin/sakura /usr/bin/xterm ; clear
 pacman -S --noconfirm --needed palemoon ; cd /etc/skel ; wget --no-check-certificate https://github.com/arch4life/applications/raw/master/browser/palemoonconfig.7z ; 7z x -y palemoonconfig.7z ; rm -f palemoonconfig.7z ; cd / ; clear
 #pacman -S --noconfirm --needed conky ; clear # Conky
 
@@ -81,6 +88,7 @@ rm /etc/pacman.conf ; mv /etc/pacman.conf.repooff /etc/pacman.conf
 clear ; echo " " ; echo "RESUMO DA INSTALAÇÃO" ; echo "---------------------" ; echo " " ; echo -n "Nome da máquina: " ; cat /etc/hostname ; echo -n "Usuário(s) ativo(s): " ; grep /home/ /etc/passwd | cut -d: -f1 ; echo -n "Grub instalado: " ; grub-install --version ; echo " " ; echo "- Para corrigir erro no criação do hostname, ao finalizar o script," ; echo "não encerre o chroot e digite nano /etc/hostname" ; echo "- Para corrigir erro na criação do usuário, ao finalizar o script, " ; echo "não encerre o chroot e digite addusers" ; echo "- Para corrigir erro na instalação do Grub, ao finalizar o script," ; echo "não encerre o chroot e digite setup-grub" ; echo " " ; echo "- Para finalizar a instação, siga os passos abaixo:" ; echo "a) Digite exit para sair do chroot." ; echo "b) Desmonte as unidades com umount -R /mnt" ; echo "d) Reinicie o sistema digitando reboot -f ou desligue-o com poweroff -f" ; echo " " ; echo " " ; echo "Pressione uma tecla para encerrar..." ; read tecla ; clear
 
 # .: LIMPEZA DO SISTEMA :.
+pacman -Rsnc vim lftp elinks
 rm -f /usr/share/backgrounds/Custom/ubuntu* /usr/share/backgrounds/Custom/debian* /usr/share/backgrounds/Custom/solus*
 rm -f /blockhosts /etchosts ; rm -f /*.7z ; rm -rf /archlinux /repolocal /temp
 clear
