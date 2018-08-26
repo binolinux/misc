@@ -1,0 +1,5 @@
+#!/bin/bash
+# Atualiza o Grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+clear
+exit

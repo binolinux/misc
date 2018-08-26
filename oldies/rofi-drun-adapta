@@ -1,0 +1,2 @@
+#!/bin/bash
+rofi -modi drun -show drun -color-window "#222D32, #222D32, #222D32" -color-normal "#222D32, #999999, #222D32, #999999, #222D32" -color-active "#222D32, #999999, #222D32, #999999, #222D32" -color-urgent "#222D32, #999999, #222D32, #999999, #222D32" -font "Zekton bold 16"
