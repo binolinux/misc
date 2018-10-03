@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Rofi: drun
+Categories=Utility;
+Type=Application
+Comment=Search applications
+Comment[pt_BR]=Procura aplicativos
+Exec=/usr/local/bin/rofi-drun
+Icon=/usr/share/icons/search.png
+Terminal=false
+Hidden=true
