@@ -14236,10 +14236,11 @@
 0.0.0.0 browsergames2018.com
 0.0.0.0 www.mericasads.com
 0.0.0.0 www.areavip.com.br
+0.0.0.0 cameraprive.com
 # [Fim de meus bloqueios]
 #
 
-127.0.0.1	ZZZZ
+127.0.0.1	zzzzz
 ::1		localhost ip6-localhost ip6-loopback
 ff02::1		ip6-allnodes
 ff02::2		ip6-allrouters
