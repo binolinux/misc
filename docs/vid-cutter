@@ -20,3 +20,6 @@ a) abra o terminal na pasta dos vidoes que serão convertidos
 b) copie e cole o as linhas abaixo no terminal
 mkdir -p reencoded
 for i in *.mp4; do ffmpeg -i "$i"   -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 2 -f mp4 "./reencoded/${i%.*}.mp4"; done
+
+
+
