@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Abrir HandBrake
+Comment=Abrir HandBrake
+Exec=ghb %F
+Icon-Name=hb-icon
+Selection=Any
+Extensions=Any
