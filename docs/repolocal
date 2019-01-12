@@ -1,0 +1,9 @@
+Criando um repolocal
+
+- No terminal digite
+cd /temp/repolocal ; sudo repo-add ./repolocal.db.tar.gz ./*
+
+- Adicione o repolocal ao pacman.conf
+[repolocal]
+SigLevel = Never
+Server= file:///tmp/repolocal]
