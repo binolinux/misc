@@ -13,7 +13,7 @@ echo "Y" | xbps-install -S -R https://alpha.de.repo.voidlinux.org/current/ -r /m
 fstabgen -U /mnt/ >> /mnt/etc/fstab
 
 # montando unidades
-mount --bind /dev /mnt/dev ; mount -t proc none /mnt/proc ; mount -t sysfs sys /mnt/sys ; mount -t devpts devpts /mnt/dev/pts
+#mount --bind /dev /mnt/dev ; mount -t proc none /mnt/proc ; mount -t sysfs sys /mnt/sys ; mount -t devpts devpts /mnt/dev/pts
 
 cp -a /home/bino/Documentos/void /mnt/
 
