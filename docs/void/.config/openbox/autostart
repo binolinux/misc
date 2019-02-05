@@ -1,0 +1,42 @@
+####  arquivo autostart do openbox   ####
+
+# polkit
+sleep 1 & /usr/libexec/xfce-polkit &
+
+# pulseaudio
+#sleep 1 & start-pulseaudio-x11 &
+
+# montagem de unidades (runit)
+#sleep 1 & udisksctl mount -b /dev/sda7 & sleep 1 & udisksctl mount -b 
+/dev/sda8 &
+
+# resolução de tela
+sleep 1 & sh $HOME/.screenlayout/default.sh &
+
+# wallpaper
+#sleep 1 & sh ~/.fehbg &
+
+# wallpaper aleatorio
+sleep 1 & feh --randomize --bg-fill /opt/Wallpapers/ &
+
+# ajusta o volume para o 100%
+sleep 1 & amixer set Master 100%+ &
+
+# compton
+sleep 1 & compton --config $HOME/.config/compton.conf -b &
+
+# conky
+#sleep 1 & conky -d -c $HOME/.config/conky/atalhos-teclado.conf & conky -d -c $HOME/.config/conky/monitor.conf &
+
+# painel e applets
+sleep 1 & tint2 & sleep 1 & nm-applet & sleep 1 & volumeicon &
+
+# plank
+#sleep 1 & plank &
+
+# albert
+#sleep 1 & albert &
+
+# telegram
+#sleep 1 & /opt/Telegram/Telegram -startintray &
+
