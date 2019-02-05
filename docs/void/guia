@@ -99,4 +99,6 @@ mv /mnt/var/cache/xbps /mnt/.x ; rm -rf /mnt/* ; mkdir /mnt/var/cache ; mv /mnt/
 ++++++++++++++++++++++++
 
 
-links: https://wiki.voidlinux.org/PulseAudio
+links:
+https://wiki.voidlinux.org/PulseAudio
+https://wiki.voidlinux.org/Rosetta_stone
