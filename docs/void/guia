@@ -36,7 +36,7 @@ mkdir -p /etc/X11/xorg.conf.d /temp /boot/grub/themes/
 echo 'hostonly="yes"' > /etc/dracut.conf.d/hostonly.conf
 
 # instala pacotes do openbox
-xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop p7zip-unrar nvidia gimp ## pulseaudio pavucontrol
+xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip grub udiskie dhcpcd dbus cgmanager polkit polkit-gnome ConsoleKit2 dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop p7zip-unrar nvidia gimp ## pulseaudio pavucontrol xfce-polkit
 
 # muda shell do root
 chsh -s /bin/zsh
@@ -80,7 +80,7 @@ cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar 
 #wget "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf  firefox.tar.bz2 -C /opt/ ; echo -e '[Desktop Entry]\nVersion=61.0\nEncoding=UTF-8\nName=Mozilla Firefox\nComment=Navegador Web\nExec=/opt/firefox/firefox\nIcon=firefox\nType=Application\nCategories=Network' | sudo tee /usr/share/applications/firefox.desktop ; sudo chown -R ${nnu}:root /opt/firefox ; sudo chown -R $nnu:root /opt/firefox
 
 # apos o reboot ativar os servicos
-echo '#!/bin/bash' > /home/$nnu/ativa-servicos.sh ; echo "sudo ln -s /etc/sv/dbus /var/service ; sudo ln -s /etc/sv/NetworkManager /var/service ; sudo ln -s /etc/sv/dhcpcd /var/service ; sudo ln -s /etc/sv/consolekit /var/service ; sudo ln -s /etc/sv/cgmanager /var/service/ ; sudo ln -s /etc/sv/alsa /var/service" >> /home/$nnu/ativa-servicos.sh
+echo '#!/bin/bash' > /home/$nnu/ativa-servicos.sh ; echo "sudo ln -sfv /etc/sv/dbus /var/service ; sudo ln -sfv /etc/sv/NetworkManager /var/service ; sudo ln -sfv /etc/sv/dhcpcd /var/service ; sudo ln -sfv /etc/sv/consolekit /var/service ; sudo ln -sfv /etc/sv/cgmanager /var/service/ ; sudo ln -sfv /etc/sv/alsa /var/service ; sudo ln -sfv /etc/sv/consolekit/ /var/service ; sudo ln -sfv /etc/sv/polkitd/ /var/service" >> /home/$nnu/ativa-servicos.sh
 
 # limpando o cache
 xbps-remove -Oo ; rm -rf /temp
