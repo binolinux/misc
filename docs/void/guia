@@ -22,8 +22,7 @@ artools-chroot /mnt /bin/zsh
 
 cp /void/rc.conf /etc
 
-export nnu="bino"
-export hst="openvoid"
+export nnu="bino" ; export hst="openvoid"
 export grb="sda"
 
 # configura o root
@@ -57,7 +56,9 @@ mkdir -p /etc/X11/xorg.conf.d/ ; cp /void/20-nvidia.conf /etc/X11/xorg.conf.d/
 echo 'GRUB_DISABLE_OS_PROBER=true'>> /etc/default/grub ; echo 'GRUB_BACKGROUND=/opt/Wallpapers/ArchLabs.jpg'>> /etc/default/grub ; grub-install /dev/$grb ; grub-mkconfig -o /boot/grub/grub.cfg ; mkinitcpio -p linux ; $nvv
 
 # modificacoes no sudoers
-sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers ; sh -c "echo 'Defaults pwfeedback' >> /etc/sudoers"
+sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers ; sh -c "echo 'Defaults pwfeedback' >> /etc/sudoers" ; sh -c "echo '$nnu $hst =NOPASSWD: /usr/bin/reboot,/usr/bin/poweroff,/usr/bin/halt,/usr/bin/udisksctl,/usr/bin/mount' >> /etc/sudoers"
+
+udisksctl mount
 
 # modifica o arquivo hosts
 mv /etc/hosts /etc/.hosts ; wget https://github.com/arch4life/misc/raw/master/docs/hosts -O /etc/hosts ; export hstn=`cat /etc/hostname` ; sed -i "s/zzzzz/$hstn/" /etc/hosts
