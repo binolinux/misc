@@ -33,16 +33,16 @@ echo openvoid > /etc/hostname
 echo 'hostonly="yes"' > /etc/dracut.conf.d/hostonly.conf
 
 # instala pacotes do openbox
-xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip void-repo-nonfree grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop # pulseaudio pavucontrol
+xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop p7zip-unrar nvidia ## pulseaudio pavucontrol
 
 # muda shell do root
 chsh -s /bin/zsh
 
 # idioma
-cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; xbps-reconfigure -f glibc-locales
+cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; mkdri -p /etc/X11/xorg.conf.d ; cp /void/01-keyboard-layout.conf ; xbps-reconfigure -f glibc-locales
 
-# instalando pacotes non-free
-xbps-install -Suvy ; xbps-install -Sy p7zip-unrar nvidia ; mkiniticpio -p linux
+## instalando pacotes non-free
+##xbps-install -Suvy ; xbps-install -Sy p7zip-unrar nvidia ; mkiniticpio -p linux
 
 ##sed -i 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/g' /etc/mkinitcpio.conf ; 
 
@@ -99,6 +99,4 @@ mv /mnt/var/cache/xbps /mnt/.x ; rm -rf /mnt/* ; mkdir /mnt/var/cache ; mv /mnt/
 ++++++++++++++++++++++++
 
 
-links:
-https://wiki.voidlinux.org/PulseAudio
-https://wiki.voidlinux.org/Rosetta_stone
+links: https://wiki.voidlinux.org/PulseAudio
