@@ -54,7 +54,7 @@ ZSH_THEME="gnzh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git compleat common-aliases extract)
+plugins=(compleat common-aliases extract zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,11 +88,13 @@ export LANG=pt_BR.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ALIASES
+alias xu+='sudo xbps-install -Suvy'
 alias xi+='sudo xbps-install -Sy'
 alias xi-='sudo xbps-install -S'
 alias xr+='sudo xbps-remove -Rfy ; sudo xbps-remove -Roy'
 alias xr-='sudo xbps-remove -R ; sudo xbps-remove -Ro'
-alias xs='sudo xbps-query -Rs'
+alias xo='sudo xbps-remove -ROoy'
+alias xs='xbps-query -Rs'
 alias gitclone='git clone --depth 1'
 alias dwget='mkdir -p ~/temp/`date +%d-%m-%Y` ; wget -c --directory-prefix=~/temp/`date +%d-%m-%Y`' # Download na pasta ~/temp/DATA
 alias pingoo='ping -c3 google.com'
@@ -145,7 +147,7 @@ alias sair='exit'
 #fi
 
 ########################
-# Aplicativos pastas
+# Aplicativos
 export BROWSER=/usr/bin/firefox
 export EDITOR=/usr/bin/nano
 ########################
