@@ -24,7 +24,7 @@ artools-chroot /mnt /bin/zsh
 cp /void/rc.conf /etc
 
 # configura o root
-echo -e "live\nlive" | passwd root ; chsh -s /bin/bash ; chown root:root / ; chmod 755 /
+echo -e "live\nlive" | passwd root ; chown root:root / ; chmod 755 /
 
 # hostname
 echo openvoid > /etc/hostname
@@ -34,6 +34,9 @@ echo 'hostonly="yes"' > /etc/dracut.conf.d/hostonly.conf
 
 # instala pacotes do openbox
 xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip void-repo-nonfree grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop # pulseaudio pavucontrol
+
+# muda shell do root
+chsh -s /bin/zsh
 
 # idioma
 cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; xbps-reconfigure -f glibc-locales
