@@ -331,19 +331,19 @@
     <!--Terminal-->
     <keybind key="A-C-t">
       <action name="Execute">
-        <command>kitty</command>
+        <command>sakura -c 115 -r 24</command>
       </action>
     </keybind>
     <!--Htop-->
     <keybind key="A-C-h">
       <action name="Execute">
-        <command>kitty -e htop</command>
+        <command>sakura -e htop</command>
       </action>
     </keybind>
     <!--Alsamixer-->
     <keybind key="A-C-v">
       <action name="Execute">
-        <command>kitty -e alsamixer -g</command>
+        <command>sakura -e alsamixer -g</command>
       </action>
     </keybind>
     <!--Openbox reconfigure-->
@@ -847,7 +847,7 @@
         <y>center</y>
       </position>
     </application>
-    <application name="kitty">
+    <application name="sakura">
       <position force="no">
         <x>center</x>
         <y>center</y>
