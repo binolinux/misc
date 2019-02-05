@@ -14,7 +14,8 @@ fstabgen -U /mnt/ >> /mnt/etc/fstab
 # montando unidades (instalando do live do void)
 #mount --bind /dev /mnt/dev ; mount -t proc none /mnt/proc ; mount -t sysfs sys /mnt/sys ; mount -t devpts devpts /mnt/dev/pts
 
-cp -a /home/bino/Documentos/void /mnt/
+# baixa o git
+git clone https://github.com/binolinux/void /mnt/void
 
 cp /etc/resolv.conf /mnt/etc/
 
@@ -26,7 +27,9 @@ chroot /mnt /bin/bash
 
 cp /void/rc.conf /etc
 
-export nnu="bino" ; export hst="openvoid" ; export grb="sda"
+export nnu="bino"
+export hst="openvoid"
+export grb="sda"
 
 # configura o root
 echo -e "live\nlive" | passwd root ; chown root:root / ; chmod 755 /
@@ -40,7 +43,7 @@ mkdir -p /etc/X11/xorg.conf.d /temp /boot/grub/themes/
 echo 'hostonly="yes"' > /etc/dracut.conf.d/hostonly.conf
 
 # instala pacotes do openbox
-xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip grub udiskie dhcpcd dbus cgmanager polkit xfce-polkit ConsoleKit2 dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop p7zip-unrar nvidia gimp ## pulseaudio pavucontrol 
+xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip grub udiskie dhcpcd dbus cgmanager polkit xfce-polkit ConsoleKit2 dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop p7zip-unrar xz nvidia gimp
 
 # muda shell do root
 chsh -s /bin/zsh ; cp /void/zshrc /root/.zshrc
@@ -48,24 +51,25 @@ chsh -s /bin/zsh ; cp /void/zshrc /root/.zshrc
 # idioma
 cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; cp /void/10-keyboard.conf /etc/X11/xorg.conf.d ; xbps-reconfigure -f glibc-locales
 
+# config nvidia
 cp /void/20-nvidia.conf /etc/X11/xorg.conf.d/
 
 # modificacoes no sudoers
-sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers ; sh -c "echo 'Defaults pwfeedback' >> /etc/sudoers" ; sh -c "echo '$nnu $hst =NOPASSWD: /usr/bin/reboot,/usr/bin/poweroff,/usr/bin/halt,/usr/bin/udisksctl,/usr/bin/mount' >> /etc/sudoers"
+sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers ; sh -c "echo 'Defaults pwfeedback' >> /etc/sudoers" ; sh -c "echo '$nnu $hst =NOPASSWD: /usr/bin/reboot,/usr/bin/poweroff,/usr/bin/halt,/usr/bin/udisksctl,/usr/bin/mount,/usr/bin/zzz,/usr/bin/ZZZ' >> /etc/sudoers"
 
 # modifica o arquivo hosts
-mv /etc/hosts /etc/.hosts ; wget https://github.com/arch4life/misc/raw/master/docs/hosts -O /etc/hosts ; export hstn=`cat /etc/hostname` ; sed -i "s/zzzzz/$hst/" /etc/hosts
+mv /etc/hosts /etc/.hosts ; wget https://github.com/arch4life/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i "s/zzzzz/$hst/" /etc/hosts
 
 # baixa arquivos de configuracao
 cd /temp/ ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; 7z x -y default.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/openbox.7z ; 7z x -y openbox.7z ; ln -sf /usr/bin/sakura /usr/bin/xterm ; ln -sf /usr/bin/sakura /usr/bin/gnome-terminal
 
-git clone https://github.com/binolinux/backgrounds /opt/Wallpapers/ ; wget https://github.com/binolinux/look/raw/master/numix-numix-frost-gtk-theme.7z ; wget https://github.com/binolinux/look/raw/master/e-wall.7z ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.001 ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.002 ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.003 ; wget https://github.com/binolinux/look/raw/master/adapta-gtk-theme.7z ; wget https://github.com/binolinux/look/raw/master/fontes-ttf-pack.7z ; wget https://github.com/binolinux/applications/raw/master/browser/firefox-config.7z ; wget https://github.com/binolinux/look/raw/master/arc-themes.7z ; wget https://github.com/binolinux/look/raw/master/materia-gtk-theme.7z ; 7z x -y adapta-gtk-theme.7z ; 7z x -y fontes-ttf-pack.7z ; 7z x -y arc-matcha-moka-icon-theme.7z.001 ; 7z x -y e-wall.7z ; 7z x -y numix-numix-frost-gtk-theme.7z ; 7z x -y firefox-config.7z ; 7z x -y arc-themes.7z ; 7z x -y materia-gtk-theme.7z ; rm -f *.7z  *.001 *.002 *.003
+git clone https://github.com/binolinux/backgrounds /opt/Wallpapers/ ; wget https://github.com/binolinux/look/raw/master/numix-numix-frost-gtk-theme.7z ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.001 ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.002 ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.003 ; wget https://github.com/binolinux/look/raw/master/adapta-gtk-theme.7z ; wget https://github.com/binolinux/look/raw/master/fontes-ttf-pack.7z ; wget https://github.com/binolinux/applications/raw/master/browser/firefox-config.7z ; wget https://github.com/binolinux/look/raw/master/arc-themes.7z ; wget https://github.com/binolinux/look/raw/master/materia-gtk-theme.7z ; 7z x -y adapta-gtk-theme.7z ; 7z x -y fontes-ttf-pack.7z ; 7z x -y arc-matcha-moka-icon-theme.7z.001 ; 7z x -y numix-numix-frost-gtk-theme.7z ; 7z x -y firefox-config.7z ; 7z x -y arc-themes.7z ; 7z x -y materia-gtk-theme.7z ; rm -f *.7z  *.001 *.002 *.003
 cd /tmp ; wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | sh
 
 # configurando o sistema
 clear ; echo -e "\nAguarde...\n\n" ; chown -R root:root /temp/ ; chmod 755 -R /temp/ ; cp -rT /temp/ / ; cp /void/zshrc /etc/skel/.zshrc ; mkdir -p /etc/skel/{"Desktop","Documentos","Downloads","Imagens/Capturas","Modelos","Música","Público","Vídeos",".icons",".themes"} ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; fc-cache ; gtk-update-icon-cache /usr/share/icons/Matcha ; gtk-update-icon-cache /usr/share/icons/Moka ; cp /void/xinitrc /etc/skel/.xinitrc ; cp /void/zprofile /etc/skel/.zprofile ; mv /opt/Wallpapers/ArchLabs.jpg /boot/grub/themes/ ; ln -sf /boot/grub/themes/ArchLabs.jpg /opt/Wallpapers/
 
-# roda o grub-mkconfig & initramfs
+# roda o grub-mkconfig
 sed -i 's/loglevel=4/loglevel=0/' /etc/default/grub ; sh -c "echo -e 'GRUB_BACKGROUND=/boot/grub/themes/ArchLabs.jpg\nGRUB_DISABLE_OS_PROBER=true\n' >> /etc/default/grub" ; cat /void/aad2grub >> /etc/grub.d/40_custom ; grub-install /dev/$grb ; grub-mkconfig -o /boot/grub/grub.cfg
 
 # oh-my-zsh & plugins
@@ -84,17 +88,15 @@ cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar 
 echo '#!/bin/bash' > /home/$nnu/ativa-servicos.sh ; echo "sudo ln -sfv /etc/sv/dbus /var/service ; sudo ln -sfv /etc/sv/NetworkManager /var/service ; sudo ln -sfv /etc/sv/dhcpcd /var/service ; sudo ln -sfv /etc/sv/consolekit /var/service ; sudo ln -sfv /etc/sv/cgmanager /var/service/ ; sudo ln -sfv /etc/sv/alsa /var/service ; sudo ln -sfv /etc/sv/consolekit/ /var/service ; sudo ln -sfv /etc/sv/polkitd/ /var/service" >> /home/$nnu/ativa-servicos.sh
 
 # limpando o cache
-xbps-remove -Oo ; rm -rf /temp
+xbps-remove -Oo ; rm -rf /temp /opt/Wallpapers/.git
 
 ++++++++++++++++++++++++
 
 
-Preservando o cache
+DICA: preservando o cache
 
 mv /mnt/var/cache/xbps /mnt/.x ; rm -rf /mnt/* ; mkdir /mnt/var/cache ; mv /mnt/.x /mnt/var/cache/xbps
 
 
 ++++++++++++++++++++++++
 
-
-links: https://wiki.voidlinux.org/PulseAudio
