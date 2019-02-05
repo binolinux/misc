@@ -1,0 +1,6 @@
+^sep()
+Sair,^checkout(exit),system-shutdown-symbolic
+Sair,^tag(exit)
+Encerrar sessão,openbox --exit,system-log-out
+Reiniciar,dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true,system-reboot
+Desligar,dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true,system-shutdown
