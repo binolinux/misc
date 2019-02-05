@@ -30,6 +30,8 @@ echo -e "live\nlive" | passwd root ; chown root:root / ; chmod 755 /
 # hostname
 echo $hst > /etc/hostname
 
+mkdir -p /etc/X11/xorg.conf.d /temp /boot/grub/themes/
+
 # dracut
 echo 'hostonly="yes"' > /etc/dracut.conf.d/hostonly.conf
 
@@ -40,7 +42,7 @@ xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-in
 chsh -s /bin/zsh
 
 # idioma
-cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; mkdir -p /etc/X11/xorg.conf.d ; cp /void/10-keyboard.conf /etc/X11/xorg.conf.d ; xbps-reconfigure -f glibc-locales
+cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; cp /void/10-keyboard.conf /etc/X11/xorg.conf.d ; xbps-reconfigure -f glibc-locales
 
 cp /void/20-nvidia.conf /etc/X11/xorg.conf.d/
 
@@ -51,13 +53,13 @@ sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers ; sh -c "echo 'Defaults pwfee
 mv /etc/hosts /etc/.hosts ; wget https://github.com/arch4life/misc/raw/master/docs/hosts -O /etc/hosts ; export hstn=`cat /etc/hostname` ; sed -i "s/zzzzz/$hst/" /etc/hosts
 
 # baixa arquivos de configuracao
-mkdir -p /temp ; cd /temp/ ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; 7z x -y default.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/openbox.7z ; 7z x -y openbox.7z ; ln -sf /usr/bin/sakura /usr/bin/xterm ; ln -sf /usr/bin/sakura /usr/bin/gnome-terminal
+cd /temp/ ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; 7z x -y default.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/openbox.7z ; 7z x -y openbox.7z ; ln -sf /usr/bin/sakura /usr/bin/xterm ; ln -sf /usr/bin/sakura /usr/bin/gnome-terminal
 
 git clone https://github.com/binolinux/backgrounds /opt/Wallpapers/ ; wget https://github.com/binolinux/look/raw/master/numix-numix-frost-gtk-theme.7z ; wget https://github.com/binolinux/look/raw/master/e-wall.7z ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.001 ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.002 ; wget https://github.com/binolinux/look/raw/master/arc-matcha-moka-icon-theme.7z.003 ; wget https://github.com/binolinux/look/raw/master/adapta-gtk-theme.7z ; wget https://github.com/binolinux/look/raw/master/fontes-ttf-pack.7z ; wget https://github.com/binolinux/applications/raw/master/browser/firefox-config.7z ; wget https://github.com/binolinux/look/raw/master/arc-themes.7z ; wget https://github.com/binolinux/look/raw/master/materia-gtk-theme.7z ; 7z x -y adapta-gtk-theme.7z ; 7z x -y fontes-ttf-pack.7z ; 7z x -y arc-matcha-moka-icon-theme.7z.001 ; 7z x -y e-wall.7z ; 7z x -y numix-numix-frost-gtk-theme.7z ; 7z x -y firefox-config.7z ; 7z x -y arc-themes.7z ; 7z x -y materia-gtk-theme.7z ; rm -f *.7z  *.001 *.002 *.003
 cd /tmp ; wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | sh
 
 # configurando o sistema
-clear ; echo -e "\nAguarde...\n\n" ; chown -R root:root /temp/ ; chmod 755 -R /temp/ ; cp -rT /temp/ / ; cp /void/zshrc /etc/skel/.zshrc ; mkdir -p /etc/skel/{"Desktop","Documentos","Downloads","Imagens/Capturas","Modelos","Música","Público","Vídeos",".icons",".themes"} ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; fc-cache ; gtk-update-icon-cache /usr/share/icons/Matcha ; gtk-update-icon-cache /usr/share/icons/Moka ; cp /void/xinitrc /etc/skel/.xinitrc ; cp /void/zprofile /etc/skel/.zprofile ; mkdir -p /boot/grub/themes/ ; mv /opt/Wallpapers/ArchLabs.jpg /boot/grub/themes/ ; ln -sf /boot/grub/themes/ArchLabs.jpg /opt/Wallpapers/
+clear ; echo -e "\nAguarde...\n\n" ; chown -R root:root /temp/ ; chmod 755 -R /temp/ ; cp -rT /temp/ / ; cp /void/zshrc /etc/skel/.zshrc ; mkdir -p /etc/skel/{"Desktop","Documentos","Downloads","Imagens/Capturas","Modelos","Música","Público","Vídeos",".icons",".themes"} ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; fc-cache ; gtk-update-icon-cache /usr/share/icons/Matcha ; gtk-update-icon-cache /usr/share/icons/Moka ; cp /void/xinitrc /etc/skel/.xinitrc ; cp /void/zprofile /etc/skel/.zprofile ; mv /opt/Wallpapers/ArchLabs.jpg /boot/grub/themes/ ; ln -sf /boot/grub/themes/ArchLabs.jpg /opt/Wallpapers/
 
 # roda o grub-mkconfig & initramfs
 sed -i 's/loglevel=4/loglevel=0/' /etc/default/grub ; sh -c "echo -e 'GRUB_BACKGROUND=/boot/grub/themes/ArchLabs.jpg\nGRUB_DISABLE_OS_PROBER=true\n' >> /etc/default/grub" ; cat /void/aad2grub >> /etc/grub.d/40_custom ; grub-install /dev/$grb ; grub-mkconfig -o /boot/grub/grub.cfg
