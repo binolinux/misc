@@ -40,7 +40,7 @@ xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-in
 chsh -s /bin/zsh
 
 # idioma
-cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; mkdir -p /etc/X11/xorg.conf.d ; cp /void/10-keyboard.conf ; xbps-reconfigure -f glibc-locales
+cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; mkdir -p /etc/X11/xorg.conf.d ; cp /void/10-keyboard.conf /etc/X11/xorg.conf.d ; xbps-reconfigure -f glibc-locales
 
 cp /void/20-nvidia.conf /etc/X11/xorg.conf.d/
 
