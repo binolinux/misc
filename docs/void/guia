@@ -36,7 +36,7 @@ mkdir -p /etc/X11/xorg.conf.d /temp /boot/grub/themes/
 echo 'hostonly="yes"' > /etc/dracut.conf.d/hostonly.conf
 
 # instala pacotes do openbox
-xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop p7zip-unrar nvidia ## pulseaudio pavucontrol
+xbps-install -Sy ca-certificates void-repo-nonfree ; xbps-install -Suy ; xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf sakura tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo sakura gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop p7zip-unrar nvidia gimp ## pulseaudio pavucontrol
 
 # muda shell do root
 chsh -s /bin/zsh
