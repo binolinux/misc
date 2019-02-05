@@ -79,7 +79,7 @@ cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar 
 
 
 # apos o reboot ativar os servicos
-sudo ln -s /etc/sv/dbus /var/service ; sudo ln -s /etc/sv/NetworkManager /var/service ; sudo ln -s /etc/sv/dhcpcd /var/service ; sudo ln -s /etc/sv/consolekit /var/service
+sudo ln -s /etc/sv/dbus /var/service ; sudo ln -s /etc/sv/NetworkManager /var/service ; sudo ln -s /etc/sv/dhcpcd /var/service ; sudo ln -s /etc/sv/consolekit /var/service ; sudo ln -s /etc/sv/cgmanager /var/service/ ; sudo ln -s /etc/sv/alsa /var/service
 
 
 # limpando o cache
