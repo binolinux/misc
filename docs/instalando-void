@@ -6,7 +6,7 @@ su
 mount /dev/sdXn /mnt
 
 # baixa base + openbox + aplicativos
-echo "Y" | xbps-install -S -R https://alpha.de.repo.voidlinux.org/current/ -r /mnt/ base-system xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip void-repo-nonfree grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf kitty tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo kitty gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo # f2fs-tools lxdm
+echo "Y" | xbps-install -S -R https://alpha.de.repo.voidlinux.org/current/ -r /mnt/ base-system xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip void-repo-nonfree grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf kitty tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo kitty gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility
  
 # gera fstab
 fstabgen -U /mnt/ >> /mnt/etc/fstab
