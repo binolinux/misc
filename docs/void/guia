@@ -50,11 +50,6 @@ cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C"
 
 mkdir -p /etc/X11/xorg.conf.d/ ; cp /void/20-nvidia.conf /etc/X11/xorg.conf.d/
 
-##sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="nvidia-drm.modeset=1"/' /etc/default/grub ; export nvv="nvidia-modprobe"
-
-# roda o grub-mkconfig & initramfs
-echo 'GRUB_DISABLE_OS_PROBER=true'>> /etc/default/grub ; echo 'GRUB_BACKGROUND=/opt/Wallpapers/ArchLabs.jpg'>> /etc/default/grub ; grub-install /dev/$grb ; grub-mkconfig -o /boot/grub/grub.cfg ; mkinitcpio -p linux ; $nvv
-
 # modificacoes no sudoers
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers ; sh -c "echo 'Defaults pwfeedback' >> /etc/sudoers" ; sh -c "echo '$nnu $hst =NOPASSWD: /usr/bin/reboot,/usr/bin/poweroff,/usr/bin/halt,/usr/bin/udisksctl,/usr/bin/mount' >> /etc/sudoers"
 
@@ -70,7 +65,12 @@ git clone https://github.com/binolinux/backgrounds /opt/Wallpapers/ ; wget https
 cd /tmp ; wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | sh
 
 # configurando o sistema
-clear ; echo -e "\nAguarde...\n\n" ; chown -R root:root /temp/ ; chmod 755 -R /temp/ ; cp -rT /temp/ / ; cp /artix/zshrc /etc/skel/.zshrc ; mkdir -p /etc/skel/{"Desktop","Documentos","Downloads","Imagens/Capturas","Modelos","Música","Público","Vídeos",".icons",".themes"} ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; fc-cache ; gtk-update-icon-cache /usr/share/icons/Matcha ; gtk-update-icon-cache /usr/share/icons/Moka ; echo -e '\n# autologin on tty1\n if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then\n exec startx\n fi' >> /etc/.zprofile ; clear
+clear ; echo -e "\nAguarde...\n\n" ; chown -R root:root /temp/ ; chmod 755 -R /temp/ ; cp -rT /temp/ / ; cp /artix/zshrc /etc/skel/.zshrc ; mkdir -p /etc/skel/{"Desktop","Documentos","Downloads","Imagens/Capturas","Modelos","Música","Público","Vídeos",".icons",".themes"} ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; fc-cache ; gtk-update-icon-cache /usr/share/icons/Matcha ; gtk-update-icon-cache /usr/share/icons/Moka # ; echo -e '\n# autologin on tty1\n if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then\n exec startx\n fi' >> /etc/.zprofile ; clear
+
+mv /opt/Wallpapers/ArchLabs.jpg /boot/grub/themes/ ; ln -sf /boot/grub/themes/ArchLabs.jpg /opt/Wallpapers/
+
+# roda o grub-mkconfig & initramfs
+sed -i 's/loglevel=4/loglevel=0/' /etc/default/grub ; sh -c "echo -e 'GRUB_BACKGROUND=/boot/grub/themes/ArchLabs.jpg\nGRUB_DISABLE_OS_PROBER=true\n' >> /etc/default/grub" ; cat /void/aad2grub >> /etc/grub.d/40_custo ; grub-install /dev/$grb ; grub-mkconfig -o /boot/grub/grub.cfg ; mkinitcpio -p linux
 
 # oh-my-zsh & plugins
 git clone https://github.com/robbyrussell/oh-my-zsh /usr/share/oh-my-zsh ; clear ; git clone https://github.com/zsh-users/zsh-autosuggestions.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions ; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting ; rm -rf /usr/share/oh-my-zsh/plugins/zsh-autosuggestions/.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; clear
