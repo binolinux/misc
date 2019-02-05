@@ -1,0 +1,7 @@
+Terminal,sakura -c 115 -r 24,terminal-tango
+Gerenciador de arquivos,nemo,folder
+Navegador web,firefox,firefox
+Editor de textos,geany,gedit
+Media player,smplayer,smplayer
+Wallpapers,feh -. -x -g 800x500 /opt/Wallpapers/,preferences-desktop-wallpaper
+^sep()
