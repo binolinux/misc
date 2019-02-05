@@ -1,0 +1,198 @@
+# Atualizado: 05/02/2019
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+#export ZSH=$HOME/.oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh/
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="gnzh"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git compleat common-aliases extract)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=pt_BR.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# ALIASES
+alias xi+='sudo xbps-install -Sy'
+alias xi-='sudo xbps-install -S'
+alias xr+='sudo xbps-remove -Rfy ; sudo xbps-remove -Roy'
+alias xr-='sudo xbps-remove -R ; sudo xbps-remove -Ro'
+alias xs='sudo xbps-query -Rs'
+alias gitclone='git clone --depth 1'
+alias dwget='mkdir -p ~/temp/`date +%d-%m-%Y` ; wget -c --directory-prefix=~/temp/`date +%d-%m-%Y`' # Download na pasta ~/temp/DATA
+alias pingoo='ping -c3 google.com'
+alias pingit='ping -c github.com'
+alias ls='ls -la --color=auto'
+alias ezsh='geany ~/.zshrc'
+alias shutoff='shutdown -c ; clear ; echo ; echo "Desligamento cancelado!" ; echo'
+alias shutnow='clear ; echo " " ; echo "O PC será desligado! Salve seus trabalhos e pressione..." ; echo "uma tecla para continuar ou [CTRL]+[C] para cancelar..." ; read tecla ; shutdown -h now'
+alias shutime='shutdown -h' # desligamento agendado (minutos)
+alias edit='nohup sudo geany' # editar arquivo como sudo
+alias logoff='clear ; echo " " ; echo "A sessão será encerrada! Salve seus trabalhos e pressione..." ; echo "uma tecla para continuar ou [CTRL]+[C] para cancelar..." ; read tecla ; pkill -9 -u $USER'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias ccache='sudo rm -rf $HOME/.cache/*'
+alias ctrash='rm -rf $HOME/.local/share/Trash/files/* ; rm -rf $HOME/.local/share/Trash/info/*'
+alias rebootime='shutdown -r'
+alias rec='echo "Gravação iniciará em 3 segundos..." ; mkdir -p ~/temp/Screencast ; sleep 3 ; ffmpeg -f x11grab -s 1360x768 -i :0.0 -r 30 -vcodec libx264 ~/temp/Screencast/screencast-`date +%d-%m-%Y_%H:%M:%S`.mp4'
+alias rconky='killall conky ; nohup sh /opt/conky/conky-start.sh &'
+alias kconky='killall conky'
+alias econky='killall conky ; geany /opt/conky/conky-start.sh'
+alias setzsh='chsh -s /bin/zsh'
+alias setbash='chsh -s /bin/bash'
+alias reiniciar='reboot'
+alias desligar='poweroff'
+alias myf='sudo chown -R ${USER}:root'
+alias sfolder='sudo du -sh'
+alias uzsh='clear ; . ~/.zshrc'
+alias biosclock='sudo hwclock --systohc --utc'
+alias tree='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"'
+alias status-services='sudo sv status'
+alias applets+='nohup nm-applet & volumeicon &' # Inicia applets (Openbox)
+alias applets-='killall nohup nm-applet volumeicon' # Encerra applets (Openbox)
+alias compton+='compton --config $HOME/.config/compton.conf -b' # inicia o compton daemon
+alias compton-='killall compton' # encerra o compton
+alias obrec='openbox --reconfigure ; clear'
+alias lnsf+='sudo ln -sf'
+alias lnsf-='ln -sf'
+alias upohmyzsh='sudo rm -rf rm -rf /usr/share/oh-my-zsh/ ; sudo git clone https://github.com/robbyrussell/oh-my-zsh /usr/share/oh-my-zsh ; sudo rm -rf /usr/share/oh-my-zsh/.git'
+alias vol='sakura -e alsamixer -g'
+alias nemoq='nemo -q'
+alias mkdir='mkdir -p'
+alias sair='exit'
+#alias rjwm='jwm -reload'
+
+# Neofetch
+#if [ -f /usr/bin/lolcat ]
+#then
+#clear ; echo ; neofetch  | lolcat # --ascii_bold on
+#else
+#clear ; echo ; neofetch --ascii_bold off
+#fi
+
+########################
+# Aplicativos
+export BROWSER=/usr/bin/firefox
+export EDITOR=/usr/bin/nano
+########################
+
+########################
+# Funções
+
+# função sprunge
+function spr() {
+curl -F 'sprunge=<-' http://sprunge.us
+}
+# sintaxe exemplo "cat /local/ARQUIVO | spr" (sem os "")
+
+# função setime (ajusta a hora usando a Internet)
+#function setime() {
+#sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+#}
+
+# função reencoder abra o terminal na pasta ORIGEM, defina a pasta destino mudando o valor de reencf
+
+# saida: codec: x264 | bitrate 2000k | 24fps | dimensão 700x394 | audio mp3 lame 112k
+function reenclv1() {
+# define a pasta destino
+export reencf="/run/media/$USER/ARQUIVOS/XXX/Cenas"
+mkdir -p $reencf
+for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
+}
+
+# saida: codec: x264 | bitrate 2000k | 24fps | dimensão 700x394 | audio aac 128k
+function reenclv2() {
+# define a pasta destino
+export reencf="/run/media/$USER/ARQUIVOS/XXX/Cenas"
+mkdir -p $reencf
+for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a aac -b:a 128k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
+}
+
+# saida: codec: x264 | bitrate 3000k | 24fps | dimensão 1280x720 | audio aac 160k
+function reenclv3() {
+# define a pasta destino
+export reencf="/run/media/$USER/ARQUIVOS/XXX/Cenas"
+mkdir -p $reencf
+for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 3000k -c:v libx264 -vf scale=1280x720 -r 24 -c:a aac -b:a 160k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
+}
+########################
+
+# Terminal Tilix 
+#if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+#        source /etc/profile.d/vte.sh
+#fi
+
