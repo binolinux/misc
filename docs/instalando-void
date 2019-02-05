@@ -6,8 +6,9 @@ su
 mount /dev/sdXn /mnt
 
 # baixa base + openbox + aplicativos
-echo "Y" | xbps-install -S -R https://alpha.de.repo.voidlinux.org/current/ -r /mnt/ base-system xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip void-repo-nonfree grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf kitty tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo kitty gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility
- 
+echo "Y" | xbps-install -S -R https://alpha.de.repo.voidlinux.org/current/ -r /mnt/ base-system 
+
+
 # gera fstab
 fstabgen -U /mnt/ >> /mnt/etc/fstab
 
@@ -31,11 +32,14 @@ echo openvoid > /etc/hostname
 # dracut
 echo 'hostonly="yes"' > /etc/dracut.conf.d/hostonly.conf
 
+# instala pacotes do openbox
+xbps-install -Sy xorg-minimal xinit xf86-input-libinput ntfs-3g exfat-utils fuse-exfat alsa-utils xkill wget git curl p7zip void-repo-nonfree grub udiskie dhcpcd dbus cgmanager dhclient NetworkManager network-manager-applet rsync xdg-user-dirs xdg-utils dejavu-fonts-ttf volumeicon arandr gsimplecal-gtk2 flameshot compton jgmenu openbox lxappearance lxappearance-obconf kitty tint2 firefox firefox-i18n-pt-BR transmission-gtk file-roller feh nemo kitty gtk2-engines gtk-engine-murrine xfce-polkit galculator gmrun lxmenu-data wmctrl linux-headers zsh neofetch glibc-locales nano mpv smplayer ffmpeg x264 easytag mediainfo xrdb geany gnome-disk-utility htop
+
 # idioma
 cp /etc/locale.conf /etc/.locale.conf ; echo -e "LANG=pt_BR.UTF-8\nLC_COLLATE=C" > /etc/locale.conf ;  cp /etc/default/libc-locales /etc/default/.libc-locales ; echo "pt_BR.UTF-8 UTF-8" >  /etc/default/libc-locales ; xbps-reconfigure -f glibc-locales
 
 # instalando pacotes non-free
-xbps-install -Sy p7zip-unrar nvidia ; mkiniticpio -p linux
+xbps-install -Suvy ; xbps-install -Sy p7zip-unrar nvidia ; mkiniticpio -p linux
 
 ##sed -i 's/MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/g' /etc/mkinitcpio.conf ; 
 
@@ -65,7 +69,7 @@ clear ; echo -e "\nAguarde...\n\n" ; chown -R root:root /temp/ ; chmod 755 -R /t
 git clone https://github.com/robbyrussell/oh-my-zsh /usr/share/oh-my-zsh ; clear ; git clone https://github.com/zsh-users/zsh-autosuggestions.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions ; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting ; rm -rf /usr/share/oh-my-zsh/plugins/zsh-autosuggestions/.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; clear
 
 # cria grupo storage e usuario
-export nnu="bino" ; groupadd storage ; groupadd power ; useradd -m -g users -G wheel,storage,power -s /bin/bash $nnu ; sleep 1 ; echo -e "live\nlive" | passwd $nnu ; chsh -s /bin/zsh $nnu ; chown -R $nnu:root /opt/Wallpapers/ ; chown -R ${nnu}:root /opt/Wallpapers/ ; clear
+export nnu="bino" ; groupadd storage ; groupadd power ; useradd -m -g users -G audio,video,wheel,storage,power -s /bin/bash $nnu ; sleep 1 ; echo -e "live\nlive" | passwd $nnu ; chsh -s /bin/zsh $nnu ; chown -R $nnu:root /opt/Wallpapers/ ; chown -R ${nnu}:root /opt/Wallpapers/ ; clear
 
 # modificacoes no fstab
 sh -c "echo -e '# tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev 0 0\ntmpfs /home/'$nnu'/.cache tmpfs defaults,nosuid,nodev 0 0' >> /etc/fstab"
@@ -87,3 +91,15 @@ xbps-remove -Ooy
 Preservando o cache
 
 mv /mnt/var/cache/xbps /mnt/.x ; rm -rf /mnt/* ; mkdir /mnt/var/cache ; mv /mnt/.x /mnt/var/cache/xbps
+
+
+++++++++++++++++++++++++
+
+sudo usermod -a -G pulse-access $USER                                                               130 ↵
+╭─bino@openvoid ~  
+╰─➤  sudo usermod -a -G audio $USER       
+╭─bino@openvoid ~  
+╰─➤  sudo usermod -a -G video $USER
+
+
+links: https://wiki.voidlinux.org/PulseAudio
