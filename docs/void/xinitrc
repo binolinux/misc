@@ -1,0 +1,6 @@
+xrdb -merge $HOME/.Xresources &
+ck-launch-session & 
+dbus-launch &
+start-pulseaudio-x11 &
+exec openbox-session
+
