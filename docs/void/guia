@@ -84,11 +84,14 @@ sh -c "echo -e '# tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev 0 0\ntmpfs /home
 # instala telegram
 cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 
+# autologin
+cp -R /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1 ; echo -e ' GETTY_ARGS="--autologin '$nnu' --noclear"\n BAUD_RATE=38400\n TERM_NAME=linux' > /etc/sv/agetty-autologin-tty1/conf
+
 # apos o reboot ativar os servicos
-echo '#!/bin/bash' > /home/$nnu/ativa-servicos.sh ; echo "sudo ln -sfv /etc/sv/dbus /var/service ; sudo ln -sfv /etc/sv/NetworkManager /var/service ; sudo ln -sfv /etc/sv/dhcpcd /var/service ; sudo ln -sfv /etc/sv/consolekit /var/service ; sudo ln -sfv /etc/sv/cgmanager /var/service/ ; sudo ln -sfv /etc/sv/alsa /var/service ; sudo ln -sfv /etc/sv/consolekit/ /var/service ; sudo ln -sfv /etc/sv/polkitd/ /var/service" >> /home/$nnu/ativa-servicos.sh
+echo '#!/bin/bash' > /home/$nnu/ativa-servicos.sh ; echo "sudo ln -sf /etc/sv/dbus /var/service ; sudo ln -sf /etc/sv/NetworkManager /var/service ; sudo ln -sf /etc/sv/dhcpcd /var/service ; sudo ln -sf /etc/sv/consolekit /var/service ; sudo ln -sf /etc/sv/cgmanager /var/service/ ; sudo ln -sf /etc/sv/alsa /var/service ; sudo ln -sf /etc/sv/consolekit/ /var/service ; sudo ln -sf /etc/sv/polkitd/ /var/service ; sudo rm /var/service/agetty-tty1 ; sudo ln -sf /etc/sv/agetty-autologin-tty1 /var/service" >> /home/$nnu/ativa-servicos.sh
 
 # limpando o cache
-xbps-remove -Oo ; rm -rf /temp /opt/Wallpapers/.git
+xbps-remove -Ooy ; rm -rf /temp /opt/Wallpapers/.git
 
 ++++++++++++++++++++++++
 
