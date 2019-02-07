@@ -1,0 +1,3 @@
+# instala firefox
+rm -rf /opt/firefox /usr/share/applications/firefox.desktop /usr/local/bin/firefox ; xbps-install -Sy apulse patchelf ; cd /tmp ; wget "https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; cp /void/firefox.desktop /usr/share/applications/ ; ln -sf /opt/firefox/firefox /usr/local/bin/ ; patchelf --set-rpath /usr/lib/apulse /opt/firefox/libxul.so
+
