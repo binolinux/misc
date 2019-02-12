@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # converte iso do arch em iso do artix
+# local /usr/local/bin
+# chmod +x /usr/local/bin/*
 
 mv /etc/pacman.conf /etc/.pacman.conf ; mv /etc/pacman.d/mirrorlist /etc/pacman.d/.mirrorlist ; cp /root/artix-conf/mirrorlist* /etc/pacman.d/ ; cp /root/artix-conf/pacman.conf /etc/
 pacman-key --init ; pacman-key --populate archlinux ; pacman-key --populate artix
