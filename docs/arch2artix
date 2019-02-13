@@ -4,7 +4,10 @@
 # local /usr/local/bin
 # chmod +x /usr/local/bin/*
 
-echo -e '\nMonte as unidade(s) em /mnt antes de prosseguir...\n' ; read tecla
+
+clear ; echo -e '\nInstalador do Artix Linux\n--------------------------\n\n- Monte a(s) unidade(s) destino em /mnt antes de prosseguir.\n- Pressione uma tecla para continuar, ou CTRL+C para cancelar...\n' ; read tecla
+
+trap '' INT TSTP
 
 mv /etc/pacman.conf /etc/.pacman.conf ; mv /etc/pacman.d/mirrorlist /etc/pacman.d/.mirrorlist ; cp /root/.tmp/artix/mirrorlist* /etc/pacman.d/ ; cp /root/.tmp/artix/pacman.conf /etc/
 pacman-key --init ; pacman-key --populate archlinux ; pacman-key --populate artix
