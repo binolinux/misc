@@ -6,11 +6,11 @@
 
 echo -e '\nMonte as unidade(s) em /mnt antes de prosseguir...\n' ; read tecla
 
-mv /etc/pacman.conf /etc/.pacman.conf ; mv /etc/pacman.d/mirrorlist /etc/pacman.d/.mirrorlist ; cp /root/artix-conf/mirrorlist* /etc/pacman.d/ ; cp /root/artix-conf/pacman.conf /etc/
+mv /etc/pacman.conf /etc/.pacman.conf ; mv /etc/pacman.d/mirrorlist /etc/pacman.d/.mirrorlist ; cp /root/.tmp/artix/mirrorlist* /etc/pacman.d/ ; cp /root/.tmp/artix/pacman.conf /etc/
 pacman-key --init ; pacman-key --populate archlinux ; pacman-key --populate artix
 pacman -Sy --needed --noconfirm archlinux-keyring artix-keyring ; pacman -Sy --needed --noconfirm artools-base git wget curl
 git clone https://github.com/binolinux/artix /mnt/artix
-clear ; echo -e '\nCopiando arquivos. Aguarde...\n' ; cp -a /root/.tmp /mnt/temp
+clear ; echo -e '\nCopiando arquivos. Aguarde...\n' ; cp -a /root/.tmp/temp /mnt/temp
 sh /mnt/artix/pre-setup
 
 exit
