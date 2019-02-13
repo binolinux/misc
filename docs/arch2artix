@@ -8,5 +8,6 @@ mv /etc/pacman.conf /etc/.pacman.conf ; mv /etc/pacman.d/mirrorlist /etc/pacman.
 pacman-key --init ; pacman-key --populate archlinux ; pacman-key --populate artix
 pacman -Sy --needed --noconfirm archlinux-keyring artix-keyring ; pacman -Sy --needed --noconfirm artools-base git wget curl
 git clone https://github.com/binolinux/artix
+clear ; echo ; echo "Copiando arquivos. Aguarde..." ; echo ; cp -a /root/.tmp /mnt/temp ; cp -a /root/artix /mnt/
 
 exit
