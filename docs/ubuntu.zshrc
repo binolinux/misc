@@ -1,4 +1,4 @@
-# Atualizado: 23/04/2019
+# Atualizado: 27/04/2019
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
@@ -143,8 +143,8 @@ alias rofi-adapta='sudo cp /usr/local/bin/rofi-drun-adapta /usr/local/bin/rofi-d
 alias rofi-adwaita='sudo cp /usr/local/bin/rofi-drun-adwaita /usr/local/bin/rofi-drun'
 alias myf='sudo chown -R ${USER}:root'
 alias ucheck="clear ; echo "Updates:" ; apt -s dist-upgrade | awk '/^Inst/ { print $2 }'"
-alias key-add='sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys'
-alias key-rm='sudo apt-key del'
+alias addkey='sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys'
+alias rmkey='sudo apt-key del'
 alias rcinn='nohup cinnamon --replace > /dev/null 2>&1 &'
 alias nf='clear ; neofetch'
 alias nemoq='nemo -q'
@@ -187,7 +187,7 @@ sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -
 # saida: codec: x264 | bitrate 2000k | 24fps | dimensão 700x394 | audio mp3 lame 112k
 function reenclv1() {
 # define a pasta destino
-export reencf="/run/media/$USER/EXTPART/XXX/Cenas"
+export reencf="/run/media/$USER/DISCO/reencodados"
 mkdir -p $reencf
 for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
 }
@@ -195,7 +195,7 @@ for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -map_metadata -1 -b:v 2000k -
 # saida: codec: x264 | bitrate 2000k | 24fps | dimensão 700x394 | audio aac 128k
 function reenclv2() {
 # define a pasta destino
-export reencf="/run/media/$USER/EXTPART/XXX/Cenas"
+export reencf="/run/media/$USER/DISCO/reencodados"
 mkdir -p $reencf
 for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a aac -b:a 128k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
 }
@@ -203,7 +203,7 @@ for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 2000k -c:v libx264 -vf s
 # saida: codec: x264 | bitrate 3000k | 24fps | dimensão 1280x720 | audio aac 160k
 function reenclv3() {
 # define a pasta destino
-export reencf="/run/media/$USER/EXTPART/XXX/Cenas"
+export reencf="/run/media/$USER/DISCO/reencodados"
 mkdir -p $reencf
 for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 3000k -c:v libx264 -vf scale=1280x720 -r 24 -c:a aac -b:a 160k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
 }
