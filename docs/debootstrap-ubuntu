@@ -1,0 +1,146 @@
+Debootstrap Ubuntu Disco Dingo XFCE / MATE (BIOS Legacy)
+---------------------------------------------------------
+
+Atualizado: 24/05/2019
+Contato Telegram: @rocker_raccoon
+
+- Baixe o ISO do Xubuntu mais recente copiando e colando o comando abaixo no terminal
+cd ~/Downloads ; wget -c http://cdimage.ubuntu.com/xubuntu/daily-live/current/eoan-desktop-amd64.iso -O xubuntu-eoan-desktop-amd64.iso
+
+- Grave o live USB com o comando abaixo
+sudo dd bs=4M if=xubuntu-eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
+
+- Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha a linguagem "Português Brasil"
+
+- Quando carregar o sistema, abra o terminal e digite os comandos abaixo
+sudo su
+apt install arch-install-scripts debootstrap
+
+- Formate a partição usando o Gparted ou use o terminal
+
+- Monte a partição destino em /mnt com o comando
+mount /dev/sdXn /mnt
+
+- Faça o debooststrap da base do Ubuntu com o comando abaixo
+debootstrap disco /mnt http://archive.ubuntu.com/ubuntu
+
+- Gere o fstab
+genfstab -U -p /mnt > /mnt/etc/fstab
+
+- Edite o sources.list do destino
+mousepad /mnt/etc/apt/sources.list
+
+- Com o arquivo sources.list aberto, delete tudo que há nele e subsitua pelo conteudo abaixo:
+#<INICIO>
+
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
+# newer versions of the distribution.
+deb http://us.archive.ubuntu.com/ubuntu/ disco main restricted
+
+
+deb-src http://us.archive.ubuntu.com/ubuntu/ disco main restricted
+
+
+## Major bug fix updates produced after the final release of the
+## distribution.
+deb http://us.archive.ubuntu.com/ubuntu/ disco-updates main restricted
+deb-src http://us.archive.ubuntu.com/ubuntu/ disco-updates main restricted
+
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team. Also, please note that software in universe WILL NOT receive any
+## review or updates from the Ubuntu security team.
+deb http://us.archive.ubuntu.com/ubuntu/ disco universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ disco universe
+deb http://us.archive.ubuntu.com/ubuntu/ disco-updates universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ disco-updates universe
+
+
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team, and may not be under a free licence. Please satisfy yourself as to
+## your rights to use the software. Also, please note that software in
+## multiverse WILL NOT receive any review or updates from the Ubuntu
+## security team.
+deb http://us.archive.ubuntu.com/ubuntu/ disco multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ disco multiverse
+
+
+deb http://security.ubuntu.com/ubuntu disco-security main restricted
+deb-src http://security.ubuntu.com/ubuntu disco-security main restricted
+deb http://security.ubuntu.com/ubuntu disco-security universe
+deb-src http://security.ubuntu.com/ubuntu disco-security universe
+deb http://security.ubuntu.com/ubuntu disco-security multiverse
+deb-src http://security.ubuntu.com/ubuntu disco-security multiverse
+
+
+## Uncomment the following two lines to add software from Canonical's
+## 'partner' repository.
+## This software is not part of Ubuntu, but is offered by Canonical and the
+## respective vendors as a service to Ubuntu users.
+deb http://archive.canonical.com/ubuntu disco partner
+deb-src http://archive.canonical.com/ubuntu disco partner
+
+#<FIM>
+
+- Entre em Chroot
+arch-chroot /mnt/ /bin/bash
+
+- Configure o apt
+echo 'APT::Install-Recommends "0";' | tee /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf ; apt update-y ; apt full-upgrade -y
+
+- Instale o kernel e pacotes essenciais ao funcionamento do sistema
+apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync curl nano alsa-utils wicd ttf-dejavu zsh
+
+- Opção 1: XFCE4 Desktop minimo com Nemo
+apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 xfce4-terminal xfce4-whiskermenu-plugin xfce4-clipman-plugin xfce4-notifyd pulseaudio pavucontrol nemo file-roller nemo-fileroller cinnamon-l10n htop gtk2-engines-murrine gtk2-engines-pixbuf xfce4-screenshooter ristretto tumbler qpdfview adapta-gtk-theme materia-gtk-theme breeze-icon-theme ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo "startx" >> /etc/skel/.zprofile
+
+- Opção 2: Mate Desktop minimo com Nemo
+apt install -y marco mate-control-center mate-desktop mate-menus mate-notification-daemon mate-panel mate-applet-brisk-menu mate-polkit mate-session-manager mate-utils mate-settings-daemon mate-terminal mate-screensaver eom mate-applets mate-media mate-calc pulseaudio htop gtk2-engines gtk2-engines-murrine gtk2-engines-pixbuf nemo file-roller nemo-fileroller cinnamon-l10n qpdfview adapta-gtk-theme materia-gtk-theme breeze-icon-theme ; ln -sf /usr/bin/mate-terminal /usr/bin/gnome-terminal ; echo "exec mate-session" >> /etc/skel/.xinitrc ; echo "startx" >> /etc/skel/.zprofile
+
+- Navegador Firefox
+apt install -y firefox firefox-locale-pt
+
+- Navegador Google Chrome
+cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; apt install -y ./google-chrome.deb
+
+- Navegador Chromium com suporte a Netflix
+apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; 7z x -y google-chrome.deb ; 7z x -y data.tar ; cp ./opt/google/chrome/libwidevinecdm.so /usr/lib/chromium
+
+- Driver VESA
+apt install -y xserver-xorg-video-vesa-hwe-18.04
+
+- Driver Nouveau
+apt install -y xserver-xorg-video-nouveau-hwe-18.04
+
+- Driver VMWare (VirtualBox)
+apt install -y xserver-xorg-video-vmware-hwe-18.04
+
+- Icones Tela
+cd /tmp/ ; git clone https://github.com/vinceliuice/Tela-icon-theme tela ; sh ./tela/install.sh ; rm -rf /tmp/tela
+
+- Telegram Desktop
+cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram
+
+- Configure o idioma e fuso horario
+dpkg-reconfigure locales ; dpkg-reconfigure tzdata
+
+# oh-my-zsh, plugins & neofetch
+git clone https://github.com/robbyrussell/oh-my-zsh /etc/skel/.oh-my-zsh ; git clone https://github.com/zsh-users/zsh-autosuggestions.git /etc/skel/.oh-my-zsh/plugins/zsh-autosuggestions ; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /etc/skel/.oh-my-zsh/plugins/zsh-syntax-highlighting ; rm -rf /etc/skel/.oh-my-zsh/.git /etc/skel/.oh-my-zsh/plugins/zsh-autosuggestions/.git /etc/skel/.oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /etc/skel/.zshrc ; sed -i 's/(git)/(compleat common-aliases extract zsh-autosuggestions zsh-syntax-highlighting)/' /etc/skel/.zshrc ; wget https://github.com/dylanaraps/neofetch/raw/master/neofetch -O /usr/local/bin/neofetch ; chmod +x /usr/local/bin/neofetch
+
+- Modifique o nome UBUNTU pelo nome da maquina
+echo UBUNTU > /etc/hostname
+
+- Modifique o nome USUARIO pelo novo usuario
+adduser USUARIO ; adduser USUARIO ; chsh -s /bin/zsh USUARIO
+
+- Senha do root
+passwd ; chsh -s /bin/zsh ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
+
+- Ative serviços
+systemctl enable {dhcpcd,wicd}
+
+- Encerre o chroot
+exit
+
+- Desmonte a unidade e reinicie o sistema
+umount -R /mnt && reboot
