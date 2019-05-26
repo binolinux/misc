@@ -1,11 +1,11 @@
-# Atualizado: 27/04/2019
+# Atualizado: 26/05/2019
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/usr/share/oh-my-zsh
-#xport ZSH=/usr/share/oh-my-zsh/
+#export ZSH=/usr/share/oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -88,6 +88,7 @@ export LANG=pt_BR.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ALIASES
+alias rvid='mkdir -p /run/media/$USER/ARQUIVOS/XXX/REPACK/now ; cd /run/media/$USER/ARQUIVOS/XXX/REPACK/now  ; mv /run/media/$USER/ARQUIVOS/XXX/REPACK/*.mp4 /run/media/$USER/ARQUIVOS/XXX/REPACK/now ; reenclv1 ; notify-send "Reencoder finalizado!" --icon=dialog-information ; rm *.mp4'
 alias gtcl='git clone --depth 1'
 alias wgtd='mkdir -p ~/temp/`date +%d-%m-%Y` ; wget -c --directory-prefix=~/temp/`date +%d-%m-%Y`'
 alias pingoo='ping -c3 google.com'
@@ -177,9 +178,16 @@ curl -F 'sprunge=<-' http://sprunge.us
 }
 # sintaxe exemplo "cat /local/ARQUIVO | spr" (sem os "")
 
-# função setime (ajusta a hora usando a Internet)
-function setime() {
-sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+# função settime (ajusta a hora usando a Internet)
+function settime() {
+sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z" ; sudo hwclock -w
+}
+
+# função upsys (atualiza o sistema)
+function upsys() {
+sudo rm /var/lib/pacman/db.lck ; clear
+sudo mv /etc/pacman.d/mirrorlist-arch /etc/pacman.d/.mirrorlist-arch ; curl -s "https://www.archlinux.org/mirrorlist/?country=BR&protocol=http&protocol=https&ip_version=4&ip_version=6&use_mirror_status=on" | sudo tee /etc/pacman.d/mirrorlist-arch ; clear
+sudo sed -i 's/#Server = /Server = /g' /etc/pacman.d/mirrorlist-arch ; sudo pacman -Syyu --noconfirm ; yay -Syyua --noconfirm ; sudo pacman -Sc --noconfirm ; echo "S" | sudo pacman -Rsnc $(pacman -Qtdq)
 }
 
 # função reencoder abra o terminal na pasta ORIGEM, defina a pasta destino mudando o valor de reencf
@@ -187,29 +195,25 @@ sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -
 # saida: codec: x264 | bitrate 2000k | 24fps | dimensão 700x394 | audio mp3 lame 112k
 function reenclv1() {
 # define a pasta destino
-export reencf="/run/media/$USER/DISCO/reencodados"
+export reencf="/run/media/$USER/ARQUIVOS/XXX/Cenas"
 mkdir -p $reencf
-for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
+for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 4 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
 }
 
 # saida: codec: x264 | bitrate 2000k | 24fps | dimensão 700x394 | audio aac 128k
 function reenclv2() {
 # define a pasta destino
-export reencf="/run/media/$USER/DISCO/reencodados"
+export reencf="/run/media/$USER/ARQUIVOS/XXX/Cenas"
 mkdir -p $reencf
-for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a aac -b:a 128k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
+for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a aac -b:a 128k -ac 2 -ar 44100 -threads 4 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
 }
 
 # saida: codec: x264 | bitrate 3000k | 24fps | dimensão 1280x720 | audio aac 160k
 function reenclv3() {
 # define a pasta destino
-export reencf="/run/media/$USER/DISCO/reencodados"
+export reencf="/run/media/$USER/ARQUIVOS/XXX/Cenas"
 mkdir -p $reencf
-for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 3000k -c:v libx264 -vf scale=1280x720 -r 24 -c:a aac -b:a 160k -ac 2 -ar 44100 -threads 2 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
+for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 3000k -c:v libx264 -vf scale=1280x720 -r 24 -c:a aac -b:a 160k -ac 2 -ar 44100 -threads 4 -f mp4 "$reencf/${i%.*}.mp4"; done ; clear ; echo -e "\nReeencoder finalizado!!!"
 }
 ########################
 
-# Terminal Tilix 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
