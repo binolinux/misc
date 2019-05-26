@@ -1,14 +1,17 @@
 Debootstrap Ubuntu Disco Dingo XFCE / MATE (BIOS Legacy)
 ---------------------------------------------------------
 
-Atualizado: 24/05/2019
+Atualizado: 26/05/2019
 Contato Telegram: @rocker_raccoon
 
-- Baixe o ISO do Xubuntu mais recente copiando e colando o comando abaixo no terminal
-cd ~/Downloads ; wget -c http://cdimage.ubuntu.com/xubuntu/daily-live/current/eoan-desktop-amd64.iso -O xubuntu-eoan-desktop-amd64.iso
+- Opção 1: Baixe o ISO do Xubuntu mais recente copiando e colando o comando abaixo no terminal
+cd ~/Downloads ; wget -c http://cdimage.ubuntu.com/xubuntu/daily-live/current/eoan-desktop-amd64.iso
+
+- Opção 2: Baixe o ISO do Lubuntu mais recente copiando e colando o comando abaixo no terminal
+cd ~/Downloads ; wget -c http://cdimage.ubuntu.com/lubuntu/daily-live/current/eoan-desktop-amd64.iso
 
 - Grave o live USB com o comando abaixo
-sudo dd bs=4M if=xubuntu-eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
+sudo dd bs=4M if=eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
 
 - Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha a linguagem "Português Brasil"
 
@@ -119,7 +122,7 @@ apt install -y xserver-xorg-video-vmware-hwe-18.04
 cd /tmp/ ; git clone https://github.com/vinceliuice/Tela-icon-theme tela ; sh ./tela/install.sh ; rm -rf /tmp/tela
 
 - Telegram Desktop
-cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram
+cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop
 
 - Configure o idioma e fuso horario
 dpkg-reconfigure locales ; dpkg-reconfigure tzdata
@@ -131,7 +134,7 @@ git clone https://github.com/robbyrussell/oh-my-zsh /etc/skel/.oh-my-zsh ; git c
 echo UBUNTU > /etc/hostname
 
 - Modifique o nome USUARIO pelo novo usuario
-adduser USUARIO ; adduser USUARIO ; chsh -s /bin/zsh USUARIO
+adduser USUARIO ; adduser USUARIO sudo ; chsh -s /bin/zsh USUARIO
 
 - Senha do root
 passwd ; chsh -s /bin/zsh ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
@@ -140,7 +143,7 @@ passwd ; chsh -s /bin/zsh ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template
 systemctl enable {dhcpcd,wicd}
 
 # kernel 5.15 (opcional)
-#cd /tmp ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-headers-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-image-unsigned-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-modules-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-headers-5.1.5-050105_5.1.5-050105.201905251333_all.deb ; dpkg -i linux-headers*.deb linux-image*.deb linux-modules*.deb # ; reboot
+#cd /tmp ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-headers-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-image-unsigned-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-modules-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-headers-5.1.5-050105_5.1.5-050105.201905251333_all.deb ; dpkg -i linux-headers*.deb linux-image*.deb linux-modules*.deb
 
 - Encerre o chroot
 exit
