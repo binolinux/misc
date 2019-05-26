@@ -4,16 +4,13 @@ Debootstrap Ubuntu Disco Dingo XFCE / MATE (BIOS Legacy)
 Atualizado: 26/05/2019
 Contato Telegram: @rocker_raccoon
 
-- Opção 1: Baixe o ISO do Xubuntu mais recente copiando e colando o comando abaixo no terminal
+- Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
 cd ~/Downloads ; wget -c http://cdimage.ubuntu.com/xubuntu/daily-live/current/eoan-desktop-amd64.iso
-
-- Opção 2: Baixe o ISO do Lubuntu mais recente copiando e colando o comando abaixo no terminal
-cd ~/Downloads ; wget -c http://cdimage.ubuntu.com/lubuntu/daily-live/current/eoan-desktop-amd64.iso
 
 - Grave o live USB com o comando abaixo
 sudo dd bs=4M if=eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
 
-- Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha a linguagem "Português Brasil"
+- Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha a o idioma "Português do Brasil"
 
 - Quando carregar o sistema, abra o terminal e digite os comandos abaixo
 sudo su
@@ -24,7 +21,7 @@ apt install arch-install-scripts debootstrap
 - Monte a partição destino em /mnt com o comando
 mount /dev/sdXn /mnt
 
-- Faça o debooststrap da base do Ubuntu com o comando abaixo
+- Faça o debooststrap da base do Ubuntu Disco Dingo com o comando abaixo
 debootstrap disco /mnt http://archive.ubuntu.com/ubuntu
 
 - Gere o fstab
@@ -139,7 +136,7 @@ adduser USUARIO ; adduser USUARIO sudo ; chsh -s /bin/zsh USUARIO
 - Senha do root
 passwd ; chsh -s /bin/zsh ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
 
-- Ative serviços
+- Ative os serviços
 systemctl enable {dhcpcd,wicd}
 
 # kernel 5.15 (opcional)
