@@ -140,7 +140,7 @@ passwd ; chsh -s /bin/zsh ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template
 systemctl enable {dhcpcd,wicd}
 
 # kernel 5.14 (opcional)
-#cd /tmp ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.4/linux-headers-5.1.4-050104-generic_5.1.4-050104.201905220633_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.4/linux-image-unsigned-5.1.4-050104-generic_5.1.4-050104.201905220633_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.4/linux-modules-5.1.4-050104-generic_5.1.4-050104.201905220633_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.4/linux-headers-5.1.4-050104_5.1.4-050104.201905220633_all.deb ; dpkg -i linux-headers*.deb linux-image*.deb linux-modules*.deb
+#cd /tmp ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-headers-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-image-unsigned-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-modules-5.1.5-050105-generic_5.1.5-050105.201905251333_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.5/linux-headers-5.1.5-050105_5.1.5-050105.201905251333_all.deb ; dpkg -i linux-headers*.deb linux-image*.deb linux-modules*.deb # ; reboot
 
 - Encerre o chroot
 exit
