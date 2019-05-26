@@ -89,7 +89,7 @@ arch-chroot /mnt/ /bin/bash
 echo 'APT::Install-Recommends "0";' | tee /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf ; apt update-y ; apt full-upgrade -y
 
 - Instale o kernel e pacotes essenciais ao funcionamento do sistema
-apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync curl nano alsa-utils wicd ttf-dejavu zsh
+apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync curl nano alsa-utils wicd zsh ttf-dejavu ttf-ubuntu-font-family
 
 - Opção 1: XFCE4 Desktop minimo com Nemo
 apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 xfce4-terminal xfce4-whiskermenu-plugin xfce4-clipman-plugin xfce4-notifyd pulseaudio pavucontrol nemo file-roller nemo-fileroller cinnamon-l10n htop gtk2-engines-murrine gtk2-engines-pixbuf xfce4-screenshooter ristretto tumbler qpdfview adapta-gtk-theme materia-gtk-theme breeze-icon-theme ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo "startx" >> /etc/skel/.zprofile
