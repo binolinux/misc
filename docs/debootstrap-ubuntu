@@ -101,6 +101,9 @@ apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xf
 - Opção 2: Mate Desktop minimo com Nemo
 apt install -y marco mate-control-center mate-desktop mate-menus mate-notification-daemon mate-panel mate-applet-brisk-menu mate-polkit mate-session-manager mate-utils mate-settings-daemon mate-terminal mate-screensaver eom mate-applets mate-media mate-calc pulseaudio htop gtk2-engines gtk2-engines-murrine gtk2-engines-pixbuf nemo file-roller nemo-fileroller cinnamon-l10n qpdfview materia-gtk-theme breeze-icon-theme breeze-cursor-theme ; ln -sf /usr/bin/mate-terminal /usr/bin/gnome-terminal ; echo "exec mate-session" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
 
+- Opção 3: Gnome-Shell minimo com Nemo
+apt install -y gnome-shell gnome-control-center gnome-session gnome-backgrounds chrome-gnome-shell gnome-screenshot gnome-screensaver gnome-tweak-tool tilix file-roller nemo nemo-fileroller cinnamon-l10n eog
+
 - Navegador Firefox
 #apt install -y firefox firefox-locale-pt
 
