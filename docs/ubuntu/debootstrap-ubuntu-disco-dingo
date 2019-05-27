@@ -52,8 +52,8 @@ apt install -y marco mate-control-center mate-desktop mate-menus mate-notificati
 - Opção 3: Gnome-Shell minimo com Nemo
 apt install -y gnome-shell gnome-control-center gnome-session gnome-backgrounds chrome-gnome-shell gnome-screenshot gnome-screensaver gnome-tweak-tool tilix file-roller nemo nemo-fileroller cinnamon-l10n eog network-manager-gnome ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "export GDK_BACKEND=x11" >> /etc/skel/.xinitrc ; echo 'exec gnome-session' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
 
-- Opção 3: Plasma Desktop minimo
-apt install -y plasma-desktop breeze-gtk-theme kde-config-gtk-style kio-extras kwin-x11 pulseaudion alsa-utils plasma-pa plasma-nm konsole dolphin ark okular gwenview
+- Opção 4: Plasma Desktop minimo com Nemo
+apt install -y plasma-desktop breeze-gtk-theme kde-config-gtk-style kio-extras kwin-x11 pulseaudio plasma-pa plasma-nm tilix nemo file-roller nemo-fileroller cinnamon-l10n ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "exec startkde" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd.service ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd5.service
 
 - Driver Nouveau (Nvidia free)
 apt install -y xserver-xorg-video-nouveau-hwe-18.04
