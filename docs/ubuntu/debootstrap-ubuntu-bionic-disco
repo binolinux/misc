@@ -1,7 +1,7 @@
-Debootstrap Ubuntu Disco Dingo XFCE / MATE / GNOME (BIOS Legacy)
------------------------------------------------------------------
+Debootstrap Ubuntu Bionic Beaver | Disco Dingo XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
+-----------------------------------------------------------------------------------------
 
-Atualizado: 26/05/2019
+Atualizado: 30/05/2019
 Contato Telegram: @rocker_raccoon
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -22,14 +22,14 @@ mkdir -p ~/.config/geany ; wget https://github.com/binolinux/misc/raw/master/doc
 - Monte a partição destino em /mnt com o comando
 mount /dev/sdXn /mnt
 
-- Faça o debooststrap da base do Ubuntu Disco Dingo com o comando abaixo
-debootstrap disco /mnt http://archive.ubuntu.com/ubuntu
+- Opção 1: Faça o debooststrap da base do Ubuntu Bionic Beaver com o comando abaixo
+debootstrap bionic /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/bionic-sources.list -O /mnt/etc/apt/sources.list
+
+- Opção 2: Faça o debooststrap da base do Ubuntu Disco Dingo com o comando abaixo
+debootstrap disco /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/dingo-sources.list -O /mnt/etc/apt/sources.list
 
 - Gere o fstab
 genfstab -U -p /mnt > /mnt/etc/fstab
-
-- Baixe o sources do Dingo
-rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/dingo-sources.list -O /mnt/etc/apt/sources.list
 
 - Entre em Chroot
 arch-chroot /mnt/ /bin/bash
@@ -54,6 +54,9 @@ apt install -y gnome-shell gnome-control-center gnome-session gnome-backgrounds 
 
 - Opção 4: Plasma Desktop minimo com Nemo
 apt install -y plasma-desktop breeze-gtk-theme kde-config-gtk-style kio-extras kwin-x11 pulseaudio plasma-pa plasma-nm tilix nemo file-roller nemo-fileroller cinnamon-l10n libdbus-glib-1-2 ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "exec startkde" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd.service ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd5.service
+
+- Opção 5: BSPWM com Nemo
+apt install -y sakura bspwm sxhkd lxappearance tint2 volumeicon-alsa arandr compton feh gtk2-engines gtk2-engines-murrine galculator gmrun flameshot xdg-user-dirs dunst pulseaudio pavucontrol
 
 - Driver Nouveau (Nvidia free)
 apt install -y xserver-xorg-video-nouveau-hwe-18.04
