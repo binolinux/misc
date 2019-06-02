@@ -112,6 +112,9 @@ adduser USUARIO ; adduser USUARIO sudo ; chsh -s /bin/zsh USUARIO
 - Senha do root
 passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
 
+- Diminuir o swappiness
+mkdir -p /etc/sysctl.d/ ; echo 'vm.swappiness=10' | tee a /etc/sysctl.d/99-sysctl.conf
+
 - Ative os serviços
 systemctl enable {dhcpcd,network-manager}
 
@@ -120,4 +123,7 @@ exit
 
 - Desmonte a unidade e reinicie o sistema
 umount -R /mnt && reboot
+
+#Links: 
+#https://wiki.archlinux.org/index.php/Swap#Swappiness
 
