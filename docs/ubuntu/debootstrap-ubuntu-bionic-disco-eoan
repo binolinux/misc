@@ -64,6 +64,9 @@ apt install -y sakura bspwm sxhkd lxappearance tint2 volumeicon-alsa arandr comp
 - Opção 6: Openbox + XFC4-Panel + Dockbarx
 apt install -y software-properties-common ; add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y obsession openbox compton lxappearance lxappearance-obconf volumeicon-alsa pavucontrol alsa-utils pulseaudio arandr nemo nemo-fileroller file-roller cinnamon-l10n xfce4-terminal xfce4-panel xfce4-whiskermenu-plugin dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin flameshot ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin
 
+- Opção 7: Cinnammon (apenas para Bionic Beaver)
+apt install -y software-properties-common ; add-apt-repository -y ppa:trebelnik-stefina/cinnamon ; apt update -y ; apt install -y cinnamon gnome-backgrounds nemo nemo-fileroller file-roller tilix xviewer 
+
 Drivers de video:
 ------------------
 
