@@ -73,25 +73,25 @@ Drivers de video:
 Atenção: para o release Bionic substitua 18.04 por 16.04 no nome dos pacotes dos driver abaixo:
 
 - Driver Nouveau (free) 
-apt install -y xserver-xorg-video-nouveau-hwe-18.04
+apt install -y xserver-xorg-video-nouveau-hwe-16.04 ; apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nouveau (propietário)
 apt install -y nvidia-driver-418
 
 - Driver VESA (generico)
-apt install -y xserver-xorg-video-vesa-hwe-18.04
+apt install -y xserver-xorg-video-vesa-hwe-16.04 ; apt install -y xserver-xorg-video-vesa-hwe-18.04
 
 - Driver VMWare (VirtualBox)
-apt install -y xserver-xorg-video-vmware-hwe-18.04
+apt install -y xserver-xorg-video-vmware-hwe-16.04 ; apt install -y xserver-xorg-video-vmware-hwe-18.04
 
 - Driver ATI
-apt install -y xserver-xorg-video-ati-hwe-18.04
+apt install -y xserver-xorg-video-ati-hwe-16.04 ; apt install -y xserver-xorg-video-ati-hwe-18.04
 
 - Driver AMDGPU
-apt install -y xserver-xorg-video-amdgpu-hwe-18.04
+apt install -y xserver-xorg-video-amdgpu-hwe-16.04 ; apt install -y xserver-xorg-video-amdgpu-hwe-18.04
 
 - Driver Intel
-apt install -y xserver-xorg-video-intel-hwe-18.04
+apt install -y xserver-xorg-video-intel-hwe-16.04 ; apt install -y xserver-xorg-video-intel-hwe-18.04
 
 - Navegador Firefox Beta
 apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Firefox Beta\nGenericName=Web Browser\nGenericName[pt_BR]=Navegador Web\nComment=Browse the World Wide Web\nComment[pt_BR]=Navegue na Internet\nKeywords=Internet;WWW;Browser;Web;Explorer\nKeywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador\nExec=/usr/local/bin/firefox %u\nIcon=firefox\nTerminal=false\nX-MultipleArgs=false\nType=Application\nMimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;\nStartupNotify=true\nStartupWMClass=Firefox\nCategories=Network;WebBrowser;\nActions=new-window;new-private-window;\n\n[Desktop Action new-window]\nName=New Window\nName[pt_BR]=Nova janela\nExec=/usr/local/bin/firefox --new-window %u\n\n[Desktop Action new-private-window]\nName=New Private Window\nName[pt_BR]=Nova janela privativa\nExec=/usr/local/bin/firefox --private-window %u' | tee /usr/share/applications/firefox-beta.desktop ; ln -sf /opt/firefox/firefox /usr/local/bin/
@@ -131,6 +131,9 @@ passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root ; cp /etc/skel/.oh-
 
 - Diminuir o swappiness
 mkdir -p /etc/sysctl.d/ ; echo 'vm.swappiness=10' | tee a /etc/sysctl.d/99-sysctl.conf
+
+- Bloqueios no hosts
+htn=`cat /etc/hostname` ; mv /etc/hosts /etc/.hosts ; wget https://github.com/binolinux/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i 's/zzzzz/'$htn'/' /etc/hosts
 
 - Ative os serviços
 systemctl enable {dhcpcd,network-manager}
