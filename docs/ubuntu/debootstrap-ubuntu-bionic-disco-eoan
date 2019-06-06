@@ -61,7 +61,13 @@ apt install -y plasma-desktop breeze-gtk-theme kde-config-gtk-style kio-extras k
 - Opção 5: BSPWM com Nemo
 apt install -y sakura bspwm sxhkd lxappearance tint2 volumeicon-alsa arandr compton feh gtk2-engines gtk2-engines-murrine galculator gmrun flameshot xdg-user-dirs dunst pulseaudio pavucontrol
 
-- Driver Nouveau (free)
+
+Drivers de video:
+------------------
+
+Atenção: para o release Bionic substitua 18.04 por 16.04 no nome dos pacotes dos driver abaixo:
+
+- Driver Nouveau (free) 
 apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nouveau (propietário)
