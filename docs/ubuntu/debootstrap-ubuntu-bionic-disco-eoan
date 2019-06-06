@@ -61,7 +61,6 @@ apt install -y plasma-desktop breeze-gtk-theme kde-config-gtk-style kio-extras k
 - Opção 5: BSPWM com Nemo
 apt install -y sakura bspwm sxhkd lxappearance tint2 volumeicon-alsa arandr compton feh gtk2-engines gtk2-engines-murrine galculator gmrun flameshot xdg-user-dirs dunst pulseaudio pavucontrol
 
-
 Drivers de video:
 ------------------
 
@@ -119,7 +118,7 @@ git clone https://github.com/robbyrussell/oh-my-zsh /etc/skel/.oh-my-zsh ; git c
 echo UBUNTU > /etc/hostname
 
 - Modifique o nome USUARIO pelo novo usuario
-adduser USUARIO ; adduser USUARIO sudo ; chsh -s /bin/zsh USUARIO
+adduser bino ; adduser bino sudo ; chsh -s /bin/zsh bino
 
 - Senha do root
 passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
