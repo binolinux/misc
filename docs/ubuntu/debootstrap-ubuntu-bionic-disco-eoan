@@ -132,6 +132,9 @@ passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root ; cp /etc/skel/.oh-
 - Diminuir o swappiness
 mkdir -p /etc/sysctl.d/ ; echo 'vm.swappiness=10' | tee a /etc/sysctl.d/99-sysctl.conf
 
+- Configura o Network-Manager (netplan)
+mkdir -p /etc/netplan/ ; echo -e 'network:\n  version: 2\n  renderer: NetworkManager' | sudo tee /etc/netplan/01-netcfg.yaml ; netplan --debug apply
+
 - Bloqueios no hosts
 htn=`cat /etc/hostname` ; mv /etc/hosts /etc/.hosts ; wget https://github.com/binolinux/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i 's/zzzzz/'$htn'/' /etc/hosts
 
