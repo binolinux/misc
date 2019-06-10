@@ -127,6 +127,9 @@ apt install -y easytag mediainfo-gui
 - Cliente torrent
 apt install -y transmission-gtk
 
+- Instala o Geany
+apt install -y geany
+
 - Telegram Desktop
 cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
 
