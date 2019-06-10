@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Disco Dingo | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -------------------------------------------------------------------------------------------------------
 
-Atualizado: 09/06/2019
+Atualizado: 10/06/2019
 Contato Telegram: @rocker_raccoon
 
 - Baixe o ISO do Lubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -15,7 +15,7 @@ sudo dd bs=4M if=eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
 - Quando carregar o sistema, abra o terminal e digite os comandos abaixo
 sudo su
 apt install arch-install-scripts debootstrap git geany
-mkdir -p ~/.config/geany ; wget https://github.com/binolinux/misc/raw/master/docs/geany.conf -P ~/.config/geany/
+cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip
 
 - Formate a partição usando o Gparted ou use o terminal
 
