@@ -157,6 +157,9 @@ htn=`cat /etc/hostname` ; mv /etc/hosts /etc/.hosts ; wget https://github.com/bi
 - Ative os serviços
 systemctl enable {dhcpcd,network-manager}
 
+- Modifica permissao da pasta
+chown -R bino:root /home/bino
+
 - Limpa p sistema
 rm -rf /temp
 
