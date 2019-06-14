@@ -93,8 +93,8 @@ Bionic Beaver: apt install -y xserver-xorg-video-nouveau-hwe-16.04
 Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nvidia (propietário)
-Bionic Beaver: apt install -y nvidia-driver-390
-Disco Dingo / Eoan Ermine: apt install -y nvidia-driver-418
+add-apt-repository -y ppa:graphics-drivers/ppa ; apt update -y ; apt full-upgrade -y ; apt install -y nvidia-driver-430
+#apt install -y nvidia-graphics-drivers-430
 
 - Driver VESA (generico)
 Bionic Beaver: apt install -y xserver-xorg-video-vesa-hwe-16.04
