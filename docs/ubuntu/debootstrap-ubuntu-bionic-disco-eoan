@@ -127,6 +127,9 @@ cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_a
 - Navegador Chromium com suporte a Netflix
 apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; 7z x -y google-chrome.deb ; 7z x -y data.tar ; cp ./opt/google/chrome/libwidevinecdm.so /usr/lib/chromium
 
+- Instala GIMP mais recente
+apt install -y software-properties-common ; add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
+
 - Instala demais aplicativos
 apt install -y smplayer smplayer-l10n smplayer-themes mpv ffmpeg x264 easytag mediainfo-gui transmission-gtk geany
 
