@@ -130,8 +130,11 @@ apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://d
 - Instala GIMP mais recente
 apt install -y software-properties-common ; add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
 
+- SMPlayer mais recente (opcional)
+apt install -y software-properties-common ; add-apt-repository -y ppa:rvm/smplayer ; apt update -y ; apt install -y smplayer smplayer-themes smplayer-skins
+
 - Instala demais aplicativos
-apt install -y smplayer smplayer-l10n smplayer-themes mpv ffmpeg x264 easytag mediainfo-gui transmission-gtk geany
+apt install -y smplayer smplayer-l10n smplayer-themes mpv ffmpeg x264 easytag mediainfo-gui transmission-gtk geany ; cd /tmp ; wget https://launchpad.net/~rvm/+archive/ubuntu/smplayer/+files/smplayer-skins_15.2.0-1~bionic1_all.deb -O smplayer-skins.deb ; apt install -y ./smplayer-skins.deb
 
 - Telegram Desktop
 cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
