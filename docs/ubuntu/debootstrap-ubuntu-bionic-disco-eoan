@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Disco Dingo | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -------------------------------------------------------------------------------------------------------
 
-Atualizado: 15/06/2019
+Atualizado: 16/06/2019
 Contato Telegram: @rocker_raccoon
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -93,7 +93,7 @@ Bionic Beaver: apt install -y xserver-xorg-video-nouveau-hwe-16.04
 Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nvidia (propietário)
-add-apt-repository -y ppa:graphics-drivers/ppa ; apt update -y ; apt full-upgrade -y ; apt install -y xserver-xorg-video-nvidia-430 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/
+add-apt-repository -y ppa:graphics-drivers/ppa ; apt update -y ; apt full-upgrade -y ; apt install -y nvidia-driver-418 nvidia-settings ; update-initramfs -u ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/
 
 - Driver VESA (generico)
 Bionic Beaver: apt install -y xserver-xorg-video-vesa-hwe-16.04
