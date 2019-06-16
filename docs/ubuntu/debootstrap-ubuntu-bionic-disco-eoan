@@ -13,9 +13,9 @@ sudo dd bs=4M if=eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
 - Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha a o idioma "Português do Brasil"
 
 - Quando carregar o sistema, abra o terminal e digite os comandos abaixo
-sudo su
-apt install arch-install-scripts debootstrap git geany
+sudo apt install arch-install-scripts debootstrap git geany
 cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip
+sudo su
 
 - Formate a partição usando o Gparted ou use o terminal
 
