@@ -7,14 +7,13 @@ Contato Telegram: @rocker_raccoon
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
 cd ~/Downloads ; wget -c http://cdimage.ubuntu.com/xubuntu/daily-live/current/eoan-desktop-amd64.iso
 
-- Grave o live USB com o comando abaixo
+- Espete o pen drive e grave o live USB com o comando abaixo substituindo o X pela letra da unidade (exemplo: /dev/sdc)
 sudo dd bs=4M if=eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
 
 - Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha a o idioma "Português do Brasil"
 
 - Quando carregar o sistema, abra o terminal e digite os comandos abaixo
-sudo apt install arch-install-scripts debootstrap git geany
-cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip
+sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip ; 
 sudo su
 
 - Formate a partição usando o Gparted ou use o terminal
