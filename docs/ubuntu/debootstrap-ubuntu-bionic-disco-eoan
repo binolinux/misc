@@ -128,7 +128,7 @@ cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_a
 apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; 7z x -y google-chrome.deb ; 7z x -y data.tar ; cp ./opt/google/chrome/libwidevinecdm.so /usr/lib/chromium
 
 - Seletor de linguagem
-apt install -y language-selector-gnome
+##apt install -y language-selector-gnome
 
 - Instala GIMP mais recente (necessario apenas para o Bionic Beaver)
 add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
@@ -140,13 +140,13 @@ add-apt-repository -y ppa:rvm/smplayer ; apt update -y ; apt install -y smplayer
 apt update -y ; apt install -y smplayer smplayer-l10n smplayer-themes mpv ; cd /tmp ; wget https://launchpad.net/~rvm/+archive/ubuntu/smplayer/+files/smplayer-skins_15.2.0-1~bionic1_all.deb -O smplayer-skins.deb ; apt install -y ./smplayer-skins.deb
 
 - Instala demais aplicativos
-apt install -y gnome-disk-utility gparted  ffmpeg x264 easytag mediainfo-gui transmission-gtk geany gufw
+apt install -y gnome-disk-utility gparted ffmpeg x264 easytag mediainfo-gui transmission-gtk geany gufw
 
 - Telegram Desktop
 cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
 
 # oh-my-zsh, plugins & neofetch
-git clone https://github.com/robbyrussell/oh-my-zsh /etc/skel/.oh-my-zsh ; git clone https://github.com/zsh-users/zsh-autosuggestions.git /etc/skel/.oh-my-zsh/plugins/zsh-autosuggestions ; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /etc/skel/.oh-my-zsh/plugins/zsh-syntax-highlighting ; rm -rf /etc/skel/.oh-my-zsh/.git /etc/skel/.oh-my-zsh/plugins/zsh-autosuggestions/.git /etc/skel/.oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /etc/skel/.zshrc ; sed -i 's/(git)/(compleat common-aliases extract zsh-autosuggestions zsh-syntax-highlighting)/' /etc/skel/.zshrc
+git clone https://github.com/robbyrussell/oh-my-zsh /usr/share/oh-my-zsh ; git clone https://github.com/zsh-users/zsh-autosuggestions.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions ; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting ; rm -rf /usr/share/oh-my-zsh/.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions/.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; cp /usr/share/oh-my-zsh/templates/zshrc.zsh-template /etc/skel/.zshrc ; sed -i 's/(git)/(compleat common-aliases extract zsh-autosuggestions zsh-syntax-highlighting)/' /etc/skel/.zshrc
 wget https://github.com/dylanaraps/neofetch/raw/master/neofetch -O /usr/local/bin/neofetch ; chmod +x /usr/local/bin/neofetch
 
 - Hostname
@@ -156,7 +156,7 @@ echo $hst > /etc/hostname
 adduser $nnu ; adduser $nnu sudo ; chsh -s /bin/zsh $nnu
 
 - Senha do root
-passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
+passwd ; chsh -s /bin/zsh ; cp -a /usr/share/oh-my-zsh /root ; cp /usr/share/oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
 
 - Diminuir o swappiness
 mkdir -p /etc/sysctl.d/ ; echo 'vm.swappiness=10' | tee -a /etc/sysctl.d/99-sysctl.conf
@@ -171,7 +171,7 @@ htn=`cat /etc/hostname` ; mv /etc/hosts /etc/.hosts ; wget https://github.com/bi
 systemctl enable {dhcpcd,network-manager,ufw}
 
 - Modifique o fstab
-echo 'tmpfs /tmp tmpfs defaults,nosuid,nodev 0 0' | tee -a /etc/fstab ; echo 'tmpfs /home/'$nnu'/.cache tmpfs defaults,nosuid,nodev 0 0' | tee -a /etc/fstab ; 
+echo -e '\n#tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev,size=2G 0 0\ntmpfs /home/'$nnu'/.cache tmpfs defaults,nosuid,nodev,size=5G 0 0' | tee -a /etc/fstab
 
 - Modifica permissao da pasta
 chown -R $nnu:root /home/$nnu
