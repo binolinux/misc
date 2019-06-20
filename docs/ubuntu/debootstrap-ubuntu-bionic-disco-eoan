@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Disco Dingo | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -------------------------------------------------------------------------------------------------------
 
-Atualizado: 19/06/2019
+Atualizado: 20/06/2019
 Contato Telegram: @rocker_raccoon
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -57,11 +57,11 @@ apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xf
 - Opção 2: Mate Desktop minimo com Nemo
 apt install -y marco mate-control-center mate-desktop mate-menus mate-notification-daemon mate-panel mate-applet-brisk-menu mate-polkit mate-session-manager mate-utils mate-settings-daemon mate-terminal mate-screensaver eom mate-applets mate-media mate-calc pulseaudio htop gtk2-engines gtk2-engines-murrine gtk2-engines-pixbuf nemo file-roller nemo-fileroller cinnamon-l10n ; ln -sf /usr/bin/mate-terminal /usr/bin/gnome-terminal ; echo "exec mate-session" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; cd /temp ; 7z x -y default.7z ; 7z x -y mate.7z ; rm -f *.7z
 
-- Opção 3: Gnome-Shell minimo com Nemo
-apt install -y gnome-shell gnome-control-center gnome-session gnome-backgrounds chrome-gnome-shell gnome-screenshot gnome-screensaver gnome-tweak-tool tilix file-roller nemo nemo-fileroller cinnamon-l10n eog network-manager-gnome ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "export GDK_BACKEND=x11" >> /etc/skel/.xinitrc ; echo 'exec gnome-session' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
+- Opção 3: Plasma Desktop minimo com Nemo
+apt install -y plasma-desktop breeze-gtk-theme breeze kscreen systemsettings kde-config-gtk-style kio-extras kwin-x11 pulseaudio plasma-pa plasma-nm sddm tilix nemo file-roller nemo-fileroller cinnamon-l10n libdbus-glib-1-2 flameshot galculator viewnior ; systemctl enable -f sddm ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "exec startkde" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd.service ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd5.service
 
-- Opção 4: Plasma Desktop minimo com Nemo
-apt install -y plasma-desktop breeze-gtk-theme breeze kscreen systemsettings kde-config-gtk-style kio-extras kwin-x11 pulseaudio plasma-pa plasma-nm tilix nemo file-roller nemo-fileroller cinnamon-l10n libdbus-glib-1-2 flameshot galculator viewnior ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "exec startkde" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd.service ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd5.service
+- Opção 4: Gnome-Shell minimo com Nemo
+apt install -y gnome-shell gnome-control-center gnome-session gnome-backgrounds chrome-gnome-shell gnome-screenshot gnome-screensaver gnome-tweak-tool tilix file-roller nemo nemo-fileroller cinnamon-l10n eog network-manager-gnome ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "export GDK_BACKEND=x11" >> /etc/skel/.xinitrc ; echo 'exec gnome-session' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
 
 - Opção 5: BSPWM com Nemo
 apt install -y sakura bspwm sxhkd lxpolkit lxappearance tint2 volumeicon-alsa arandr compton feh gtk2-engines gtk2-engines-murrine galculator gmrun flameshot xdg-user-dirs dunst pulseaudio pavucontrol
@@ -74,7 +74,7 @@ add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/s
 add-apt-repository -y ppa:trebelnik-stefina/cinnamon ; apt update -y ; apt install -y cinnamon gnome-backgrounds nemo nemo-fileroller file-roller tilix xviewer
 
 - Configure o idioma e fuso horario
-dpkg-reconfigure locales ; dpkg-reconfigure tzdata
+dpkg-reconfigure tzdata # ; dpkg-reconfigure locales
 
 # Wallpapers
 git clone https://github.com/binolinux/backgrounds /opt/Wallpapers/
@@ -93,7 +93,8 @@ Bionic Beaver: apt install -y xserver-xorg-video-nouveau-hwe-16.04
 Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nvidia (propietário)
-add-apt-repository -y ppa:graphics-drivers/ppa ; apt update -y ; apt full-upgrade -y ; apt install -y nvidia-driver-418 nvidia-settings ; update-initramfs -u ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/
+##add-apt-repository -y ppa:graphics-drivers/ppa ; apt update -y ; apt full-upgrade -y ; apt install -y nvidia-driver-418 nvidia-settings
+mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt install -y nvidia-driver-430 ; update-initramfs -u ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; cp /etc/default/grub /etc/default/.grub ; sed -i 's/"quiet splash"/"nouveau.modeset=0 quiet splash"/' /etc/default/grub ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
 
 - Driver VESA (generico)
 Bionic Beaver: apt install -y xserver-xorg-video-vesa-hwe-16.04
@@ -114,6 +115,9 @@ Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-amdgpu-hwe-18.04
 - Driver Intel
 Bionic Beaver: apt install -y xserver-xorg-video-intel-hwe-16.04
 Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-intel-hwe-18.04
+
+- Desabilita o OS-Prober
+echo "GRUB_DISABLE_OS_PROBER=true" | tee -a /etc/default/grub ; grub-mkconfig -o /boot/grub/grub.cfg
 
 - Navegador Firefox Beta
 apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Firefox Beta\nGenericName=Web Browser\nGenericName[pt_BR]=Navegador Web\nComment=Browse the World Wide Web\nComment[pt_BR]=Navegue na Internet\nKeywords=Internet;WWW;Browser;Web;Explorer\nKeywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador\nExec=/usr/local/bin/firefox %u\nIcon=firefox\nTerminal=false\nX-MultipleArgs=false\nType=Application\nMimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;\nStartupNotify=true\nStartupWMClass=Firefox\nCategories=Network;WebBrowser;\nActions=new-window;new-private-window;\n\n[Desktop Action new-window]\nName=New Window\nName[pt_BR]=Nova janela\nExec=/usr/local/bin/firefox --new-window %u\n\n[Desktop Action new-private-window]\nName=New Private Window\nName[pt_BR]=Nova janela privativa\nExec=/usr/local/bin/firefox --private-window %u' | tee /usr/share/applications/firefox-beta.desktop ; ln -sf /opt/firefox/firefox /usr/local/bin/
