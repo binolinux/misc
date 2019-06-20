@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Disco Dingo | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -------------------------------------------------------------------------------------------------------
 
-Atualizado: 16/06/2019
+Atualizado: 19/06/2019
 Contato Telegram: @rocker_raccoon
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -146,7 +146,8 @@ apt install -y gnome-disk-utility gparted  ffmpeg x264 easytag mediainfo-gui tra
 cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
 
 # oh-my-zsh, plugins & neofetch
-git clone https://github.com/robbyrussell/oh-my-zsh /etc/skel/.oh-my-zsh ; git clone https://github.com/zsh-users/zsh-autosuggestions.git /etc/skel/.oh-my-zsh/plugins/zsh-autosuggestions ; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /etc/skel/.oh-my-zsh/plugins/zsh-syntax-highlighting ; rm -rf /etc/skel/.oh-my-zsh/.git /etc/skel/.oh-my-zsh/plugins/zsh-autosuggestions/.git /etc/skel/.oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /etc/skel/.zshrc ; sed -i 's/(git)/(compleat common-aliases extract zsh-autosuggestions zsh-syntax-highlighting)/' /etc/skel/.zshrc ; wget https://github.com/dylanaraps/neofetch/raw/master/neofetch -O /usr/local/bin/neofetch ; chmod +x /usr/local/bin/neofetch
+git clone https://github.com/robbyrussell/oh-my-zsh /etc/skel/.oh-my-zsh ; git clone https://github.com/zsh-users/zsh-autosuggestions.git /etc/skel/.oh-my-zsh/plugins/zsh-autosuggestions ; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /etc/skel/.oh-my-zsh/plugins/zsh-syntax-highlighting ; rm -rf /etc/skel/.oh-my-zsh/.git /etc/skel/.oh-my-zsh/plugins/zsh-autosuggestions/.git /etc/skel/.oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; cp /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /etc/skel/.zshrc ; sed -i 's/(git)/(compleat common-aliases extract zsh-autosuggestions zsh-syntax-highlighting)/' /etc/skel/.zshrc
+wget https://github.com/dylanaraps/neofetch/raw/master/neofetch -O /usr/local/bin/neofetch ; chmod +x /usr/local/bin/neofetch
 
 - Hostname
 echo $hst > /etc/hostname
