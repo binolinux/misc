@@ -156,7 +156,7 @@ echo $hst > /etc/hostname
 adduser $nnu ; adduser $nnu sudo ; chsh -s /bin/zsh $nnu
 
 - Senha do root
-passwd ; chsh -s /bin/zsh ; cp -a /usr/share/oh-my-zsh /root ; cp /usr/share/oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
+passwd ; chsh -s /bin/zsh ; ln -sf /usr/share/oh-my-zsh /root/.oh-my-zsh ; ln -sf /usr/share/oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
 
 - Diminuir o swappiness
 mkdir -p /etc/sysctl.d/ ; echo 'vm.swappiness=10' | tee -a /etc/sysctl.d/99-sysctl.conf
