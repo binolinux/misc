@@ -134,10 +134,10 @@ apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://d
 add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
 
 - SMPlayer mais recente (opcional)
-add-apt-repository -y ppa:rvm/smplayer ; apt update -y ; apt install -y smplayer smplayer-themes smplayer-skins mpv
+add-apt-repository -y ppa:rvm/smplayer ; apt update -y ; apt install -y smplayer mpv
 
-- SMPlayer mais recente (repositorio)
-apt update -y ; apt install -y smplayer smplayer-l10n smplayer-themes mpv ; cd /tmp ; wget https://launchpad.net/~rvm/+archive/ubuntu/smplayer/+files/smplayer-skins_15.2.0-1~bionic1_all.deb -O smplayer-skins.deb ; apt install -y ./smplayer-skins.deb
+- SMPlayer (repositorio oficial)
+apt update -y ; apt install -y smplayer mpv
 
 - Instala demais aplicativos
 apt install -y gnome-disk-utility gparted ffmpeg x264 easytag mediainfo-gui transmission-gtk geany gufw arch-install-scripts
