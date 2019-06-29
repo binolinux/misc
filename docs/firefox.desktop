@@ -1,0 +1,31 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox Beta
+GenericName=Web Browser
+GenericName[pt_BR]=Navegador Web
+Comment=Browse the World Wide Web
+Comment[pt_BR]=Navegue na Internet
+Keywords=Internet;WWW;Browser;Web;Explorer
+Keywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador
+Exec=/usr/local/bin/firefox %u
+Icon=firefox
+#Icon=/usr/share/icons/firefox-new-1.png
+#Icon=/usr/share/icons/firefox-new-2.png
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;
+StartupNotify=true
+StartupWMClass=Firefox
+Categories=Network;WebBrowser;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Name[pt_BR]=Nova janela
+Exec=/usr/local/bin/firefox --new-window %u
+
+[Desktop Action new-private-window]
+Name=New Private Window
+Name[pt_BR]=Nova janela privativa
+Exec=/usr/local/bin/firefox --private-window %u
