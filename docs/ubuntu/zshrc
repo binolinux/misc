@@ -1,0 +1,124 @@
+# Atualizado: 05/07/2019
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=/usr/share/oh-my-zsh
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="gnzh"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+#plugins=(git)
+plugins=(compleat common-aliases extract zsh-autosuggestions zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+export LANG=pt_BR.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# ALIASES
+alias it-='sudo apt install ; sudo apt install -f -y'
+alias it+='sudo apt install -y ; sudo apt install -f -y'
+alias sr='apt search'
+alias nf='clear ; neofetch'
+alias edit='nohup sudo geany' # editar arquivo como sudo
+alias ezsh='geany ~/.zshrc ; clear ; . ~/.zshrc'
+alias uzsh='clear ; . ~/.zshrc'
+alias up-firefox='killall firefox ; sudo rm -rf /opt/firefox ; cd /tmp ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; sudo tar -jxvf firefox.tar.bz2 -C /opt/ ; sudo chmod 755 -R /opt/firefox ; sudo chown -R ${USER}:root /opt/firefox ; notify-send "Firefox atualizado!" --icon=dialog-information'
+alias up-my-scripts='cd /tmp ; rm -rf artix ; git clone https://github.com/binolinux/artix/ ; sudo rm -f /usr/local/bin/setup-* ;  sudo cp /tmp/artix/scripts/* /usr/local/bin/ ; sudo chmod +x /usr/local/bin/* ; cp ./artix/zshrc $HOME/.zshrc ; . $HOME/.zshrc'
+alias up-oh-my-zsh='sudo rm -rf /usr/share/oh-my-zsh /usr/local/bin/neofetch ; sudo git clone https://github.com/robbyrussell/oh-my-zsh.git /usr/share/oh-my-zsh ; sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions ; sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting ; sudo rm -rf /usr/share/oh-my-zsh/.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions/.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; sudo wget https://github.com/dylanaraps/neofetch/raw/master/neofetch -O /usr/local/bin/neofetch ; sudo chmod +x /usr/local/bin/neofetch'
+alias pingoo='ping -c5 google.com'
+alias pingit='ping -c5 github.com'
+
+
+# Terminal Tilix 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
