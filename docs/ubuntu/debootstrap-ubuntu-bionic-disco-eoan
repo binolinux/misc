@@ -164,7 +164,7 @@ htn=`cat /etc/hostname` ; mv /etc/hosts /etc/.hosts ; wget https://github.com/bi
 systemctl enable {dhcpcd,network-manager,ufw,slim}
 
 - Modifique o fstab
-echo -e '\n#tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev,size=2G 0 0\ntmpfs /home/'$nnu'/.cache tmpfs defaults,nosuid,nodev,size=5G 0 0' | tee -a /etc/fstab
+echo -e '\n# swapfile\n/opt/.swapfile  	none      	swap      	defaults  	0 0\n\n#tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev,size=2G 0 0\ntmpfs /home/'$nnu'/.cache tmpfs defaults,nosuid,nodev,size=5G 0 0' | tee -a /etc/fstab
 
 - Configure o idioma e fuso horario
 dpkg-reconfigure locales ; dpkg-reconfigure tzdata
@@ -172,7 +172,7 @@ dpkg-reconfigure locales ; dpkg-reconfigure tzdata
 - Modifica permissao da pasta
 chown -R $nnu:root /home/$nnu /opt/firefox /opt/Wallpapers
 
-- Limpa p sistema
+- Limpa o sistema
 rm -rf /temp
 
 - Encerra o chroot
