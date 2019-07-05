@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Disco Dingo | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -------------------------------------------------------------------------------------------------------
 
-Atualizado: 01/07/2019
+Atualizado: 05/07/2019
 Contato Telegram: @rocker_raccoon
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -47,30 +47,29 @@ apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget 
 #apt install -y wget ; cd /tmp ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.15/linux-headers-5.1.15-050115-generic_5.1.15-050115.201906250430_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.15/linux-image-unsigned-5.1.15-050115-generic_5.1.15-050115.201906250430_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.15/linux-modules-5.1.15-050115-generic_5.1.15-050115.201906250430_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.15/linux-headers-5.1.15-050115_5.1.15-050115.201906250430_all.deb ; dpkg -i linux-headers*.deb linux-image*.deb linux-modules*.deb ; apt install -y dhcpcd5 grub-pc locales gnupg git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync nano alsa-utils network-manager ttf-dejavu ttf-ubuntu-font-family zsh netplan.io ufw software-properties-common arch-install-scripts # os-prober
 
 - Cria o diretorio temporário e baixa configurações dos desktop
-mkdir -p /temp ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; wget https://github.com/binolinux/look/raw/master/fontes-ttf-pack.7z ; 7z x -y default.7z ; 7z x -y fontes-ttf-pack.7z
-#wget https://github.com/binolinux/misc/raw/master/configs-de-wm/gnome.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/kde-plasma.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/mate.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/oxpenbox.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; wget https://github.com/binolinux/look/raw/master/arc-themes.7z ; wget https://github.com/binolinux/look/raw/master/tela-icon-theme.7z ;  ; 7z x -y fontes-ttf-pack.7z ; 7z x -y arc-themes.7z ; 7z x -y tela-icon-theme.7z ; mkdir usr/share/icons ; mv Tela* usr/share/icons
+mkdir -p /temp ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; wget https://github.com/binolinux/look/raw/master/fontes-ttf-pack.7z ; wget https://github.com/binolinux/look/raw/master/arc-themes.7z ; 7z x -y default.7z ; 7z x -y fontes-ttf-pack.7z ; 7z x -y arc-themes.7z
 
 - Opção 1: XFCE4 Desktop minimo com Nemo
-apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 xfce4-terminal xfce4-whiskermenu-plugin xfce4-clipman-plugin xfce4-notifyd pulseaudio pavucontrol nemo file-roller nemo-fileroller cinnamon-l10n htop gtk2-engines-murrine gtk2-engines-pixbuf libexo-1-0 policykit-1-gnome xfce4-screenshooter ristretto tumbler network-manager-gnome ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin
+apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 tilix xfce4-whiskermenu-plugin xfce4-clipman-plugin xfce4-notifyd pulseaudio pavucontrol nemo file-roller nemo-fileroller cinnamon-l10n htop gtk2-engines-murrine gtk2-engines-pixbuf libexo-1-0 policykit-1-gnome xfce4-screenshooter ristretto tumbler network-manager-gnome slim ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; 7z x -y xfce4.7z ; rm -f *.7z
 
 - Opção 2: Mate Desktop minimo com Nemo
-apt install -y marco mate-control-center mate-desktop mate-menus mate-notification-daemon mate-panel mate-applet-brisk-menu mate-polkit mate-session-manager mate-utils mate-settings-daemon mate-terminal mate-screensaver eom mate-applets mate-media mate-calc pulseaudio htop gtk2-engines gtk2-engines-murrine gtk2-engines-pixbuf nemo file-roller nemo-fileroller cinnamon-l10n ; ln -sf /usr/bin/mate-terminal /usr/bin/gnome-terminal ; echo "exec mate-session" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; cd /temp ; 7z x -y default.7z ; 7z x -y mate.7z ; rm -f *.7z
+apt install -y marco mate-control-center mate-desktop mate-menus mate-notification-daemon mate-panel mate-applet-brisk-menu mate-polkit mate-session-manager mate-utils mate-settings-daemon mate-terminal mate-screensaver eom mate-applets mate-media mate-calc pulseaudio htop gtk2-engines gtk2-engines-murrine gtk2-engines-pixbuf nemo file-roller nemo-fileroller cinnamon-l10n slim ; ln -sf /usr/bin/mate-terminal /usr/bin/gnome-terminal ; echo "exec mate-session" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/mate.7z ; 7z x -y mate.7z ; rm -f *.7z
 
 - Opção 3: Plasma Desktop minimo com Nemo
-apt install -y plasma-desktop breeze-gtk-theme breeze kscreen systemsettings kde-config-gtk-style khotkeys kio-extras plasma-runners-addons kwin-x11 kwin-addons pulseaudio plasma-pa plasma-nm plasma-widgets-addons sddm tilix nemo file-roller nemo-fileroller cinnamon-l10n libdbus-glib-1-2 flameshot galculator htop viewnior ; systemctl enable -f sddm ; mkdir -p /etc/sddm.conf.d/ ; echo -e '[Autologin]\nUser='$nnu'\nSession=plasma.desktop' | tee /etc/sddm.conf.d/autologin.conf ;  ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; ln -sf /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh ; echo "exec startkde" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd.service ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd5.service
+apt install -y plasma-desktop breeze-gtk-theme breeze kscreen systemsettings kde-config-gtk-style khotkeys kio-extras plasma-runners-addons kwin-x11 kwin-addons pulseaudio plasma-pa plasma-nm plasma-widgets-addons sddm tilix nemo file-roller nemo-fileroller cinnamon-l10n libdbus-glib-1-2 flameshot galculator htop viewnior slim ; systemctl enable -f sddm ; mkdir -p /etc/sddm.conf.d/ ; echo -e '[Autologin]\nUser='$nnu'\nSession=plasma.desktop' | tee /etc/sddm.conf.d/autologin.conf ;  ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; ln -sf /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh ; echo "exec startkde" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd.service ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd5.service
 
 - Opção 4: Gnome-Shell minimo com Nemo
-apt install -y gnome-shell gnome-control-center gnome-session gnome-backgrounds chrome-gnome-shell gnome-screenshot gnome-screensaver gnome-tweak-tool tilix file-roller nemo nemo-fileroller cinnamon-l10n eog network-manager-gnome ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "export GDK_BACKEND=x11" >> /etc/skel/.xinitrc ; echo 'exec gnome-session' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
+apt install -y gnome-shell gnome-control-center gnome-session gnome-backgrounds chrome-gnome-shell gnome-screenshot gnome-screensaver gnome-tweak-tool tilix file-roller nemo nemo-fileroller cinnamon-l10n eog network-manager-gnome slim ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "export GDK_BACKEND=x11" >> /etc/skel/.xinitrc ; echo 'exec gnome-session' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
 
 - Opção 5: BSPWM com Nemo
-apt install -y sakura bspwm sxhkd lxpolkit lxappearance tint2 volumeicon-alsa arandr compton feh gtk2-engines gtk2-engines-murrine galculator gmrun flameshot xdg-user-dirs dunst pulseaudio pavucontrol
+apt install -y sakura bspwm sxhkd lxpolkit lxappearance tint2 volumeicon-alsa arandr compton feh gtk2-engines gtk2-engines-murrine galculator gmrun flameshot xdg-user-dirs dunst pulseaudio pavucontrol slim
 
 - Opção 6: Openbox + XFC4-Panel + Dockbarx
-add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y obsession openbox compton lxpolkit lxappearance lxappearance-obconf volumeicon-alsa pavucontrol alsa-utils pulseaudio arandr nemo nemo-fileroller file-roller cinnamon-l10n xfce4-terminal xfce4-panel xfce4-whiskermenu-plugin dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin flameshot ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin
+add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y obsession openbox compton lxpolkit lxappearance lxappearance-obconf volumeicon-alsa pavucontrol alsa-utils pulseaudio arandr nemo nemo-fileroller file-roller cinnamon-l10n tilix xfce4-panel xfce4-whiskermenu-plugin dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin flameshot slim ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal
 #editar o autorun com /usr/bin/lxpolkit
 
 - Opção 7: Cinnammon 4.x (instalavel apenas no Bionic Beaver)
-add-apt-repository -y ppa:trebelnik-stefina/cinnamon ; apt update -y ; apt install -y cinnamon gnome-backgrounds nemo nemo-fileroller file-roller tilix xviewer
+add-apt-repository -y ppa:trebelnik-stefina/cinnamon ; apt update -y ; apt install -y cinnamon gnome-backgrounds nemo nemo-fileroller file-roller tilix xviewer slim
 
 - Configure o idioma e fuso horario
 dpkg-reconfigure locales ; dpkg-reconfigure tzdata
@@ -168,7 +167,7 @@ mkdir -p /etc/netplan/ ; echo -e 'network:\n  version: 2\n  renderer: NetworkMan
 htn=`cat /etc/hostname` ; mv /etc/hosts /etc/.hosts ; wget https://github.com/binolinux/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i 's/zzzzz/'$htn'/' /etc/hosts
 
 - Ative os serviços
-systemctl enable {dhcpcd,network-manager,ufw}
+systemctl enable {dhcpcd,network-manager,ufw,slim}
 
 - Modifique o fstab
 echo -e '\n#tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev,size=2G 0 0\ntmpfs /home/'$nnu'/.cache tmpfs defaults,nosuid,nodev,size=5G 0 0' | tee -a /etc/fstab
@@ -188,4 +187,3 @@ umount -R /mnt && reboot
 #Links: 
 #https://wiki.archlinux.org/index.php/Swap#Swappiness
 #https://websiteforstudents.com/configure-static-ip-addresses-on-ubuntu-18-04-beta/
-
