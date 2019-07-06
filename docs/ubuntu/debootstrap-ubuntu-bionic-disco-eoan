@@ -86,7 +86,7 @@ Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nvidia (propietário)
 Bionic Beaver: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; add-apt-repository -y ppa:graphics-drivers/ppa ; apt update -y ; apt full-upgrade -y ; apt install -y nvidia-driver-430 nvidia-settings ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; cp /etc/default/grub /etc/default/.grub ; sed -i 's/"quiet splash"/"nouveau.modeset=0 quiet splash"/' /etc/default/grub ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
-Disco Dingo | Eoan Ermine: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt install -y nvidia-driver-430 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; cp /etc/default/grub /etc/default/.grub ; sed -i 's/"quiet splash"/"nouveau.modeset=0 quiet splash"/' /etc/default/grub ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
+Disco Dingo | Eoan Ermine: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt install -y nvidia-driver-430 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; cp /etc/default/grub /etc/default/.grub ; sed -i 's/"quiet splash"/"loglevel=0 nouveau.modeset=0 nvidia-drm.modeset=1 quiet splash"/' /etc/default/grub ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
 
 - Driver VESA (generico)
 Bionic Beaver: apt install -y xserver-xorg-video-vesa-hwe-16.04
@@ -109,7 +109,7 @@ Bionic Beaver: apt install -y xserver-xorg-video-intel-hwe-16.04
 Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-intel-hwe-18.04
 
 - Desabilita o OS-Prober
-echo "GRUB_DISABLE_OS_PROBER=true" | tee -a /etc/default/grub ; grub-mkconfig -o /boot/grub/grub.cfg
+echo -e "\nGRUB_DISABLE_OS_PROBER=true" | tee -a /etc/default/grub ; grub-mkconfig -o /boot/grub/grub.cfg
 
 - Navegador Firefox Beta
 apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Firefox Beta\nGenericName=Web Browser\nGenericName[pt_BR]=Navegador Web\nComment=Browse the World Wide Web\nComment[pt_BR]=Navegue na Internet\nKeywords=Internet;WWW;Browser;Web;Explorer\nKeywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador\nExec=/usr/local/bin/firefox %u\nIcon=firefox\nTerminal=false\nX-MultipleArgs=false\nType=Application\nMimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;\nStartupNotify=true\nStartupWMClass=Firefox\nCategories=Network;WebBrowser;\nActions=new-window;new-private-window;\n\n[Desktop Action new-window]\nName=New Window\nName[pt_BR]=Nova janela\nExec=/usr/local/bin/firefox --new-window %u\n\n[Desktop Action new-private-window]\nName=New Private Window\nName[pt_BR]=Nova janela privativa\nExec=/usr/local/bin/firefox --private-window %u' | tee /usr/share/applications/firefox-beta.desktop ; ln -sf /opt/firefox/firefox /usr/local/bin/
