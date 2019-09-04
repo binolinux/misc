@@ -1,0 +1,2 @@
+htn=`cat /etc/hostname` ; wget http://winhelp2002.mvps.org/hosts.txt -P /tmp ; cat /etc/hosts >> /tmp/hosts.txt
+sudo mv /tmp/hosts.txt /etc/hosts ; sudo sed -i "s/localhost.localdomain/$htn.localdomain/" /etc/hosts ; sudo sed -i "s/localhost/$htn.localdomain/" /etc/hosts
