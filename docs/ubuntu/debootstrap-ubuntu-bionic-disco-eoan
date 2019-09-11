@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Disco Dingo | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -------------------------------------------------------------------------------------------------------
 
-Atualizado: 05/07/2019
+Atualizado: 11/09/2019
 Contato Telegram: @rocker_raccoon
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -13,13 +13,23 @@ sudo dd bs=4M if=eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
 - Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha a o idioma "Português do Brasil"
 
 - Quando carregar o sistema, abra o terminal e digite os comandos abaixo
-sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip ; 
-sudo su
+sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip ; sudo su
 
-- Formate a partição usando o Gparted ou use o terminal
+- Digite gparted no terminal para particionar o disco.
+
+- Exemplo de particionamento bios legacy
+/dev/sda1 --> 2GB de espaço ( partição swap)
+/dev/sda2 --> / 15GB de espaço (partição root "/")
+/dev/sda3 --> / restante do disco  (partição /home)
+
+- Ative o swap com o comando
+swapon /dev/sda1
 
 - Monte a partição destino em /mnt com o comando
-mount /dev/sdXn /mnt
+mount /dev/sda2 /mnt
+
+- Crie a pasta do /home no /mnt e monte a partição
+mkdir /mnt/home ; mount /dev/sda3 /mnt/home
 
 - Opção 1: Faça o debooststrap da base do Ubuntu Bionic Beaver com o comando abaixo
 debootstrap bionic /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/bionic-sources.list -O /mnt/etc/apt/sources.list ; genfstab -U -p /mnt > /mnt/etc/fstab
@@ -35,22 +45,24 @@ arch-chroot /mnt/ /bin/bash
 
 - Defina as variaveis com nome de usuario e hostname
 #nnu="NOMEDOUSUARIO" ; hst="NOMEDAMAQUINA"
-nnu="bino" ; hst="ubuntu"
+nnu="rocker" ; hst="ubuntu"
 
 - Configure o apt
-echo 'APT::Install-Recommends "0";' | tee /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf ; apt update -y ; apt full-upgrade -y
+echo 'APT::Install-Recommends "0";' | tee -a /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf ; apt update -y ; apt full-upgrade -y
 
 - Opção 1: Instalar o kernel padrão e pacotes essenciais ao funcionamento do sistema (grub-pc deve sersubstituido por grub-efi no caso de uma instação UEFI)
 apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync nano alsa-utils network-manager ttf-dejavu ttf-ubuntu-font-family zsh netplan.io ufw software-properties-common arch-install-scripts # os-prober
 
 - Opção 2: Instalar o kernel estavel mais atual e pacotes essenciais ao funcionamento do sistema (grub-pc deve sersubstituido por grub-efi no caso de uma instação UEFI)
-#apt install -y wget ; cd /tmp ; wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.16/linux-headers-5.1.16-050116-generic_5.1.16-050116.201907031232_amd64.deb ; wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.16/linux-image-unsigned-5.1.16-050116-generic_5.1.16-050116.201907031232_amd64.deb ; wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.16/linux-modules-5.1.16-050116-generic_5.1.16-050116.201907031232_amd64.deb ; wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.1.16/linux-headers-5.1.16-050116_5.1.16-050116.201907031232_all.deb ; dpkg -i linux-headers*.deb linux-image*.deb linux-modules*.deb ; apt install -y dhcpcd5 grub-pc locales gnupg git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync nano alsa-utils network-manager ttf-dejavu ttf-ubuntu-font-family zsh netplan.io ufw software-properties-common arch-install-scripts # os-prober
+#apt install -y wget ; cd /tmp ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.14/linux-headers-5.2.14-050214-generic_5.2.14-050214.201909101030_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.14/linux-image-unsigned-5.2.14-050214-generic_5.2.14-050214.201909101030_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.14/linux-modules-5.2.14-050214-generic_5.2.14-050214.201909101030_amd64.deb ; wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.2.14/linux-headers-5.2.14-050214_5.2.14-050214.201909101030_all.deb ; dpkg -i linux-headers*.deb linux-image*.deb linux-modules*.deb ; apt install -y dhcpcd5 grub-pc locales gnupg git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync nano alsa-utils network-manager ttf-dejavu ttf-ubuntu-font-family zsh netplan.io ufw software-properties-common arch-install-scripts # os-prober
 
 - Cria o diretorio temporário e baixa configurações dos desktop
-mkdir -p /temp ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; wget https://github.com/binolinux/look/raw/master/fontes-ttf-pack.7z ; wget https://github.com/binolinux/look/raw/master/tela-icon-theme.7z ; wget https://github.com/binolinux/look/raw/master/arc-themes.7z ; 7z x -y default.7z ; 7z x -y fontes-ttf-pack.7z ; 7z x -y tela-icon-theme.7z ; 7z x -y arc-themes.7z
+mkdir -p /temp ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; 7z x -y default.7z
 
 - Opção 1: XFCE4 Desktop minimo com Nemo
-apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 tilix xfce4-whiskermenu-plugin xfce4-clipman-plugin xfce4-notifyd pulseaudio pavucontrol nemo file-roller nemo-fileroller cinnamon-l10n htop gtk2-engines-murrine gtk2-engines-pixbuf libexo-1-0 policykit-1-gnome xfce4-screenshooter ristretto tumbler network-manager-gnome slim ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; wget https://github.com/binolinux/look/raw/master/adapta-gtk-theme.7z ; 7z x -y adapta-gtk-theme.7z ; 7z x -y xfce4.7z
+apt install -y libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 ristretto xfce4-clipman-plugin xfce4-notifyd xfce4-screenshooter xfce4-terminal xfce4-whiskermenu-plugin xfce4-power-manager xfce4-screensaver pulseaudio pavucontrol nemo plank file-roller nemo-fileroller cinnamon-l10n htop policykit-1-gnome network-manager-gnome lightdm lightdm-gtk-greeter ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; 7z x -y xfce4.7z
+##echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
+# removidos: libexo-1-0
 
 - Opção 2: Mate Desktop minimo com Nemo
 apt install -y marco mate-control-center mate-desktop mate-menus mate-notification-daemon mate-panel mate-applet-brisk-menu mate-polkit mate-session-manager mate-utils mate-settings-daemon mate-terminal mate-screensaver eom mate-applets mate-media mate-calc pulseaudio htop gtk2-engines gtk2-engines-murrine gtk2-engines-pixbuf nemo file-roller nemo-fileroller cinnamon-l10n slim ; ln -sf /usr/bin/mate-terminal /usr/bin/gnome-terminal ; echo "exec mate-session" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/mate.7z ; 7z x -y mate.7z
@@ -71,11 +83,37 @@ add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/s
 - Opção 7: Cinnammon 4.x (instalavel apenas no Bionic Beaver)
 add-apt-repository -y ppa:trebelnik-stefina/cinnamon ; apt update -y ; apt install -y cinnamon gnome-backgrounds nemo nemo-fileroller file-roller tilix xviewer slim
 
-- icones Papirus e wallpapers
-wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | sh ; clear # git clone https://github.com/binolinux/backgrounds /opt/Wallpapers/
+# visual
+cd /temp ; wget https://github.com/binolinux/look/raw/master/fontes-ttf-pack.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; wget https://github.com/binolinux/look/raw/master/breeze-icon-theme.7z ; wget https://github.com/binolinux/look/raw/master/breeze-gtk-theme.7z ; 7z x -y fontes-ttf-pack.7z ; 7z x -y breeze-icon-theme.7z ; 7z x -y breeze-gtk-theme.7z ; 7z x -y xfce4.7z ; clear
+# arc-gtk-theme
+cd /tmp ; wget https://www.archlinux.org/packages/community/any/arc-gtk-theme/download/ -O arc-gtk-theme.pkg.tar.xz ; tar xf arc-gtk-theme.pkg.tar.xz ; chmod 755 -R ./usr ; chown -R root:root ./usr ; mv ./usr/share/themes/Arc* /usr/share/themes/
+# flat-remix-gtk-theme
+cd /tmp ; git clone https://github.com/daniruiz/flat-remix-gtk ; chmod 755 -R ./flat-remix-gtk ; chown -R root:root ./flat-remix-gtk ; mv ./flat-remix-gtk/Flat-Remix* /usr/share/themes/
+# wallpapers
+git clone https://github.com/binolinux/backgrounds /opt/Wallpapers
 
-# Configurando o sistema
-cd /temp ; rm -f *.7z ; clear ; echo -e '\nAguarde...\n\n' ; chmod 755 -R /temp/ ; chown -R root:root /temp/ ; cp -rT /temp/ / ; cd /etc/skel ; mkdir -p ".bin" ".icons" ".themes" "Desktop" "Documentos" "Downloads" "Imagens" "Música" "Público" "Modelos" "Vídeos" ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/vlc/vlc-qt-interface.conf ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/ksmserverrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasmarc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/QtProject.conf ; sed -i 's/zzzzz/'$nnu'/' /usr/local/bin/freemem ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; fc-cache ; gtk-update-icon-cache /usr/share/icons/{breeze_cursors,Breeze_Snow,oxy-black,oxy-grey,oxy-steel,oxy-white,oxy-whitewater,oxy-zion}
+# papirus-icon-theme
+cd /tmp ; wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | sh
+wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/install.sh | sh
+# tela-icon-theme
+git clone https://github.com/vinceliuice/Tela-icon-theme /tmp/tela ; sed -i 's/hicolor/Papirus,hicolor/' /tmp/tela/src/index.theme ; cd /tmp/tela ; sh ./install.sh -a
+if [ ! -d /usr/share/icons/Tela ]
+then
+cd /temp ; wget https://github.com/binolinux/look/raw/master/tela-icon-theme.7z ; 7z x -y tela-icon-theme.7z
+fi
+
+# configurando o sistema
+cd /temp ; rm -f *.7z ; clear ; echo -e '\nAguarde...\n\n' ; chmod 755 -R /temp/ ; chown -R root:root /temp/ ; cp -rT /temp/ / ; touch /etc/skel/.local/share/appimagekit/no_desktopintegration ; cp /void/zshrc /etc/skel/.zshrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/vlc/vlc-qt-interface.conf ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/ksmserverrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasmarc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/QtProject.conf ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; clear ; fc-cache
+cp -rR /etc/skel/ $HOME/
+
+# cache breeze
+gtk-update-icon-cache /usr/share/icons/breeze ; gtk-update-icon-cache /usr/share/icons/breeze_cursors ; gtk-update-icon-cache /usr/share/icons/breeze-dark ; gtk-update-icon-cache /usr/share/icons/Breeze_Snow ; clear
+# cache oxy
+gtk-update-icon-cache /usr/share/icons/oxy-black ; gtk-update-icon-cache /usr/share/icons/oxy-blue ; gtk-update-icon-cache /usr/share/icons/oxy-bluecurve ; gtk-update-icon-cache /usr/share/icons/oxy-brown ; gtk-update-icon-cache /usr/share/icons/oxy-cherry ; gtk-update-icon-cache /usr/share/icons/oxy-emerald ; gtk-update-icon-cache /usr/share/icons/oxy-green ; gtk-update-icon-cache /usr/share/icons/oxy-grey ; gtk-update-icon-cache /usr/share/icons/oxy-hot_orange ; gtk-update-icon-cache /usr/share/icons/oxy-lilac ; gtk-update-icon-cache /usr/share/icons/oxy-midnight_meadow ; gtk-update-icon-cache /usr/share/icons/oxy-navy ; gtk-update-icon-cache /usr/share/icons/oxy-obsidian ; gtk-update-icon-cache /usr/share/icons/oxy-olympus ; gtk-update-icon-cache /usr/share/icons/oxy-orchid ; gtk-update-icon-cache /usr/share/icons/oxy-oxygen ; gtk-update-icon-cache /usr/share/icons/oxy-peach ; gtk-update-icon-cache /usr/share/icons/oxy-purple ; gtk-update-icon-cache /usr/share/icons/oxy-red ; gtk-update-icon-cache /usr/share/icons/oxy-sea_blue ; gtk-update-icon-cache /usr/share/icons/oxy-steel ; gtk-update-icon-cache /usr/share/icons/oxy-violet ; gtk-update-icon-cache /usr/share/icons/oxy-viorange ; gtk-update-icon-cache /usr/share/icons/oxy-white ; gtk-update-icon-cache /usr/share/icons/oxy-whitewater ; gtk-update-icon-cache /usr/share/icons/oxy-yellow ; gtk-update-icon-cache /usr/share/icons/oxy-zion ; clear
+# cache tela
+gtk-update-icon-cache /usr/share/icons/Tela ; gtk-update-icon-cache /usr/share/icons/Tela-black ; gtk-update-icon-cache /usr/share/icons/Tela-black-dark ; gtk-update-icon-cache /usr/share/icons/Tela-blue ; gtk-update-icon-cache /usr/share/icons/Tela-blue-dark ; gtk-update-icon-cache /usr/share/icons/Tela-brown ; gtk-update-icon-cache /usr/share/icons/Tela-brown-dark ; gtk-update-icon-cache /usr/share/icons/Tela-dark ; gtk-update-icon-cache /usr/share/icons/Tela-green ; gtk-update-icon-cache /usr/share/icons/Tela-green-dark ; gtk-update-icon-cache /usr/share/icons/Tela-grey ; gtk-update-icon-cache /usr/share/icons/Tela-grey-dark ; gtk-update-icon-cache /usr/share/icons/Tela-manjaro ; gtk-update-icon-cache /usr/share/icons/Tela-manjaro-dark ; gtk-update-icon-cache /usr/share/icons/Tela-orange ; gtk-update-icon-cache /usr/share/icons/Tela-orange-dark ; gtk-update-icon-cache /usr/share/icons/Tela-pink ; gtk-update-icon-cache /usr/share/icons/Tela-pink-dark ; gtk-update-icon-cache /usr/share/icons/Tela-purple ; gtk-update-icon-cache /usr/share/icons/Tela-purple-dark ; gtk-update-icon-cache /usr/share/icons/Tela-red ; gtk-update-icon-cache /usr/share/icons/Tela-red-dark ; gtk-update-icon-cache /usr/share/icons/Tela-ubuntu ; gtk-update-icon-cache /usr/share/icons/Tela-ubuntu-dark ; gtk-update-icon-cache /usr/share/icons/Tela-yellow ; gtk-update-icon-cache /usr/share/icons/Tela-yellow-dark
+# icone start
+ln -sf /usr/share/icons/start-ubuntu.png /usr/share/icons/start-distro.png
 
 Drivers de video:
 ------------------
@@ -109,7 +147,9 @@ Bionic Beaver: apt install -y xserver-xorg-video-intel-hwe-16.04
 Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-intel-hwe-18.04
 
 - Desabilita o OS-Prober
-echo -e "\nGRUB_DISABLE_OS_PROBER=true" | tee -a /etc/default/grub ; grub-mkconfig -o /boot/grub/grub.cfg
+mkdir -p /boot/grub/themes ; cp /etc/default/grub /etc/default/.grub ; cp /opt/Wallpapers/wallhaven-4dpg5j.jpg /boot/grub/themes/background.jpg
+echo -e 'GRUB_BACKGROUND=/boot/grub/themes/background.jpg\nGRUB_DISABLE_OS_PROBER=true' | tee -a /etc/default/grub
+echo -e 'menuentry "Reiniciar" {\n	echo "Reiniciando o sistema..."\n	reboot\n}\n\nmenuentry "Desligar" {\n	echo "Desligando o sistema..."\n	halt\n}\n' | tee -a /etc/grub.d/40_custom ; clear ; grub-install /dev/$grb ; grub-mkconfig -o /boot/grub/grub.cfg ; grub-mkconfig -o /boot/grub/grub.cfg
 
 - Navegador Firefox Beta
 apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Firefox Beta\nGenericName=Web Browser\nGenericName[pt_BR]=Navegador Web\nComment=Browse the World Wide Web\nComment[pt_BR]=Navegue na Internet\nKeywords=Internet;WWW;Browser;Web;Explorer\nKeywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador\nExec=/usr/local/bin/firefox %u\nIcon=firefox\nTerminal=false\nX-MultipleArgs=false\nType=Application\nMimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;\nStartupNotify=true\nStartupWMClass=Firefox\nCategories=Network;WebBrowser;\nActions=new-window;new-private-window;\n\n[Desktop Action new-window]\nName=New Window\nName[pt_BR]=Nova janela\nExec=/usr/local/bin/firefox --new-window %u\n\n[Desktop Action new-private-window]\nName=New Private Window\nName[pt_BR]=Nova janela privativa\nExec=/usr/local/bin/firefox --private-window %u' | tee /usr/share/applications/firefox-beta.desktop ; ln -sf /opt/firefox/firefox /usr/local/bin/
@@ -137,10 +177,6 @@ apt install -y gnome-disk-utility gparted ffmpeg x264 easytag mediainfo-gui tran
 
 - Telegram Desktop
 cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
-
-# oh-my-zsh, plugins & neofetch
-git clone https://github.com/robbyrussell/oh-my-zsh /usr/share/oh-my-zsh ; git clone https://github.com/zsh-users/zsh-autosuggestions.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions ; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting ; rm -rf /usr/share/oh-my-zsh/.git /usr/share/oh-my-zsh/plugins/zsh-autosuggestions/.git /usr/share/oh-my-zsh/plugins/zsh-syntax-highlighting/.git ; ln -sf /usr/share/oh-my-zsh /etc/skel/.oh-my-zsh ; cp /usr/share/oh-my-zsh/templates/zshrc.zsh-template /etc/skel/.zshrc ; sed -i 's/(git)/(compleat common-aliases extract zsh-autosuggestions zsh-syntax-highlighting)/' /etc/skel/.zshrc
-wget https://github.com/dylanaraps/neofetch/raw/master/neofetch -O /usr/local/bin/neofetch ; chmod +x /usr/local/bin/neofetch
 
 - Hostname
 echo $hst > /etc/hostname
@@ -184,3 +220,9 @@ umount -R /mnt && reboot
 #Links: 
 #https://wiki.archlinux.org/index.php/Swap#Swappiness
 #https://websiteforstudents.com/configure-static-ip-addresses-on-ubuntu-18-04-beta/
+
+
+
+###
+###
+#apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 tilix xfce4-whiskermenu-plugin xfce4-clipman-plugin xfce4-notifyd pulseaudio pavucontrol nemo file-roller nemo-fileroller cinnamon-l10n htop gtk2-engines-murrine gtk2-engines-pixbuf libexo-1-0 policykit-1-gnome xfce4-screenshooter ristretto tumbler network-manager-gnome slim ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; wget https://github.com/binolinux/look/raw/master/adapta-gtk-theme.7z ; 7z x -y adapta-gtk-theme.7z ; 7z x -y xfce4.7z
