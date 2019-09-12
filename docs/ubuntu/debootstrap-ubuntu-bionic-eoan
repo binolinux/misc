@@ -1,16 +1,18 @@
-Debootstrap Ubuntu Bionic Beaver | Disco Dingo | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
--------------------------------------------------------------------------------------------------------
+Debootstrap Ubuntu Bionic Beaver | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 Atualizado: 12/09/2019
-Contato Telegram: @rocker_raccoon
+Contato Telegram: @julian_huxley
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
 cd ~/Downloads ; wget -c http://cdimage.ubuntu.com/xubuntu/daily-live/current/eoan-desktop-amd64.iso
 
-- Espete o pen drive e grave o live USB com o comando abaixo substituindo o X pela letra da unidade (exemplo: /dev/sdc)
-sudo dd bs=4M if=eoan-desktop-amd64.iso of=/dev/sdX status=progress && sync
+- Plugue o pen drive de no minimo 2GB na porta USB do PC. 
 
-- Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha a o idioma "Português do Brasil"
+- Grave o live USB com o comando abaixo substituindo o X pela letra da unidade (exemplo: /dev/sdc)
+sudo dd if=eoan-desktop-amd64.iso of=/dev/sdX bs=4M status=progress && sync
+
+- Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha o idioma "Português do Brasil"
 
 - Quando carregar o sistema, abra o terminal e digite os comandos abaixo
 sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip ; sudo su
@@ -18,26 +20,23 @@ sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget
 - Digite gparted no terminal para particionar o disco.
 
 - Exemplo de particionamento bios legacy
-/dev/sda1 --> 2GB de espaço ( partição swap)
-/dev/sda2 --> / 15GB de espaço (partição root "/")
-/dev/sda3 --> / restante do disco  (partição /home)
+/dev/sda1 --> 2GB de espaco (particao swap)
+/dev/sda2 --> / 15GB de espaco (particao root "/")
+/dev/sda3 --> / restante do disco  (particao /home)
 
 - Ative o swap com o comando
 swapon /dev/sda5
 
-- Monte a partição destino em /mnt com o comando
+- Monte a particao destino em /mnt com o comando
 mount /dev/sda2 /mnt
 
-- Crie a pasta do /home no /mnt e monte a partição
+- Crie a pasta do /home no /mnt e monte a particao
 mkdir /mnt/home ; mount /dev/sda3 /mnt/home
 
-- Opção 1: Faça o debooststrap da base do Ubuntu Bionic Beaver com o comando abaixo
+- Opcao 1: Faca o debooststrap da base do Ubuntu Bionic Beaver com o comando abaixo
 debootstrap bionic /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/bionic-sources.list -O /mnt/etc/apt/sources.list ; genfstab -U -p /mnt > /mnt/etc/fstab
 
-- Opção 2: Faça o debooststrap da base do Ubuntu Disco Dingo com o comando abaixo
-debootstrap disco /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/dingo-sources.list -O /mnt/etc/apt/sources.list ; genfstab -U -p /mnt > /mnt/etc/fstab
-
-- Opção 3: Faça o debooststrap da base do Ubuntu Eoan Ermine com o comando abaixo
+- Opcao 2: Faca o debooststrap da base do Ubuntu Eoan Ermine com o comando abaixo
 debootstrap eoan /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/eoan-sources.list -O /mnt/etc/apt/sources.list ; genfstab -U -p /mnt > /mnt/etc/fstab
 
 - Entre em Chroot
@@ -45,7 +44,7 @@ arch-chroot /mnt/ /bin/bash
 
 - Defina as variaveis com nome de usuario e hostname
 #nnu="NOMEDOUSUARIO" ; hst="NOMEDAMAQUINA"
-nnu="rocker" ; hst="xubby"
+nnu="jh" ; hst="jhx-pc"
 
 - Configure o apt
 echo 'APT::Install-Recommends "0";' | tee -a /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf ; apt update -y ; apt full-upgrade -y
@@ -53,35 +52,35 @@ echo 'APT::Install-Recommends "0";' | tee -a /etc/apt/apt.conf ; echo 'APT::Inst
 - Crie as pastas do usuario em /etc/skel
 mkdir -p /etc/skel/{"Desktop","Documentos","Downloads","Imagens","Modelos","Música","Público","Vídeos",".bin",".icons",".themes",".fonts"}
 
-- Instalar o kernel padrão e pacotes essenciais ao funcionamento do sistema (grub-pc deve sersubstituido por grub-efi no caso de uma instação UEFI)
+- Instalar o kernel padrao e pacotes essenciais ao funcionamento do sistema (grub-pc deve sersubstituido por grub-efi no caso de uma instacao UEFI)
 apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync nano alsa-utils network-manager ttf-dejavu ttf-ubuntu-font-family zsh netplan.io ufw software-properties-common 
 # removidos: os-prober
 
-- Cria o diretorio temporário e baixa configurações dos desktop
+- Cria o diretorio temporário e baixa configuracoes dos desktop
 mkdir -p /temp ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; 7z x -y default.7z
 
-- Opção 1: XFCE4 Desktop minimo com Nemo
+- Opcao 1: XFCE4 Desktop minimo com Nemo
 apt install -y libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 ristretto xfce4-clipman-plugin xfce4-notifyd xfce4-screenshooter xfce4-terminal xfce4-whiskermenu-plugin xfce4-power-manager xfce4-screensaver pulseaudio pavucontrol nemo plank file-roller nemo-fileroller cinnamon-l10n htop policykit-1-gnome network-manager-gnome lightdm lightdm-gtk-greeter ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; 7z x -y xfce4.7z
 ##echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
 # removidos: libexo-1-0
 
-- Opção 2: Mate Desktop minimo com Nemo
+- Opcao 2: Mate Desktop minimo com Nemo
 apt install -y marco mate-control-center mate-desktop mate-menus mate-notification-daemon mate-panel mate-applet-brisk-menu mate-polkit mate-session-manager mate-utils mate-settings-daemon mate-terminal mate-screensaver eom mate-applets mate-media mate-calc pulseaudio htop gtk2-engines gtk2-engines-murrine gtk2-engines-pixbuf nemo file-roller nemo-fileroller cinnamon-l10n lightdm ; ln -sf /usr/bin/mate-terminal /usr/bin/gnome-terminal ; echo "exec mate-session" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/mate.7z ; 7z x -y mate.7z
 
-- Opção 3: Plasma Desktop minimo com Nemo
+- Opcao 3: Plasma Desktop minimo com Nemo
 apt install -y plasma-desktop breeze-gtk-theme breeze kscreen systemsettings kde-config-gtk-style khotkeys kio-extras plasma-runners-addons kwin-x11 kwin-addons pulseaudio plasma-pa plasma-nm plasma-widgets-addons sddm tilix nemo file-roller nemo-fileroller cinnamon-l10n libdbus-glib-1-2 flameshot galculator htop viewnior sddm ; systemctl enable -f sddm ; mkdir -p /etc/sddm.conf.d/ ; echo -e '[Autologin]\nUser='$nnu'\nSession=plasma.desktop' | tee /etc/sddm.conf.d/autologin.conf ;  ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; ln -sf /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh ; echo "exec startkde" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd.service ; sed -i 's/Exec/#Exec/g' /usr/share/dbus-1/services/org.kde.kwalletd5.service
 
-- Opção 4: Gnome-Shell minimo com Nemo
+- Opcao 4: Gnome-Shell minimo com Nemo
 apt install -y gnome-shell gnome-control-center gnome-session gnome-backgrounds chrome-gnome-shell gnome-screenshot gnome-screensaver gnome-tweak-tool tilix file-roller nemo nemo-fileroller cinnamon-l10n eog network-manager-gnome lightdm ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "export GDK_BACKEND=x11" >> /etc/skel/.xinitrc ; echo 'exec gnome-session' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
 
-- Opção 5: BSPWM com Nemo
+- Opcao 5: BSPWM com Nemo
 apt install -y sakura bspwm sxhkd lxpolkit lxappearance tint2 volumeicon-alsa arandr compton feh gtk2-engines gtk2-engines-murrine galculator gmrun flameshot xdg-user-dirs dunst pulseaudio pavucontrol lightdm
 
-- Opção 6: Openbox + XFC4-Panel + Dockbarx
+- Opcao 6: Openbox + XFC4-Panel + Dockbarx
 add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y obsession openbox compton lxpolkit lxappearance lxappearance-obconf volumeicon-alsa pavucontrol alsa-utils pulseaudio arandr nemo nemo-fileroller file-roller cinnamon-l10n tilix xfce4-panel xfce4-whiskermenu-plugin dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin flameshot lightdm ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal
 #editar o autorun com /usr/bin/lxpolkit
 
-- Opção 7: Cinnammon 4.x (instalavel apenas no Bionic Beaver)
+- Opcao 7: Cinnammon 4.x (instalavel apenas no Bionic Beaver)
 add-apt-repository -y ppa:trebelnik-stefina/cinnamon ; apt update -y ; apt install -y cinnamon gnome-backgrounds nemo nemo-fileroller file-roller tilix xviewer lightdm
 
 - Limpa cache para evitar falta de espaco em disco
@@ -150,22 +149,22 @@ mkdir -p /boot/grub/themes ; cp /etc/default/grub /etc/default/.grub ; cp /opt/W
 echo -e 'GRUB_BACKGROUND=/boot/grub/themes/background.jpg\nGRUB_DISABLE_OS_PROBER=true' | tee -a /etc/default/grub
 echo -e 'menuentry "Reiniciar" {\n	echo "Reiniciando o sistema..."\n	reboot\n}\n\nmenuentry "Desligar" {\n	echo "Desligando o sistema..."\n	halt\n}\n' | tee -a /etc/grub.d/40_custom ; clear ; grub-install /dev/$grb ; grub-mkconfig -o /boot/grub/grub.cfg ; grub-mkconfig -o /boot/grub/grub.cfg
 
-- Hostname
-echo $hst > /etc/hostname
+- Hostname e bloqueios
+echo $hst > /etc/hostname ; mv /etc/hosts /etc/.hosts ; wget https://github.com/binolinux/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i 's/zzzzz/'$hst'/' /etc/hosts
 
 - Cria o novo usuario
 adduser $nnu ; adduser $nnu sudo ; chsh -s /bin/zsh $nnu
 
 - Senha do root
-passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root/.oh-my-zsh ; cp -a /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
+clear ; echo -n "\nDigite a senha do root:" ; passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root/.oh-my-zsh ; cp -a /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
 
-- Navegador Firefox Beta
+- Navegador Firefox Beta (fora do repositorio oficial)
 apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Firefox Beta\nGenericName=Web Browser\nGenericName[pt_BR]=Navegador Web\nComment=Browse the World Wide Web\nComment[pt_BR]=Navegue na Internet\nKeywords=Internet;WWW;Browser;Web;Explorer\nKeywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador\nExec=/usr/local/bin/firefox %u\nIcon=firefox\nTerminal=false\nX-MultipleArgs=false\nType=Application\nMimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;\nStartupNotify=true\nStartupWMClass=Firefox\nCategories=Network;WebBrowser;\nActions=new-window;new-private-window;\n\n[Desktop Action new-window]\nName=New Window\nName[pt_BR]=Nova janela\nExec=/usr/local/bin/firefox --new-window %u\n\n[Desktop Action new-private-window]\nName=New Private Window\nName[pt_BR]=Nova janela privativa\nExec=/usr/local/bin/firefox --private-window %u' | tee /usr/share/applications/firefox-beta.desktop ; ln -sf /opt/firefox/firefox /usr/local/bin/
 
 - Navegador Firefox
 apt install -y firefox firefox-locale-pt
 
-- Navegador Google Chrome
+- Navegador Google Chrome (fora do repositorio oficial)
 cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; apt install -y ./google-chrome.deb
 
 - Navegador Chromium com suporte a Netflix
@@ -174,7 +173,7 @@ apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://d
 - Seletor de linguagem
 ##apt install -y language-selector-gnome
 
-- Instala GIMP 2.10 (necessario apenas para o Bionic Beaver)
+- Instala GIMP 2.10 (ppa necessario apenas para o Bionic Beaver)
 add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
 
 - SMPlayer
@@ -183,7 +182,7 @@ apt update -y ; apt install -y smplayer mpv
 - Instala demais aplicativos
 apt install -y gnome-disk-utility gparted ffmpeg x264 easytag mediainfo-gui transmission-gtk geany gufw arch-install-scripts
 
-- Telegram Desktop
+- Telegram Desktop (fora do repositorio oficial)
 cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 #mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
 
@@ -193,10 +192,7 @@ mkdir -p /etc/sysctl.d/ ; echo 'vm.swappiness=10' | tee -a /etc/sysctl.d/99-sysc
 - Configura o Network-Manager (netplan)
 mkdir -p /etc/netplan/ ; echo -e 'network:\n  version: 2\n  renderer: NetworkManager' | sudo tee /etc/netplan/01-netcfg.yaml ; netplan --debug apply
 
-- Bloqueios no hosts
-htn=`cat /etc/hostname` ; mv /etc/hosts /etc/.hosts ; wget https://github.com/binolinux/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i 's/zzzzz/'$htn'/' /etc/hosts
-
-- Ative os serviços
+- Ative os servicos
 systemctl enable {dhcpcd,network-manager,ufw,lightdm}
 
 - Modifique o fstab
@@ -218,8 +214,3 @@ umount -R /mnt && reboot
 #https://wiki.archlinux.org/index.php/Swap#Swappiness
 #https://websiteforstudents.com/configure-static-ip-addresses-on-ubuntu-18-04-beta/
 
-
-
-###
-###
-#apt install -y gtk2-engines-xfce libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 tilix xfce4-whiskermenu-plugin xfce4-clipman-plugin xfce4-notifyd pulseaudio pavucontrol nemo file-roller nemo-fileroller cinnamon-l10n htop gtk2-engines-murrine gtk2-engines-pixbuf libexo-1-0 policykit-1-gnome xfce4-screenshooter ristretto tumbler network-manager-gnome lightdm ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal ; echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile ; add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; wget https://github.com/binolinux/look/raw/master/adapta-gtk-theme.7z ; 7z x -y adapta-gtk-theme.7z ; 7z x -y xfce4.7z
