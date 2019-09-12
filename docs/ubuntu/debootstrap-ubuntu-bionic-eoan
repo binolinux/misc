@@ -21,7 +21,7 @@ sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget
 
 - Exemplo de particionamento bios legacy
 /dev/sda1 --> 2GB de espaco (particao swap)
-/dev/sda2 --> / 15GB de espaco (particao root "/")
+/dev/sda2 --> / 15GB ou 20GB de espaco (particao root "/")
 /dev/sda3 --> / restante do disco  (particao /home)
 
 - Ative o swap com o comando
@@ -59,7 +59,7 @@ apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget 
 mkdir -p /temp ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; 7z x -y default.7z
 
 - Opcao 1: XFCE4 Desktop minimo com Nemo
-apt install -y libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 ristretto xfce4-clipman-plugin xfce4-notifyd xfce4-screenshooter xfce4-terminal xfce4-whiskermenu-plugin xfce4-power-manager xfce4-screensaver pulseaudio pavucontrol nemo plank file-roller nemo-fileroller cinnamon-l10n htop policykit-1-gnome network-manager-gnome lightdm lightdm-gtk-greeter ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; 7z x -y xfce4.7z
+apt install -y libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 ristretto xfce4-clipman-plugin xfce4-notifyd flameshot xfce4-terminal xfce4-whiskermenu-plugin xfce4-power-manager xfce4-screensaver pulseaudio pavucontrol nemo plank file-roller nemo-fileroller cinnamon-l10n htop policykit-1-gnome network-manager-gnome lightdm lightdm-gtk-greeter ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; 7z x -y xfce4.7z
 ##echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
 # removidos: libexo-1-0
 
