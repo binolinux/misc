@@ -103,7 +103,7 @@ wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folde
 cd /temp ; wget https://github.com/binolinux/look/raw/master/tela-icon-theme.7z ; 7z x -y tela-icon-theme.7z
 
 # configurando o sistema
-cd /temp ; rm -f *.7z ; clear ; echo -e '\nAguarde...\n\n' ; chmod 755 -R /temp/ ; chown -R root:root /temp/ ; cp -rT /temp/ / ; touch /etc/skel/.local/share/appimagekit/no_desktopintegration ; cp /void/zshrc /etc/skel/.zshrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/vlc/vlc-qt-interface.conf ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/ksmserverrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasmarc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/QtProject.conf ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; clear ; fc-cache
+cd /temp ; rm -f *.7z ; clear ; echo -e '\nAguarde...\n\n' ; chmod 755 -R /temp/ ; chown -R root:root /temp/ ; cp -rT /temp/ / ; touch /etc/skel/.local/share/appimagekit/no_desktopintegration ; cp /void/zshrc /etc/skel/.zshrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/vlc/vlc-qt-interface.conf ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/ksmserverrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasmarc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/QtProject.conf ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; clear ; rm -rf /temp ; fc-cache
 
 # cache breeze
 gtk-update-icon-cache /usr/share/icons/breeze ; gtk-update-icon-cache /usr/share/icons/breeze_cursors ; gtk-update-icon-cache /usr/share/icons/breeze-dark ; gtk-update-icon-cache /usr/share/icons/Breeze_Snow ; clear
@@ -207,9 +207,6 @@ dpkg-reconfigure locales ; dpkg-reconfigure tzdata
 
 - Modifica permissao da pasta
 chown -R $nnu:root /home/$nnu /opt/firefox /opt/Wallpapers
-
-- Limpa o sistema
-rm -rf /temp
 
 - Encerra o chroot
 exit
