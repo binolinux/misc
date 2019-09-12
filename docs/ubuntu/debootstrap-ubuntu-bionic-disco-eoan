@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Disco Dingo | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -------------------------------------------------------------------------------------------------------
 
-Atualizado: 11/09/2019
+Atualizado: 12/09/2019
 Contato Telegram: @rocker_raccoon
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -23,7 +23,7 @@ sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget
 /dev/sda3 --> / restante do disco  (partição /home)
 
 - Ative o swap com o comando
-swapon /dev/sda1
+swapon /dev/sda5
 
 - Monte a partição destino em /mnt com o comando
 mount /dev/sda2 /mnt
@@ -45,7 +45,7 @@ arch-chroot /mnt/ /bin/bash
 
 - Defina as variaveis com nome de usuario e hostname
 #nnu="NOMEDOUSUARIO" ; hst="NOMEDAMAQUINA"
-nnu="rocker" ; hst="ubuntu"
+nnu="rocker" ; hst="xubby"
 
 - Configure o apt
 echo 'APT::Install-Recommends "0";' | tee -a /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf ; apt update -y ; apt full-upgrade -y
@@ -96,15 +96,10 @@ git clone https://github.com/binolinux/backgrounds /opt/Wallpapers
 cd /tmp ; wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | sh
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/install.sh | sh
 # tela-icon-theme
-git clone https://github.com/vinceliuice/Tela-icon-theme /tmp/tela ; sed -i 's/hicolor/Papirus,hicolor/' /tmp/tela/src/index.theme ; cd /tmp/tela ; sh ./install.sh -a
-if [ ! -d /usr/share/icons/Tela ]
-then
 cd /temp ; wget https://github.com/binolinux/look/raw/master/tela-icon-theme.7z ; 7z x -y tela-icon-theme.7z
-fi
 
 # configurando o sistema
 cd /temp ; rm -f *.7z ; clear ; echo -e '\nAguarde...\n\n' ; chmod 755 -R /temp/ ; chown -R root:root /temp/ ; cp -rT /temp/ / ; touch /etc/skel/.local/share/appimagekit/no_desktopintegration ; cp /void/zshrc /etc/skel/.zshrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/vlc/vlc-qt-interface.conf ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/ksmserverrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasmarc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/QtProject.conf ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; clear ; fc-cache
-cp -rR /etc/skel/ $HOME/
 
 # cache breeze
 gtk-update-icon-cache /usr/share/icons/breeze ; gtk-update-icon-cache /usr/share/icons/breeze_cursors ; gtk-update-icon-cache /usr/share/icons/breeze-dark ; gtk-update-icon-cache /usr/share/icons/Breeze_Snow ; clear
