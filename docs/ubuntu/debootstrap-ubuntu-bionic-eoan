@@ -118,31 +118,33 @@ Drivers de video:
 
 - Driver Nouveau (free) 
 Bionic Beaver: apt install -y xserver-xorg-video-nouveau-hwe-16.04
-Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
+Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nvidia (propietário)
-Bionic Beaver: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; add-apt-repository -y ppa:graphics-drivers/ppa ; apt update -y ; apt full-upgrade -y ; apt install -y nvidia-driver-430 nvidia-settings ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; cp /etc/default/grub /etc/default/.grub ; sed -i 's/"quiet splash"/"nouveau.modeset=0 quiet splash"/' /etc/default/grub ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
-Disco Dingo | Eoan Ermine: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt install -y nvidia-driver-430 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; cp /etc/default/grub /etc/default/.grub ; sed -i 's/"quiet splash"/"loglevel=0 nouveau.modeset=0 nvidia-drm.modeset=1 quiet splash"/' /etc/default/grub ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
+Bionic Beaver: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt install -y nvidia-driver-430 nvidia-settings ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
+#comando inutil: sed -i 's/"quiet splash"/"loglevel=0 nouveau.modeset=0 nvidia-drm.modeset=1 quiet splash"/' /etc/default/grub
+Eoan Ermine: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt update -y ; apt install -y nvidia-driver-435 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
+#comando inutil: sed -i 's/"quiet splash"/"loglevel=0 nouveau.modeset=0 nvidia-drm.modeset=1 quiet splash"/' /etc/default/grub
 
 - Driver VESA (generico)
 Bionic Beaver: apt install -y xserver-xorg-video-vesa-hwe-16.04
-Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-vesa-hwe-18.04
+Eoan Ermine: apt install -y xserver-xorg-video-vesa-hwe-18.04
 
 - Driver VMWare (VirtualBox)
 Bionic Beaver: apt install -y xserver-xorg-video-vmware-hwe-16.04
-Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-vmware-hwe-18.04
+Eoan Ermine: apt install -y xserver-xorg-video-vmware-hwe-18.04
 
 - Driver ATI
 Bionic Beaver: apt install -y xserver-xorg-video-ati-hwe-16.04
-Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-ati-hwe-18.04
+Eoan Ermine: apt install -y xserver-xorg-video-ati-hwe-18.04
 
 - Driver AMDGPU
 Bionic Beaver: apt install -y xserver-xorg-video-amdgpu-hwe-16.04
-Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-amdgpu-hwe-18.04
+Eoan Ermine: apt install -y xserver-xorg-video-amdgpu-hwe-18.04
 
 - Driver Intel
 Bionic Beaver: apt install -y xserver-xorg-video-intel-hwe-16.04
-Disco Dingo | Eoan Ermine: apt install -y xserver-xorg-video-intel-hwe-18.04
+Eoan Ermine: apt install -y xserver-xorg-video-intel-hwe-18.04
 
 - Desabilita o OS-Prober
 mkdir -p /boot/grub/themes ; cp /etc/default/grub /etc/default/.grub ; cp /opt/Wallpapers/wallhaven-4dpg5j.jpg /boot/grub/themes/background.jpg
@@ -152,7 +154,7 @@ echo -e 'menuentry "Reiniciar" {\n	echo "Reiniciando o sistema..."\n	reboot\n}\n
 - Hostname e bloqueios
 echo $hst > /etc/hostname ; mv /etc/hosts /etc/.hosts ; wget https://github.com/binolinux/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i 's/zzzzz/'$hst'/' /etc/hosts
 
-- Cria o novo usuario
+- Novo usuario
 adduser $nnu ; adduser $nnu sudo ; chsh -s /bin/zsh $nnu
 
 - Senha do root
