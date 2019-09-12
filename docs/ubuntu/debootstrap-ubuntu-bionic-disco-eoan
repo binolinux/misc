@@ -84,6 +84,9 @@ add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/s
 - Opção 7: Cinnammon 4.x (instalavel apenas no Bionic Beaver)
 add-apt-repository -y ppa:trebelnik-stefina/cinnamon ; apt update -y ; apt install -y cinnamon gnome-backgrounds nemo nemo-fileroller file-roller tilix xviewer lightdm
 
+- Limpa cache para evitar falta de espaco em disco
+apt clean -y ; apt autoclean -y
+
 # visual
 cd /temp ; wget https://github.com/binolinux/look/raw/master/fontes-ttf-pack.7z ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; wget https://github.com/binolinux/look/raw/master/breeze-icon-theme.7z ; wget https://github.com/binolinux/look/raw/master/breeze-gtk-theme.7z ; 7z x -y fontes-ttf-pack.7z ; 7z x -y breeze-icon-theme.7z ; 7z x -y breeze-gtk-theme.7z ; 7z x -y xfce4.7z ; clear
 # arc-gtk-theme
@@ -181,7 +184,8 @@ apt update -y ; apt install -y smplayer mpv
 apt install -y gnome-disk-utility gparted ffmpeg x264 easytag mediainfo-gui transmission-gtk geany gufw arch-install-scripts
 
 - Telegram Desktop
-cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
+cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
+#mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
 
 - Diminuir o swappiness
 mkdir -p /etc/sysctl.d/ ; echo 'vm.swappiness=10' | tee -a /etc/sysctl.d/99-sysctl.conf
@@ -196,7 +200,7 @@ htn=`cat /etc/hostname` ; mv /etc/hosts /etc/.hosts ; wget https://github.com/bi
 systemctl enable {dhcpcd,network-manager,ufw,lightdm}
 
 - Modifique o fstab
-echo -e '\n# swapfile\n/opt/.swapfile  	none      	swap      	defaults  	0 0\n\n# tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev,size=2G 0 0\ntmpfs /home/'$nnu'/.cache tmpfs defaults,nosuid,nodev,size=5G 0 0' | tee -a /etc/fstab
+echo -e '# tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev,size=2G 0 0\ntmpfs /home/'$nnu'/.cache tmpfs defaults,nosuid,nodev,size=5G 0 0' | tee -a /etc/fstab
 
 - Configure o idioma e fuso horario
 dpkg-reconfigure locales ; dpkg-reconfigure tzdata
