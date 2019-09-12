@@ -43,7 +43,6 @@ debootstrap eoan /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sour
 arch-chroot /mnt/ /bin/bash
 
 - Defina as variaveis com nome de usuario e hostname
-#nnu="NOMEDOUSUARIO" ; hst="NOMEDAMAQUINA"
 nnu="jh" ; hst="jhx-pc"
 
 - Configure o apt
@@ -161,7 +160,7 @@ adduser $nnu ; adduser $nnu sudo ; chsh -s /bin/zsh $nnu
 clear ; echo -n "\nDigite a senha do root:" ; passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root/.oh-my-zsh ; cp -a /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
 
 - Navegador Firefox Beta (fora do repositorio oficial)
-apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Firefox Beta\nGenericName=Web Browser\nGenericName[pt_BR]=Navegador Web\nComment=Browse the World Wide Web\nComment[pt_BR]=Navegue na Internet\nKeywords=Internet;WWW;Browser;Web;Explorer\nKeywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador\nExec=/usr/local/bin/firefox %u\nIcon=firefox\nTerminal=false\nX-MultipleArgs=false\nType=Application\nMimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;\nStartupNotify=true\nStartupWMClass=Firefox\nCategories=Network;WebBrowser;\nActions=new-window;new-private-window;\n\n[Desktop Action new-window]\nName=New Window\nName[pt_BR]=Nova janela\nExec=/usr/local/bin/firefox --new-window %u\n\n[Desktop Action new-private-window]\nName=New Private Window\nName[pt_BR]=Nova janela privativa\nExec=/usr/local/bin/firefox --private-window %u' | tee /usr/share/applications/firefox-beta.desktop ; ln -sf /opt/firefox/firefox /usr/local/bin/
+apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; rm-f ./firefox.tar.bz2 ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Firefox Beta\nGenericName=Web Browser\nGenericName[pt_BR]=Navegador Web\nComment=Browse the World Wide Web\nComment[pt_BR]=Navegue na Internet\nKeywords=Internet;WWW;Browser;Web;Explorer\nKeywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador\nExec=/usr/local/bin/firefox %u\nIcon=firefox\nTerminal=false\nX-MultipleArgs=false\nType=Application\nMimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;\nStartupNotify=true\nStartupWMClass=Firefox\nCategories=Network;WebBrowser;\nActions=new-window;new-private-window;\n\n[Desktop Action new-window]\nName=New Window\nName[pt_BR]=Nova janela\nExec=/usr/local/bin/firefox --new-window %u\n\n[Desktop Action new-private-window]\nName=New Private Window\nName[pt_BR]=Nova janela privativa\nExec=/usr/local/bin/firefox --private-window %u' | tee /usr/share/applications/firefox-beta.desktop ; ln -sf /opt/firefox/firefox /usr/local/bin/
 
 - Navegador Firefox
 apt install -y firefox firefox-locale-pt
@@ -172,8 +171,8 @@ cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_a
 - Navegador Chromium com suporte a Netflix
 apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; 7z x -y google-chrome.deb ; 7z x -y data.tar ; cp ./opt/google/chrome/libwidevinecdm.so /usr/lib/chromium
 
-- Seletor de linguagem
-##apt install -y language-selector-gnome
+- TeamViewer
+cd /tmp ; wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb ; apt install -y ./teamviewer_amd64.deb ; apt install -f -y
 
 - Instala GIMP 2.10 (ppa necessario apenas para o Bionic Beaver)
 add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
@@ -185,8 +184,11 @@ apt update -y ; apt install -y smplayer mpv
 apt install -y gnome-disk-utility gparted ffmpeg x264 easytag mediainfo-gui transmission-gtk geany gufw arch-install-scripts
 
 - Telegram Desktop (fora do repositorio oficial)
-cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
+cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; rm -f ./telegram.tar.xz
 #mkdir -p /etc/skel/.config/autostart ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Telegram Desktop\nComment=Official desktop application for the Telegram messaging service\nTryExec=/usr/local/bin/telegram-desktop\nExec=/usr/local/bin/telegram-desktop -startintray\nIcon=telegram\nTerminal=false\nStartupWMClass=TelegramDesktop\nType=Application\nCategories=Network;InstantMessaging;Qt;\nMimeType=x-scheme-handler/tg;\nKeywords=tg;chat;im;messaging;messenger;sms;tdesktop;\nX-GNOME-UsesNotifications=true\nX-Desktop-File-Install-Version=0.24\nX-GNOME-Autostart-enabled=true\nX-GNOME-Autostart-Delay=10' | tee /etc/skel/.config/autostart/telegram-desktop.desktop ; chmod +x /etc/skel/.config/autostart/telegram-desktop.desktop
+
+- Seletor de linguagem
+##apt install -y language-selector-gnome
 
 - Diminuir o swappiness
 mkdir -p /etc/sysctl.d/ ; echo 'vm.swappiness=10' | tee -a /etc/sysctl.d/99-sysctl.conf
@@ -202,6 +204,9 @@ echo -e '# tmpfs\ntmpfs /tmp tmpfs defaults,nosuid,nodev,size=2G 0 0\ntmpfs /hom
 
 - Configure o idioma e fuso horario
 dpkg-reconfigure locales ; dpkg-reconfigure tzdata
+
+- Limpeza do sistema
+apt clean -y ; apt autoclean -y
 
 - Modifica permissao da pasta
 chown -R $nnu:root /home/$nnu /opt/firefox /opt/Wallpapers
