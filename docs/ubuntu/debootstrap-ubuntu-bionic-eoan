@@ -121,7 +121,6 @@ Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nvidia (propietário)
 Bionic Beaver: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt install -y nvidia-driver-430 nvidia-settings ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
-#comando inutil: sed -i 's/"quiet splash"/"loglevel=0 nouveau.modeset=0 nvidia-drm.modeset=1 quiet splash"/' /etc/default/grub
 Eoan Ermine: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt update -y ; apt install -y nvidia-driver-435 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
 #comando inutil: sed -i 's/"quiet splash"/"loglevel=0 nouveau.modeset=0 nvidia-drm.modeset=1 quiet splash"/' /etc/default/grub
 
@@ -166,13 +165,13 @@ apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/
 apt install -y firefox firefox-locale-pt
 
 - Navegador Google Chrome (fora do repositorio oficial)
-cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; apt install -y ./google-chrome.deb
+cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; apt install --no-install-recommends -y ./google-chrome.deb
 
 - Navegador Chromium com suporte a Netflix
 apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; 7z x -y google-chrome.deb ; 7z x -y data.tar ; cp ./opt/google/chrome/libwidevinecdm.so /usr/lib/chromium
 
 - TeamViewer
-cd /tmp ; wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb ; apt install -y ./teamviewer_amd64.deb ; apt install -f -y
+cd /tmp ; wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb ; apt install --no-install-recommends -y ./teamviewer_amd64.deb ; apt install -f -y
 
 - Instala GIMP 2.10 (ppa necessario apenas para o Bionic Beaver)
 add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
