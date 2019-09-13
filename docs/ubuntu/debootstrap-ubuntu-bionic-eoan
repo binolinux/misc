@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
-Atualizado: 12/09/2019
+Atualizado: 13/09/2019
 Contato Telegram: @julian_huxley
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -45,8 +45,13 @@ arch-chroot /mnt/ /bin/bash
 - Defina as variaveis com nome de usuario e hostname
 nnu="jh" ; hst="jhx-pc"
 
+- Bloqueie a instalacao de pacotes snap no sistema
+apt-mark hold snap
+
 - Configure o apt
-echo 'APT::Install-Recommends "0";' | tee -a /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf ; apt update -y ; apt full-upgrade -y
+echo 'APT::Install-Recommends "0";' | tee -a /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf
+echo -e 'Package: snap\nPin: release o=Ubuntu\nPin-Priority: -1' | tee -a /etc/apt/preferences
+apt update -y ; apt full-upgrade -y
 
 - Crie as pastas do usuario em /etc/skel
 mkdir -p /etc/skel/{"Desktop","Documentos","Downloads","Imagens","Modelos","Música","Público","Vídeos",".bin",".icons",".themes",".fonts"}
