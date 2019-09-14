@@ -46,7 +46,7 @@ arch-chroot /mnt/ /bin/bash
 nnu="rocker" ; hst="jhx-pc"
 
 - Configure o apt
-echo 'APT::Install-Recommends "0";' | tee -a /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf
+echo 'APT::Install-Recommends "0";\nAPT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf
 
 - Bloqueie a instalacao de pacotes snap no sistema
 echo -e 'Package: snap\nPin: release o=Ubuntu\nPin-Priority: -1' | tee -a /etc/apt/preferences
