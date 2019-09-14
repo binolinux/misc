@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Bionic Beaver | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
-Atualizado: 13/09/2019
+Atualizado: 14/09/2019
 Contato Telegram: @julian_huxley
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -15,7 +15,7 @@ sudo dd if=eoan-desktop-amd64.iso of=/dev/sdX bs=4M status=progress && sync
 - Dê boot na maquina com o live USB e quando aparecer uma imagem na parte inferior da tela, aperte F2 e escolha o idioma "Português do Brasil"
 
 - Quando carregar o sistema, abra o terminal e digite os comandos abaixo
-sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip ; sudo su
+sudo apt update -y ; sudo apt install -y arch-install-scripts debootstrap git geany ; cd $HOME ; wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip ; sudo su
 
 - Digite gparted no terminal para particionar o disco.
 
@@ -43,28 +43,30 @@ debootstrap eoan /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sour
 arch-chroot /mnt/ /bin/bash
 
 - Defina as variaveis com nome de usuario e hostname
-nnu="jh" ; hst="jhx-pc"
-
-- Bloqueie a instalacao de pacotes snap no sistema
-apt-mark hold snap
+nnu="rocker" ; hst="jhx-pc"
 
 - Configure o apt
 echo 'APT::Install-Recommends "0";' | tee -a /etc/apt/apt.conf ; echo 'APT::Install-Suggests "0";' | tee -a /etc/apt/apt.conf
+
+- Bloqueie a instalacao de pacotes snap no sistema
 echo -e 'Package: snap\nPin: release o=Ubuntu\nPin-Priority: -1' | tee -a /etc/apt/preferences
+
+- Update
 apt update -y ; apt full-upgrade -y
 
 - Crie as pastas do usuario em /etc/skel
 mkdir -p /etc/skel/{"Desktop","Documentos","Downloads","Imagens","Modelos","Música","Público","Vídeos",".bin",".icons",".themes",".fonts"}
 
 - Instalar o kernel padrao e pacotes essenciais ao funcionamento do sistema (grub-pc deve sersubstituido por grub-efi no caso de uma instacao UEFI)
-apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget git ca-certificates ntfs-3g dosfstools p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync nano alsa-utils network-manager ttf-dejavu ttf-ubuntu-font-family zsh netplan.io ufw software-properties-common 
-# removidos: os-prober
+apt install -y linux-{image,headers}-generic dhcpcd5 grub-pc locales gnupg wget git ca-certificates ntfs-3g exfat-fuse dosfstools unrar p7zip-full xinit xserver-xorg-core xserver-xorg-input-all xdg-user-dirs x11-xserver-utils x11-session-utils rsync nano alsa-utils network-manager ttf-dejavu ttf-ubuntu-font-family zsh netplan.io ufw
+# removidos: os-prober software-properties-common 
 
 - Cria o diretorio temporário e baixa configuracoes dos desktop
-mkdir -p /temp ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z ; 7z x -y default.7z
+mkdir -p /temp ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/default.7z
 
 - Opcao 1: XFCE4 Desktop minimo com Nemo
-apt install -y libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 ristretto xfce4-clipman-plugin xfce4-notifyd flameshot xfce4-terminal xfce4-whiskermenu-plugin xfce4-power-manager xfce4-screensaver pulseaudio pavucontrol nemo plank file-roller nemo-fileroller cinnamon-l10n htop policykit-1-gnome network-manager-gnome lightdm lightdm-gtk-greeter ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; 7z x -y xfce4.7z
+apt install -y libxfce4ui-utils xfce4-appfinder xfce4-panel xfce4-pulseaudio-plugin xfce4-session xfce4-settings xfconf xfdesktop4 xfwm4 ristretto xfce4-clipman-plugin xfce4-notifyd flameshot xfce4-terminal xfce4-whiskermenu-plugin xfce4-power-manager xfce4-screensaver pulseaudio pavucontrol nemo plank file-roller nemo-fileroller cinnamon-l10n htop policykit-1-gnome network-manager-gnome lightdm lightdm-gtk-greeter mate-calc wmctrl ; ln -sf /usr/bin/xfce4-terminal /usr/bin/gnome-terminal ; cd /temp ; wget https://github.com/binolinux/misc/raw/master/configs-de-wm/xfce4.7z ; 7z x -y default.7z ; 7z x -y xfce4.7z
+
 ##echo "exec startxfce4" >> /etc/skel/.xinitrc ; echo 'export XDG_SESSION_TYPE="X11"' >> /etc/skel/.zprofile ; echo "startx" >> /etc/skel/.zprofile
 # removidos: libexo-1-0
 
@@ -100,20 +102,20 @@ cd /tmp ; git clone https://github.com/daniruiz/flat-remix-gtk ; chmod 755 -R ./
 git clone https://github.com/binolinux/backgrounds /opt/Wallpapers
 
 # papirus-icon-theme
-cd /tmp ; wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | sh
-wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/install.sh | sh
+cd /tmp ; wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh | sh ; wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/install.sh | sh ; clear
 # tela-icon-theme
 cd /temp ; wget https://github.com/binolinux/look/raw/master/tela-icon-theme.7z ; 7z x -y tela-icon-theme.7z
 
 # configurando o sistema
-cd /temp ; rm -f *.7z ; clear ; echo -e '\nAguarde...\n\n' ; chmod 755 -R /temp/ ; chown -R root:root /temp/ ; cp -rT /temp/ / ; touch /etc/skel/.local/share/appimagekit/no_desktopintegration ; cp /void/zshrc /etc/skel/.zshrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/vlc/vlc-qt-interface.conf ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/ksmserverrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasmarc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/QtProject.conf ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; clear ; rm -rf /temp ; fc-cache
+cd /temp ; rm -f *.7z ; clear ; echo -e '\nAguarde...\n\n' ; chmod 755 -R /temp/ ; chown -R root:root /temp/ ; 
+mv /temp/usr/share/icons/Tela* /usr/share/icons/ ; mv /temp/usr/share/fonts/* /usr/share/fonts/ ; cp -rT /temp/ / ; touch /etc/skel/.local/share/appimagekit/no_desktopintegration ; cp /void/zshrc /etc/skel/.zshrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/gtk-3.0/bookmarks ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/transmission/settings.json ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/config ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/vlc/vlc-qt-interface.conf ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/audacious/playlist-state ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/ksmserverrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/plasmarc ; sed -i 's/zzzzz/'$nnu'/' /etc/skel/.config/QtProject.conf ; ln -sf /opt/Wallpapers /etc/skel/Imagens/ ; clear ; rm -rf /temp ; fc-cache
 
 # cache breeze
 gtk-update-icon-cache /usr/share/icons/breeze ; gtk-update-icon-cache /usr/share/icons/breeze_cursors ; gtk-update-icon-cache /usr/share/icons/breeze-dark ; gtk-update-icon-cache /usr/share/icons/Breeze_Snow ; clear
 # cache oxy
 gtk-update-icon-cache /usr/share/icons/oxy-black ; gtk-update-icon-cache /usr/share/icons/oxy-blue ; gtk-update-icon-cache /usr/share/icons/oxy-bluecurve ; gtk-update-icon-cache /usr/share/icons/oxy-brown ; gtk-update-icon-cache /usr/share/icons/oxy-cherry ; gtk-update-icon-cache /usr/share/icons/oxy-emerald ; gtk-update-icon-cache /usr/share/icons/oxy-green ; gtk-update-icon-cache /usr/share/icons/oxy-grey ; gtk-update-icon-cache /usr/share/icons/oxy-hot_orange ; gtk-update-icon-cache /usr/share/icons/oxy-lilac ; gtk-update-icon-cache /usr/share/icons/oxy-midnight_meadow ; gtk-update-icon-cache /usr/share/icons/oxy-navy ; gtk-update-icon-cache /usr/share/icons/oxy-obsidian ; gtk-update-icon-cache /usr/share/icons/oxy-olympus ; gtk-update-icon-cache /usr/share/icons/oxy-orchid ; gtk-update-icon-cache /usr/share/icons/oxy-oxygen ; gtk-update-icon-cache /usr/share/icons/oxy-peach ; gtk-update-icon-cache /usr/share/icons/oxy-purple ; gtk-update-icon-cache /usr/share/icons/oxy-red ; gtk-update-icon-cache /usr/share/icons/oxy-sea_blue ; gtk-update-icon-cache /usr/share/icons/oxy-steel ; gtk-update-icon-cache /usr/share/icons/oxy-violet ; gtk-update-icon-cache /usr/share/icons/oxy-viorange ; gtk-update-icon-cache /usr/share/icons/oxy-white ; gtk-update-icon-cache /usr/share/icons/oxy-whitewater ; gtk-update-icon-cache /usr/share/icons/oxy-yellow ; gtk-update-icon-cache /usr/share/icons/oxy-zion ; clear
 # cache tela
-gtk-update-icon-cache /usr/share/icons/Tela ; gtk-update-icon-cache /usr/share/icons/Tela-black ; gtk-update-icon-cache /usr/share/icons/Tela-black-dark ; gtk-update-icon-cache /usr/share/icons/Tela-blue ; gtk-update-icon-cache /usr/share/icons/Tela-blue-dark ; gtk-update-icon-cache /usr/share/icons/Tela-brown ; gtk-update-icon-cache /usr/share/icons/Tela-brown-dark ; gtk-update-icon-cache /usr/share/icons/Tela-dark ; gtk-update-icon-cache /usr/share/icons/Tela-green ; gtk-update-icon-cache /usr/share/icons/Tela-green-dark ; gtk-update-icon-cache /usr/share/icons/Tela-grey ; gtk-update-icon-cache /usr/share/icons/Tela-grey-dark ; gtk-update-icon-cache /usr/share/icons/Tela-manjaro ; gtk-update-icon-cache /usr/share/icons/Tela-manjaro-dark ; gtk-update-icon-cache /usr/share/icons/Tela-orange ; gtk-update-icon-cache /usr/share/icons/Tela-orange-dark ; gtk-update-icon-cache /usr/share/icons/Tela-pink ; gtk-update-icon-cache /usr/share/icons/Tela-pink-dark ; gtk-update-icon-cache /usr/share/icons/Tela-purple ; gtk-update-icon-cache /usr/share/icons/Tela-purple-dark ; gtk-update-icon-cache /usr/share/icons/Tela-red ; gtk-update-icon-cache /usr/share/icons/Tela-red-dark ; gtk-update-icon-cache /usr/share/icons/Tela-ubuntu ; gtk-update-icon-cache /usr/share/icons/Tela-ubuntu-dark ; gtk-update-icon-cache /usr/share/icons/Tela-yellow ; gtk-update-icon-cache /usr/share/icons/Tela-yellow-dark
+gtk-update-icon-cache /usr/share/icons/Tela ; gtk-update-icon-cache /usr/share/icons/Tela-black ; gtk-update-icon-cache /usr/share/icons/Tela-black-dark ; gtk-update-icon-cache /usr/share/icons/Tela-blue ; gtk-update-icon-cache /usr/share/icons/Tela-blue-dark ; gtk-update-icon-cache /usr/share/icons/Tela-brown ; gtk-update-icon-cache /usr/share/icons/Tela-brown-dark ; gtk-update-icon-cache /usr/share/icons/Tela-dark ; gtk-update-icon-cache /usr/share/icons/Tela-green ; gtk-update-icon-cache /usr/share/icons/Tela-green-dark ; gtk-update-icon-cache /usr/share/icons/Tela-grey ; gtk-update-icon-cache /usr/share/icons/Tela-grey-dark ; gtk-update-icon-cache /usr/share/icons/Tela-manjaro ; gtk-update-icon-cache /usr/share/icons/Tela-manjaro-dark ; gtk-update-icon-cache /usr/share/icons/Tela-orange ; gtk-update-icon-cache /usr/share/icons/Tela-orange-dark ; gtk-update-icon-cache /usr/share/icons/Tela-pink ; gtk-update-icon-cache /usr/share/icons/Tela-pink-dark ; gtk-update-icon-cache /usr/share/icons/Tela-purple ; gtk-update-icon-cache /usr/share/icons/Tela-purple-dark ; gtk-update-icon-cache /usr/share/icons/Tela-red ; gtk-update-icon-cache /usr/share/icons/Tela-red-dark ; gtk-update-icon-cache /usr/share/icons/Tela-ubuntu ; gtk-update-icon-cache /usr/share/icons/Tela-ubuntu-dark ; gtk-update-icon-cache /usr/share/icons/Tela-yellow ; gtk-update-icon-cache /usr/share/icons/Tela-yellow-dark ; clear
 # icone start
 ln -sf /usr/share/icons/start-ubuntu.png /usr/share/icons/start-distro.png
 
@@ -126,8 +128,7 @@ Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nvidia (propietário)
 Bionic Beaver: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt install -y nvidia-driver-430 nvidia-settings ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
-Eoan Ermine: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt update -y ; apt install -y nvidia-driver-435 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
-#comando inutil: sed -i 's/"quiet splash"/"loglevel=0 nouveau.modeset=0 nvidia-drm.modeset=1 quiet splash"/' /etc/default/grub
+Eoan Ermine: apt install -y nvidia-driver-435 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/
 
 - Driver VESA (generico)
 Bionic Beaver: apt install -y xserver-xorg-video-vesa-hwe-16.04
@@ -152,16 +153,17 @@ Eoan Ermine: apt install -y xserver-xorg-video-intel-hwe-18.04
 - Desabilita o OS-Prober
 mkdir -p /boot/grub/themes ; cp /etc/default/grub /etc/default/.grub ; cp /opt/Wallpapers/wallhaven-4dpg5j.jpg /boot/grub/themes/background.jpg
 echo -e 'GRUB_BACKGROUND=/boot/grub/themes/background.jpg\nGRUB_DISABLE_OS_PROBER=true' | tee -a /etc/default/grub
-echo -e 'menuentry "Reiniciar" {\n	echo "Reiniciando o sistema..."\n	reboot\n}\n\nmenuentry "Desligar" {\n	echo "Desligando o sistema..."\n	halt\n}\n' | tee -a /etc/grub.d/40_custom ; clear ; grub-install /dev/$grb ; grub-mkconfig -o /boot/grub/grub.cfg ; grub-mkconfig -o /boot/grub/grub.cfg
+echo -e '\nmenuentry "Reiniciar" {\n	echo "Reiniciando o sistema..."\n	reboot\n}\n\nmenuentry "Desligar" {\n	echo "Desligando o sistema..."\n	halt\n}\n' | tee -a /etc/grub.d/40_custom ; clear ; grub-mkconfig -o /boot/grub/grub.cfg
 
 - Hostname e bloqueios
-echo $hst > /etc/hostname ; mv /etc/hosts /etc/.hosts ; wget https://github.com/binolinux/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i 's/zzzzz/'$hst'/' /etc/hosts
+echo $hst > /etc/hostname ; mv /etc/hosts /etc/.hosts ; wget https://github.com/binolinux/misc/raw/master/docs/hosts -O /etc/hosts ; sed -i 's/zzzzz/'$hst'/' /etc/hosts ; sed -i 's/zzzzz/'$hst'/' /etc/hosts
 
 - Novo usuario
-adduser $nnu ; adduser $nnu sudo ; chsh -s /bin/zsh $nnu
+groupadd -r autologin
+adduser $nnu ; adduser $nnu sudo ; adduser $nnu autologin ; chsh -s /bin/zsh $nnu
 
 - Senha do root
-clear ; echo -n "\nDigite a senha do root:" ; passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root/.oh-my-zsh ; cp -a /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
+clear ; echo -e "\nDigite a senha do root:" ; passwd ; chsh -s /bin/zsh ; cp -a /etc/skel/.oh-my-zsh /root/.oh-my-zsh ; cp -a /etc/skel/.oh-my-zsh/templates/zshrc.zsh-template /root/.zshrc
 
 - Navegador Firefox Beta (fora do repositorio oficial)
 apt install -y libdbus-glib-1-2 ; cd /tmp/ ; wget "https://download.mozilla.org/?product=firefox-beta-latest-ssl&os=linux64&lang=pt-BR" -O firefox.tar.bz2 ; tar -jxvf firefox.tar.bz2 -C /opt/ ; rm-f ./firefox.tar.bz2 ; echo -e '[Desktop Entry]\nVersion=1.0\nName=Firefox Beta\nGenericName=Web Browser\nGenericName[pt_BR]=Navegador Web\nComment=Browse the World Wide Web\nComment[pt_BR]=Navegue na Internet\nKeywords=Internet;WWW;Browser;Web;Explorer\nKeywords[pt_BR]=Internet;WWW;Browser;Web;Explorador;Navegador\nExec=/usr/local/bin/firefox %u\nIcon=firefox\nTerminal=false\nX-MultipleArgs=false\nType=Application\nMimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;\nStartupNotify=true\nStartupWMClass=Firefox\nCategories=Network;WebBrowser;\nActions=new-window;new-private-window;\n\n[Desktop Action new-window]\nName=New Window\nName[pt_BR]=Nova janela\nExec=/usr/local/bin/firefox --new-window %u\n\n[Desktop Action new-private-window]\nName=New Private Window\nName[pt_BR]=Nova janela privativa\nExec=/usr/local/bin/firefox --private-window %u' | tee /usr/share/applications/firefox-beta.desktop ; ln -sf /opt/firefox/firefox /usr/local/bin/
@@ -179,7 +181,8 @@ apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://d
 cd /tmp ; wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb ; apt install --no-install-recommends -y ./teamviewer_amd64.deb ; apt install -f -y
 
 - Instala GIMP 2.10 (ppa necessario apenas para o Bionic Beaver)
-add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
+Bionic Beaver: add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp
+Eoan Ermine: apt install -y gimp
 
 - SMPlayer
 apt update -y ; apt install -y smplayer mpv
