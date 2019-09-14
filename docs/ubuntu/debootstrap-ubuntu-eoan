@@ -1,4 +1,4 @@
-Debootstrap Ubuntu Bionic Beaver | Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
+Debootstrap Ubuntu Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 Atualizado: 14/09/2019
@@ -33,10 +33,7 @@ mount /dev/sda2 /mnt
 - Crie a pasta do /home no /mnt e monte a particao
 mkdir /mnt/home ; mount /dev/sda3 /mnt/home
 
-- Opcao 1: Faca o debooststrap da base do Ubuntu Bionic Beaver com o comando abaixo
-debootstrap bionic /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/bionic-sources.list -O /mnt/etc/apt/sources.list ; genfstab -U -p /mnt > /mnt/etc/fstab
-
-- Opcao 2: Faca o debooststrap da base do Ubuntu Eoan Ermine com o comando abaixo
+- Faca o debooststrap da base do Ubuntu Eoan Ermine com o comando abaixo
 debootstrap eoan /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/eoan-sources.list -O /mnt/etc/apt/sources.list ; genfstab -U -p /mnt > /mnt/etc/fstab
 
 - Entre em Chroot
@@ -83,9 +80,6 @@ apt install -y sakura bspwm sxhkd lxpolkit lxappearance tint2 volumeicon-alsa ar
 add-apt-repository -y ppa:xuzhen666/dockbarx ; sed -i 's/eoan/disco/' /etc/apt/sources.list.d/xuzhen666-ubuntu-dockbarx-eoan.list ; apt update -y ; apt install -y obsession openbox compton lxpolkit lxappearance lxappearance-obconf volumeicon-alsa pavucontrol alsa-utils pulseaudio arandr nemo nemo-fileroller file-roller cinnamon-l10n tilix xfce4-panel xfce4-whiskermenu-plugin dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin flameshot lightdm ; apt install -y dockbarx dockbarx-themes-extra xfce4-dockbarx-plugin ; ln -sf /usr/bin/tilix /usr/bin/gnome-terminal
 #editar o autorun com /usr/bin/lxpolkit
 
-- Opcao 7: Cinnammon 4.x (instalavel apenas no Bionic Beaver)
-add-apt-repository -y ppa:trebelnik-stefina/cinnamon ; apt update -y ; apt install -y cinnamon gnome-backgrounds nemo nemo-fileroller file-roller tilix xviewer lightdm
-
 - Limpa cache para evitar falta de espaco em disco
 apt clean -y ; apt autoclean -y
 
@@ -120,32 +114,25 @@ Drivers de video:
 ------------------
 
 - Driver Nouveau (free) 
-Bionic Beaver: apt install -y xserver-xorg-video-nouveau-hwe-16.04
-Eoan Ermine: apt install -y xserver-xorg-video-nouveau-hwe-18.04
+apt install -y xserver-xorg-video-nouveau-hwe-18.04
 
 - Driver Nvidia (propietário)
-Bionic Beaver: mv /etc/apt/apt.conf /etc/apt/.apt.conf ; apt install -y nvidia-driver-430 nvidia-settings ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/ ; mv /etc/apt/.apt.conf /etc/apt/apt.conf
-Eoan Ermine: apt install -y nvidia-driver-435 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/
+apt install -y nvidia-driver-435 ; mkdir -p /etc/X11/xorg.conf.d/ ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/20-nvidia.conf -P /etc/X11/xorg.conf.d/
 
 - Driver VESA (generico)
-Bionic Beaver: apt install -y xserver-xorg-video-vesa-hwe-16.04
-Eoan Ermine: apt install -y xserver-xorg-video-vesa-hwe-18.04
+apt install -y xserver-xorg-video-vesa-hwe-18.04
 
 - Driver VMWare (VirtualBox)
-Bionic Beaver: apt install -y xserver-xorg-video-vmware-hwe-16.04
-Eoan Ermine: apt install -y xserver-xorg-video-vmware-hwe-18.04
+apt install -y xserver-xorg-video-vmware-hwe-18.04
 
 - Driver ATI
-Bionic Beaver: apt install -y xserver-xorg-video-ati-hwe-16.04
-Eoan Ermine: apt install -y xserver-xorg-video-ati-hwe-18.04
+apt install -y xserver-xorg-video-ati-hwe-18.04
 
 - Driver AMDGPU
-Bionic Beaver: apt install -y xserver-xorg-video-amdgpu-hwe-16.04
-Eoan Ermine: apt install -y xserver-xorg-video-amdgpu-hwe-18.04
+apt install -y xserver-xorg-video-amdgpu-hwe-18.04
 
 - Driver Intel
-Bionic Beaver: apt install -y xserver-xorg-video-intel-hwe-16.04
-Eoan Ermine: apt install -y xserver-xorg-video-intel-hwe-18.04
+apt install -y xserver-xorg-video-intel-hwe-18.04
 
 - Desabilita o OS-Prober
 mkdir -p /boot/grub/themes ; cp /etc/default/grub /etc/default/.grub ; cp /opt/Wallpapers/wallhaven-4dpg5j.jpg /boot/grub/themes/background.jpg
@@ -171,21 +158,14 @@ apt install -y firefox firefox-locale-pt
 - Navegador Google Chrome (fora do repositorio oficial)
 cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; apt install --no-install-recommends -y ./google-chrome.deb
 
-- Navegador Chromium com suporte a Netflix
-apt install -y chromium-browser chromium-browser-l10n ; cd /tmp ; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome.deb ; 7z x -y google-chrome.deb ; 7z x -y data.tar ; cp ./opt/google/chrome/libwidevinecdm.so /usr/lib/chromium
-
-- TeamViewer
+- TeamViewer (fora do repositorio oficial)
 cd /tmp ; wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb ; apt install --no-install-recommends -y ./teamviewer_amd64.deb ; apt install -f -y
 
-- Instala GIMP 2.10 (ppa necessario apenas para o Bionic Beaver)
-Bionic Beaver: add-apt-repository -y ppa:otto-kesselgulasch/gimp ; apt update -y ; apt install -y gimp gimp-help-pt # xemacs21-support xemacs21-basesupport xemacs21-bin xemacs21-nomule libcompfaceg1
-Eoan Ermine: apt install -y gimp gimp-help-pt # xemacs21-support xemacs21-basesupport xemacs21-bin xemacs21-nomule libcompfaceg1
+- GIMP
+apt install -y gimp gimp-help-pt # xemacs21-support xemacs21-basesupport xemacs21-bin xemacs21-nomule libcompfaceg1
 
-- SMPlayer
-apt update -y ; apt install -y smplayer mpv
-
-- Instala demais aplicativos
-apt install -y gnome-disk-utility gparted ffmpeg x264 easytag mediainfo-gui transmission-gtk geany gufw arch-install-scripts
+- Aplicativos
+apt install -y gnome-disk-utility gparted ffmpeg x264 smplayer mpv easytag mediainfo-gui transmission-gtk geany gufw arch-install-scripts
 
 - Telegram Desktop (fora do repositorio oficial)
 cd /tmp ; wget "https://telegram.org/dl/desktop/linux" -O telegram.tar.xz ; tar Jxf telegram.tar.xz -C /opt/ ; ln -sf /opt/Telegram/Telegram /usr/local/bin/telegram-desktop ; rm -f ./telegram.tar.xz
