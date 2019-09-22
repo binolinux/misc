@@ -1,7 +1,7 @@
 Debootstrap Ubuntu Eoan Ermine XFCE / MATE / GNOME / BSPWM (BIOS Legacy)
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
-Atualizado: 14/09/2019
+Atualizado: 22/09/2019
 Contato Telegram: @julian_huxley
 
 - Baixe o ISO do Xubuntu mais recente copiando e colando os comandos abaixo no terminal
@@ -34,7 +34,7 @@ mount /dev/sda2 /mnt
 mkdir /mnt/home ; mount /dev/sda3 /mnt/home
 
 - Faca o debooststrap da base do Ubuntu Eoan Ermine com o comando abaixo
-debootstrap eoan /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/eoan-sources.list -O /mnt/etc/apt/sources.list ; genfstab -U -p /mnt > /mnt/etc/fstab
+debootstrap eoan /mnt http://archive.ubuntu.com/ubuntu ; rm -f /mnt/etc/apt/sources.list ; wget https://github.com/binolinux/misc/raw/master/docs/ubuntu/eoan-sources.list -O /mnt/etc/apt/sources.list ; genfstab -U /mnt > /mnt/etc/fstab
 
 - Entre em Chroot
 arch-chroot /mnt/ /bin/bash
