@@ -1,0 +1,5 @@
+### trinity desktop
+deb http://mirror.ppa.trinitydesktop.org/trinity/trinity-r14.0.0/ubuntu bionic main
+deb http://mirror.ppa.trinitydesktop.org/trinity/trinity-builddeps-r14.0.0/ubuntu bionic main
+deb-src http://mirror.ppa.trinitydesktop.org/trinity/trinity-r14.0.0/ubuntu bionic main
+deb-src http://mirror.ppa.trinitydesktop.org/trinity/trinity-builddeps-r14.0.0/ubuntu bionic main
