@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Abrir feh
+Comment=Abrir feh
+Exec=feh -. -x -g 800x500 %F
+Icon-Name=feh
+Selection=Any
+Extensions=Any
