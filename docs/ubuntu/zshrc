@@ -1,4 +1,4 @@
-# Atualizado: 05/07/2019
+# Atualizado: 19/10/2019
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -104,6 +104,7 @@ export LANG=pt_BR.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # ALIASES
+alias install-date="ls -lct /etc | tail -1 | awk '{print $6, $7, $8}'"
 alias it-='sudo apt install ; sudo apt install -f -y'
 alias it+='sudo apt install -y ; sudo apt install -f -y'
 alias sr='apt search'
