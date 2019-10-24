@@ -1,0 +1,4 @@
+echo -e '# Trinity preliminary stable builds \ndeb http://mirror.ppa.trinitydesktop.org/trinity-sb eoan deps-r14 main-r14 \ndeb-src http://mirror.ppa.trinitydesktop.org/trinity-sb eoan deps-r14 main-r14' | sudo tee /etc/apt/sources.list.d/trinyty.list
+wget http://mirror.ppa.trinitydesktop.org/trinity/deb/trinity-keyring.deb ; sudo apt install -y ./trinity-keyring.deb
+sudo apt update -y ; sudo apt full-upgrade -y
+sudo ln -sf /opt/trinity/bin/twin /usr/bin
