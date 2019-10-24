@@ -2,3 +2,4 @@ echo -e '# Trinity preliminary stable builds \ndeb http://mirror.ppa.trinitydesk
 wget http://mirror.ppa.trinitydesktop.org/trinity/deb/trinity-keyring.deb ; sudo apt install -y ./trinity-keyring.deb
 sudo apt update -y ; sudo apt full-upgrade -y
 sudo ln -sf /opt/trinity/bin/twin /usr/bin
+echo "window_manager=twin" $HOME/.config/lxqt/session.conf
