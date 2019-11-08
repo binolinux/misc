@@ -35,7 +35,7 @@ WantedBy=getty.target
 DefaultInstance=tty1
 EOF
 
-sed -i "s/zzzz/$nnu/" /tmp/autologin@.service
+sed -i "s/zzzz/`whoami`/" /tmp/autologin@.service
 sudo chmod 755 /tmp/autologin@.service ; sudo chown root:root /tmp/autologin@.service
 sudo mkdir -p /usr/lib/systemd/system/ ; sudo mv /tmp/autologin@.service /usr/lib/systemd/system/
 sudo systemctl enable autologin@tty1 ; sudo systemctl disable -f {getty@tty1,lxdm,lightdm,slim,sddm,gdm}
