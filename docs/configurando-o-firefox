@@ -7,9 +7,11 @@ Digite about:config no navegador
 3. procure por layers.acceleration.force-enabled e ajuste para true
 4. procure por gfx.webrender.all e ajuste para true
 5. procure por extensions.pocket.enabled e ajuste para false
-6. procure por browser.cache.disk.enable e ajuste para false
-7. procure por browser.cache.memory.capacity e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
-8. feche o Firefox, reabra e digite about:cache para verificar se as alterações foram feitas corretamente
+6. procure por browser.urlbar.update1 e ajuste a primeira opção da lista para false
+7. procure por browser.urlbar.openViewOnFocus e ajuste para false
+8. procure por browser.cache.disk.enable e ajuste para false
+9. procure por browser.cache.memory.capacity e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
+10. feche o Firefox, reabra e digite about:cache para verificar se as alterações foram feitas corretamente
 
 Extensões recomendadas
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin
