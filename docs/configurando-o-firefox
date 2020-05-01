@@ -40,7 +40,6 @@ Icon: https://translate.google.com.br/favicon.ico
 Name: OpenSubtitles 		Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s
 Icon: https://www.opensubtitles.org/favicon.ico
 Name: 1337x Torrents    	Search URL: https://1337x.to/search/%s/1/							Icon: https://1337x.to/favicon.ico
-Name: Arch AUR            	Search URL: https://aur.archlinux.org/packages/?O=0&K=%s			Icon: https://archlinux.org/favicon.ico
 
 Adicione as pesquisas dos links abaixo
 https://rarbgproxied.org
@@ -54,4 +53,3 @@ https://wiki.archlinux.org/index.php/Firefox/Tweaks
 https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM
 http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/
 https://unix.stackexchange.com/questions/299850/how-can-i-make-sure-that-firefox-doesnt-use-my-gtk-theme-in-the-non-chrome-part
-
