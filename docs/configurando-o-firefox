@@ -30,16 +30,16 @@ Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 2. Configure a extensão adicionando os mecanismos de busca abaixo
-Name: Legendas.TV			Search URL: http://legendas.tv/busca/%s								Icon: http://legendas.tv/favicon.ico
-Name: IMDb					Search URL: https://www.imdb.com/find?q=%s							Icon: https://www.imdb.com/favicon.ico
-Name: Zoom					Search URL: https://www.zoom.com.br/search?q=%s						Icon: https://www.zoom.com.br/favicon.ico
-Name: YIFY Torrents			Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest		Icon: /usr/share/icons/yts.png
-Name: Naughtyblog        	Search URL: https://www.naughtyblog.org/?s=%s						Icon: https://www.naughtyblog.org/favicon.ico
+Name: Legendas.TV			Search URL: http://legendas.tv/busca/%s									Icon: http://legendas.tv/favicon.ico
+Name: IMDb					Search URL: https://www.imdb.com/find?q=%s								Icon: https://www.imdb.com/favicon.ico
+Name: Zoom					Search URL: https://www.zoom.com.br/search?q=%s							Icon: https://www.zoom.com.br/favicon.ico
+Name: YIFY Torrents			Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all		Icon: /usr/share/icons/yts.png
+Name: Naughtyblog        	Search URL: https://www.naughtyblog.org/?s=%s							Icon: https://www.naughtyblog.org/favicon.ico
 Name: Google Tradutor    	Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s
 Icon: https://translate.google.com.br/favicon.ico
 Name: OpenSubtitles 		Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s
 Icon: https://www.opensubtitles.org/favicon.ico
-Name: 1337x Torrents    	Search URL: https://1337x.to/search/%s/1/							Icon: https://1337x.to/favicon.ico
+Name: 1337x Torrents    	Search URL: https://1337x.to/search/%s/1/								Icon: https://1337x.to/favicon.ico
 
 Adicione as pesquisas dos links abaixo
 https://rarbgproxied.org
