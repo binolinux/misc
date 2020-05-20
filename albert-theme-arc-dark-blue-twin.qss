@@ -9,13 +9,13 @@
 * {
     border: none;
     color : #FFFFFF;
-    background-color: #2F343F;
+    background-color: #404552;
 }
 
 #frame {
     padding: 6px 0px;
     border-radius: 2px;
-    background-color: #2F343F;
+    background-color: #404552;
     min-width:640px;
     max-width:640px;
 }
@@ -23,7 +23,7 @@
 #inputLine {
     padding: 0px 8px;
     font-size: 36px;
-    selection-color: #2F343F;
+    selection-color: #404552;
     selection-background-color: #FFFFFF;
     background-color: transparent;
 }
