@@ -18,18 +18,14 @@ Digite about:config no navegador
 14. feche o Firefox, reabra e digite about:cache para verificar se as alterações foram feitas corretamente
 
 Extensões recomendadas
-https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage
-
-Extensões opcionais
 https://my.jdownloader.org/apps
-https://addons.mozilla.org/pt-BR/firefox/addon/total-suspender/
-https://addons.mozilla.org/pt-BR/firefox/addon/https-everywhere/
-https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage
-https://addons.mozilla.org/pt-BR/firefox/addon/dark-background-light-text
+
+Extensão do idioma pt-br (apenas para firefox em outra lingua)
+https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/
 
 Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo
