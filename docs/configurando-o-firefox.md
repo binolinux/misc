@@ -4,13 +4,13 @@ Contato Telegram: @rocker_raccoon
 Digite <b>about:config</b> no navegador
 1. procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false
 2. procure por <b>layout.css.devPixelsPerPx</b> e ajuste para 1.1
-3. procure por layers.acceleration.force-enabled e ajuste para true
-4. procure por gfx.webrender.all e ajuste para true
-5. procure por extensions.pocket.enabled e ajuste para false
-6. procure por browser.urlbar.update1 e ajuste a primeira opção da lista para false
-7. procure por browser.urlbar.openViewOnFocus e ajuste para false
-8. procure por browser.cache.disk.enable e ajuste para false
-9. procure por browser.cache.memory.capacity e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
+3. procure por <b>layers.acceleration.force-enabled</b> e ajuste para true
+4. procure por <b>gfx.webrender.all</b> e ajuste para true
+5. procure por <b>extensions.pocket.enabled</b> e ajuste para false
+6. procure por <b>browser.urlbar.update1</b> e ajuste a primeira opção da lista para false
+7. procure por <b>browser.urlbar.openViewOnFocus</b> e ajuste para false
+8. procure por <b>browser.cache.disk.enable</b> e ajuste para false
+9. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
 10. feche o Firefox, reabra e digite about:cache para verificar se as alterações foram feitas corretamente
 
 Extensões recomendadas</br>
