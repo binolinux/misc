@@ -23,10 +23,10 @@ https://my.jdownloader.org/apps</br>
 Extensão do idioma pt-br (apenas para firefox em outra lingua)</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/</br>
 
-Extensão Add Custom Search Engines</br>
+Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
-2. Configure a extensão adicionando os mecanismos de busca abaixo</br>
+2. Configure a extensão adicionando os mecanismos de busca abaixo
 - Name: OpenSubtitles</br>
 Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s</br>
 Icon: https://www.opensubtitles.org/favicon.ico
