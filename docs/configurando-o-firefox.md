@@ -14,19 +14,19 @@ Digite about:config no navegador
 10. feche o Firefox, reabra e digite about:cache para verificar se as alterações foram feitas corretamente
 
 Extensões recomendadas
-https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin
-https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color
-https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container
-https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage
-https://my.jdownloader.org/apps
+https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
+https://my.jdownloader.org/apps</br>
 
-Extensão do idioma pt-br (apenas para firefox em outra lingua)
-https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/
+Extensão do idioma pt-br (apenas para firefox em outra lingua)</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/</br>
 
-Extensão Add Custom Search Engines
-1. Obtenha a extensão no link abaixo
+Extensão Add Custom Search Engines</br>
+1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
-2. Configure a extensão adicionando os mecanismos de busca abaixo
+2. Configure a extensão adicionando os mecanismos de busca abaixo</br>
 
 - Name: OpenSubtitles
 Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s
