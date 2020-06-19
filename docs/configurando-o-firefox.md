@@ -2,8 +2,8 @@
 Contato Telegram: @rocker_raccoon
 
 Digite <b>about:config</b> no navegador
-1. procure por browser.tabs.insertRelatedAfterCurrent e ajuste para false
-2. procure por layout.css.devPixelsPerPx e ajuste para 1.1
+1. procure por <i>browser.tabs.insertRelatedAfterCurrent</i> e ajuste para false
+2. procure por <i>layout.css.devPixelsPerPx</i> e ajuste para 1.1
 3. procure por layers.acceleration.force-enabled e ajuste para true
 4. procure por gfx.webrender.all e ajuste para true
 5. procure por extensions.pocket.enabled e ajuste para false
