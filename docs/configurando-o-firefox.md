@@ -1,4 +1,4 @@
-<b>Configurando o Firefox</b>
+<b>Configurando o Firefox</b></br>
 Contato Telegram: @rocker_raccoon
 
 Digite <b>about:config</b> no navegador
