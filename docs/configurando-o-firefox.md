@@ -1,7 +1,7 @@
-Configurando o Firefox
+<b>Configurando o Firefox</b>
 Contato Telegram: @rocker_raccoon
 
-Digite about:config no navegador
+Digite <b>about:config</b> no navegador
 1. procure por browser.tabs.insertRelatedAfterCurrent e ajuste para false
 2. procure por layout.css.devPixelsPerPx e ajuste para 1.1
 3. procure por layers.acceleration.force-enabled e ajuste para true
@@ -28,54 +28,54 @@ Extensão Add Custom Search Engines</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 2. Configure a extensão adicionando os mecanismos de busca abaixo</br>
 
-- Name: OpenSubtitles
-Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s
-Icon: https://www.opensubtitles.org/favicon.ico
+- Name: OpenSubtitles</br>
+Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s</br>
+Icon: https://www.opensubtitles.org/favicon.ico</br>
 
-- Name: Legendas.TV
-Search URL: http://legendas.tv/busca/%s
-Icon: http://legendas.tv/favicon.ico
+- Name: Legendas.TV</br>
+Search URL: http://legendas.tv/busca/%s</br>
+Icon: http://legendas.tv/favicon.ico</br>
 
-- Name: 1337x Torrents
-Search URL: https://1337x.to/search/%s/1/
-Icon: https://1337x.to/favicon.ico
+- Name: 1337x Torrents</br>
+Search URL: https://1337x.to/search/%s/1/</br>
+Icon: https://1337x.to/favicon.ico</br>
 
-- Name: IMDb
-Search URL: https://www.imdb.com/find?q=%s
-Icon: https://www.imdb.com/favicon.ico
+- Name: IMDb</br>
+Search URL: https://www.imdb.com/find?q=%s</br>
+Icon: https://www.imdb.com/favicon.ico</br>
 
-- Name: Zoom
-Search URL: https://www.zoom.com.br/search?q=%s
-Icon: https://www.zoom.com.br/favicon.ico
+- Name: Zoom</br>
+Search URL: https://www.zoom.com.br/search?q=%s</br>
+Icon: https://www.zoom.com.br/favicon.ico</br>
 
-- Name: Naughtyblog
-Search URL: https://www.naughtyblog.org/?s=%s
-Icon: https://www.naughtyblog.org/favicon.ico
+- Name: Naughtyblog</br>
+Search URL: https://www.naughtyblog.org/?s=%s</br>
+Icon: https://www.naughtyblog.org/favicon.ico</br>
 
-- Name: Google Tradutor
-Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s
-Icon: https://translate.google.com.br/favicon.ico
+- Name: Google Tradutor</br>
+Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
+Icon: https://translate.google.com.br/favicon.ico</br>
 
-- Name: YouTube
-Search URL: https://www.youtube.com./results?search_query=%s
-Icon: https://www.youtube.com/favicon.ico
+- Name: YouTube</br>
+Search URL: https://www.youtube.com./results?search_query=%s</br>
+Icon: https://www.youtube.com/favicon.ico</br>
 
-- Name: YIFY Torrents
-Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all
-Icon: /usr/share/icons/yts.png
+- Name: YIFY Torrents</br>
+Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
+Icon: /usr/share/icons/yts.png</br></br>
 
-Adicione as pesquisas dos links abaixo
-https://rarbgproxied.org
-https://wiki.archlinux.org/
-https://www.archlinux.org/packages/
+Adicione as pesquisas dos links abaixo</br>
+https://rarbgproxied.org</br>
+https://wiki.archlinux.org/</br>
+https://www.archlinux.org/packages/</br></br>
 
-Ajuste o mecanismo de pesquisa do Duck Duck Go! acessando o link abaixo para aceitar o cookie:
-https://duckduckgo.com/?key=93f56a6b13580662775eff7267e08710a413f50311bb62060bb52592a8ba0cb2a44d4e6e21d122559df8525279ca4cce5ef7deb99b2bede166b984a7219c3688
+Ajuste o mecanismo de pesquisa do Duck Duck Go! acessando o link abaixo para aceitar o cookie:</br>
+https://duckduckgo.com/?key=93f56a6b13580662775eff7267e08710a413f50311bb62060bb52592a8ba0cb2a44d4e6e21d122559df8525279ca4cce5ef7deb99b2bede166b984a7219c3688</br></br>
 
-Links
-https://wiki.archlinux.org/index.php/Firefox
-https://wiki.archlinux.org/index.php/Firefox/Tweaks
-https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM
-http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/
-https://unix.stackexchange.com/questions/299850/how-can-i-make-sure-that-firefox-doesnt-use-my-gtk-theme-in-the-non-chrome-part
+Links</br>
+https://wiki.archlinux.org/index.php/Firefox</br>
+https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
+https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM</br>
+http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/</br>
+https://unix.stackexchange.com/questions/299850/how-can-i-make-sure-that-firefox-doesnt-use-my-gtk-theme-in-the-non-chrome-part</br>
 
