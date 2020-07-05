@@ -27,15 +27,18 @@ Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 2. Configure a extensão adicionando os mecanismos de busca abaixo
+- Name: YIFY Torrents</br>
+Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
+Icon: /usr/share/pixmaps/yts.png</br>
+- Name: 1337x Torrents</br>
+Search URL: https://1337x.to/search/%s/1/</br>
+Icon: https://1337x.to/favicon.ico
 - Name: OpenSubtitles</br>
 Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s</br>
 Icon: https://www.opensubtitles.org/favicon.ico
 - Name: Legendas.TV</br>
 Search URL: http://legendas.tv/busca/%s</br>
 Icon: http://legendas.tv/favicon.ico
-- Name: 1337x Torrents</br>
-Search URL: https://1337x.to/search/%s/1/</br>
-Icon: https://1337x.to/favicon.ico
 - Name: IMDb</br>
 Search URL: https://www.imdb.com/find?q=%s</br>
 Icon: https://www.imdb.com/favicon.ico
@@ -51,9 +54,6 @@ Icon: https://translate.google.com.br/favicon.ico
 - Name: YouTube</br>
 Search URL: https://www.youtube.com./results?search_query=%s</br>
 Icon: https://www.youtube.com/favicon.ico
-- Name: YIFY Torrents</br>
-Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
-Icon: /usr/share/icons/yts.png</br>
 
 Adicione as pesquisas dos links abaixo</br>
 https://rarbgproxied.org</br>
