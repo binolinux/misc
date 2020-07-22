@@ -48,6 +48,9 @@ Icon: https://www.zoom.com.br/favicon.ico
 - Name: Naughtyblog</br>
 Search URL: https://www.naughtyblog.org/?s=%s</br>
 Icon: https://www.naughtyblog.org/favicon.ico
+- Name: HQ Porner</br>
+Search URL: https://hqporner.com/?q=%s</br>
+Icon: https://hqporner.com/favicon.ico
 - Name: Google Tradutor</br>
 Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
 Icon: https://translate.google.com.br/favicon.ico
