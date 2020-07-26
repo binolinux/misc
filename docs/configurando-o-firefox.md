@@ -51,6 +51,9 @@ Icon: https://www.naughtyblog.org/favicon.ico
 - Name: HQ Porner</br>
 Search URL: https://hqporner.com/?q=%s</br>
 Icon: https://hqporner.com/favicon.ico
+- Name: Hotpornfile</br>
+Search URL: https://www.hotpornfile.org/?s=%s</br>
+Icon: https://www.hotpornfile.org/favicon.ico
 - Name: Google Tradutor</br>
 Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
 Icon: https://translate.google.com.br/favicon.ico
