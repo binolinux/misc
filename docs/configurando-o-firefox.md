@@ -53,7 +53,7 @@ Search URL: https://hqporner.com/?q=%s</br>
 Icon: https://hqporner.com/favicon.ico
 - Name: Hotpornfile</br>
 Search URL: https://www.hotpornfile.org/?s=%s</br>
-Icon: https://www.hotpornfile.org/favicon.ico
+Icon: https://pics.me.me/letter-h-png-images-free-download-53252903.png
 - Name: Google Tradutor</br>
 Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
 Icon: https://translate.google.com.br/favicon.ico
