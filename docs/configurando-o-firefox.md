@@ -17,6 +17,7 @@ Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 https://my.jdownloader.org/apps</br>
 
