@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Cortando arquivos de video
-ffmpeg -i "VIDEO-IN.mp4" -map_metadata -1 -ss 00:53:14 -to 01:14:38 -c copy "VIDEO-OUT.mp4"
-
-#Juntando arquivos de video
-cat "VIDEO-IN-1.mp4" "VIDEO-IN-2.mp4" > "VIDEO-OUT.mp4"
-
 #VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: AAC 128k
 ffmpeg  -i "VIDEO-IN.mp4" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a aac -b:a 128k -ac 2 -ar 44100 -threads 6 -f mp4 "VIDEO-OUT.mp4"
 
@@ -21,6 +15,11 @@ b) copie e cole o as linhas abaixo no terminal
 mkdir -p reencoded
 for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 2 -f mp4 "./reencoded/${i%.*}.mp4"; done
 
+# Juntando arquivos de video
+cat "VIDEO-IN-1.mp4" "VIDEO-IN-2.mp4" > "VIDEO-OUT.mp4"
+
+# Cortando arquivos de video
+ffmpeg -i "VIDEO-IN.mp4" -map_metadata -1 -ss 00:53:14 -to 01:14:38 -c copy "VIDEO-OUT.mp4"
 
 
 
