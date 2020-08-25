@@ -7,11 +7,10 @@ Digite <b>about:config</b> no navegador
 3. procure por <b>layers.acceleration.force-enabled</b> e ajuste para true
 4. procure por <b>gfx.webrender.all</b> e ajuste para true
 5. procure por <b>extensions.pocket.enabled</b> e ajuste para false
-6. procure por <b>browser.urlbar.update1</b> e ajuste a primeira opção da lista para false
-7. procure por <b>browser.urlbar.openViewOnFocus</b> e ajuste para false
-8. procure por <b>browser.cache.disk.enable</b> e ajuste para false
-9. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
-10. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram feitas corretamente
+6. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true
+7. procure por <b>browser.cache.disk.enable</b> e ajuste para false
+8. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
+9. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram feitas corretamente
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
