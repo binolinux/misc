@@ -1,25 +1,20 @@
-#!/bin/bash
-
-#VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: AAC 128k
-ffmpeg  -i "VIDEO-IN.mp4" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a aac -b:a 128k -ac 2 -ar 44100 -threads 6 -f mp4 "VIDEO-OUT.mp4"
-
-#VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: Lame MP3 112k
-ffmpeg  -i "VIDEO-IN.mp4" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 6 -f mp4 "VIDEO-OUT.mp4"
-
-#VIDEO: bitrate: 3000k, Escala: 1280x720 | AUDIO: AAC 160k
-ffmpeg  -i "VIDEO-IN.mp4" -map_metadata -1 -b:v 3000k -c:v libx264 -vf scale=1280x720 -r 24 -c:a aac -b:a 160k -ac 2 -ar 44100 -threads 6 -f mp4 "VIDEO-OUT.mp4"
-
-# Convertendo vários arquivos de uma pasta (VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: Lame MP3 112k):
-a) abra o terminal na pasta dos vidoes que serão convertidos
-b) copie e cole o as linhas abaixo no terminal
-mkdir -p reencoded
-for i in *.mp4; do ffmpeg -i "$i" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 2 -f mp4 "./reencoded/${i%.*}.mp4"; done
-
 # Juntando arquivos de video
 cat "VIDEO-IN-1.mp4" "VIDEO-IN-2.mp4" > "VIDEO-OUT.mp4"
 
+# VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: Lame MP3 112k
+ffmpeg  -i "VIDEO-IN.mp4" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 4 -f mp4 "VIDEO-OUT.mp4"
+
+# VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: AAC 128k
+ffmpeg  -i "VIDEO-IN.mp4" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a aac -b:a 128k -ac 2 -ar 44100 -threads 6 -f mp4 "VIDEO-OUT.mp4"
+
+# VIDEO: bitrate: 3000k, Escala: 1280x720 | AUDIO: AAC 160k
+ffmpeg  -i "VIDEO-IN.mp4" -map_metadata -1 -b:v 3000k -c:v libx264 -vf scale=1280x720 -r 24 -c:a aac -b:a 160k -ac 2 -ar 44100 -threads 6 -f mp4 "VIDEO-OUT.mp4"
+
 # Cortando arquivos de video
-ffmpeg -i "VIDEO-IN.mp4" -map_metadata -1 -ss 00:53:14 -to 01:14:38 -c copy "VIDEO-OUT.mp4"
+ffmpeg -i "VIDEO-IN.mp4" -map_metadata -1 -ss 00:26:17 -to 00:48:32 -c copy "VIDEO-OUT.mp4"
+
+# Cortando arquivos de video e reduzindo o bitrate | VIDEO: bitrate: 2000k, Escala: 700x394 | AUDIO: Lame MP3 112k
+ffmpeg -i "VIDEO-IN.mp4" -map_metadata -1 -b:v 2000k -c:v libx264 -vf scale=700x394 -r 24 -c:a libmp3lame -b:a 112k -ac 2 -ar 44100 -threads 4 -f mp4 -ss 00:01:54 -to 00:26:17 "VIDEO-OUT.mp4"
 
 
 
