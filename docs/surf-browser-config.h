@@ -46,7 +46,7 @@ static Parameter defconfig[ParameterLast] = {
 	[SpellLanguages]      =       { { .v = ((char *[]){ "pt_BR", NULL }) }, },
 	[StrictTLS]           =       { { .i = 1 },     },
 	[Style]               =       { { .i = 0 },     },
-	[WebGL]               =       { { .i = 1 },     },
+	[WebGL]               =       { { .i = 0 },     },
 	[ZoomLevel]           =       { { .f = 1.2 },   },
 };
 
