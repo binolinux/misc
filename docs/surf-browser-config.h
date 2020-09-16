@@ -47,7 +47,7 @@ static Parameter defconfig[ParameterLast] = {
 	[StrictTLS]           =       { { .i = 1 },     },
 	[Style]               =       { { .i = 0 },     },
 	[WebGL]               =       { { .i = 0 },     },
-	[ZoomLevel]           =       { { .f = 1.2 },   },
+	[ZoomLevel]           =       { { .f = 1.4 },   },
 };
 
 static UriParameters uriparams[] = {
@@ -58,7 +58,7 @@ static UriParameters uriparams[] = {
 };
 
 /* default window size: width, height */
-static int winsize[] = { 800, 600 };
+static int winsize[] = { 1200, 800 };
 
 static WebKitFindOptions findopts = WEBKIT_FIND_OPTIONS_CASE_INSENSITIVE |
                                     WEBKIT_FIND_OPTIONS_WRAP_AROUND;
