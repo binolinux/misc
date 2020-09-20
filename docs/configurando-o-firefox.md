@@ -66,9 +66,6 @@ https://rarbgproxied.org</br>
 https://wiki.archlinux.org/</br>
 https://www.archlinux.org/packages/</br>
 
-Ajuste o mecanismo de pesquisa do Duck Duck Go! acessando o link abaixo para aceitar o cookie:</br>
-https://duckduckgo.com/?key=93f56a6b13580662775eff7267e08710a413f50311bb62060bb52592a8ba0cb2a44d4e6e21d122559df8525279ca4cce5ef7deb99b2bede166b984a7219c3688</br>
-
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
 https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
