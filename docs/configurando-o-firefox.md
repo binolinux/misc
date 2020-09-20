@@ -45,7 +45,7 @@ Icon: https://www.imdb.com/favicon.ico
 - Name: Zoom</br>
 Search URL: https://www.zoom.com.br/search?q=%s</br>
 Icon: https://www.zoom.com.br/favicon.ico
-- Name: Naughtyblog</br>
+- Name: NAUGHTYBLOG.org</br>
 Search URL: https://www.naughtyblog.org/?s=%s</br>
 Icon: https://www.naughtyblog.org/favicon.ico
 - Name: HQ Porner</br>
@@ -57,11 +57,9 @@ Icon: https://pics.me.me/letter-h-png-images-free-download-53252903.png
 - Name: Google Tradutor</br>
 Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
 Icon: https://translate.google.com.br/favicon.ico
-- Name: YouTube</br>
-Search URL: https://www.youtube.com./results?search_query=%s</br>
-Icon: https://www.youtube.com/favicon.ico
 
 Adicione as pesquisas dos links abaixo</br>
+https://www.youtube.com</br>
 https://rarbgproxied.org</br>
 https://wiki.archlinux.org/</br>
 https://www.archlinux.org/packages/</br>
