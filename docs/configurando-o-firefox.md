@@ -15,11 +15,11 @@ Digite <b>about:config</b> no navegador
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 https://my.jdownloader.org/apps</br>
-https://addons.mozilla.org/en-US/firefox/addon/old-layout-for-facebook/</br>
 
 Outras extensões</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
+https://addons.mozilla.org/en-US/firefox/addon/old-layout-for-facebook/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 
