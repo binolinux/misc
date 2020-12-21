@@ -45,9 +45,6 @@ Icon: http://legendas.tv/favicon.ico
 - Name: IMDb</br>
 Search URL: https://www.imdb.com/find?q=%s</br>
 Icon: https://www.imdb.com/favicon.ico
-- Name: Zoom</br>
-Search URL: https://www.zoom.com.br/search?q=%s</br>
-Icon: https://www.zoom.com.br/favicon.ico
 - Name: NAUGHTYBLOG.org</br>
 Search URL: https://www.naughtyblog.org/?s=%s</br>
 Icon: https://www.naughtyblog.org/favicon.ico
@@ -60,6 +57,9 @@ Icon: https://pics.me.me/letter-h-png-images-free-download-53252903.png
 - Name: Google Tradutor</br>
 Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
 Icon: https://translate.google.com.br/favicon.ico
+- Name: Zoom</br>
+Search URL: https://www.zoom.com.br/search?q=%s</br>
+Icon: https://www.zoom.com.br/favicon.ico
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
