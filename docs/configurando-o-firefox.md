@@ -14,14 +14,14 @@ Digite <b>about:config</b> no navegador
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
 
 Outras extensões</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 
 Extensão do idioma pt-br (apenas para firefox em outra lingua)</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/</br>
@@ -73,4 +73,3 @@ https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
 https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM</br>
 http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/</br>
 https://unix.stackexchange.com/questions/299850/how-can-i-make-sure-that-firefox-doesnt-use-my-gtk-theme-in-the-non-chrome-part</br></br>
-
