@@ -23,9 +23,6 @@ https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
 
-Extensão do idioma pt-br (apenas para firefox em outra lingua)</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/</br>
-
 Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
@@ -33,9 +30,6 @@ https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 - Name: YIFY Torrents</br>
 Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
 Icon: /usr/share/pixmaps/yts.png</br>
-- Name: 1337x Torrents</br>
-Search URL: https://1337x.to/search/%s/1/</br>
-Icon: https://1337x.to/favicon.ico
 - Name: OpenSubtitles</br>
 Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s</br>
 Icon: https://www.opensubtitles.org/favicon.ico
