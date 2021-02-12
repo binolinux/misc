@@ -13,8 +13,8 @@ Digite <b>about:config</b> no navegador
 9. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram feitas corretamente
 
 Desativando o zoom da barra endereços do Firefox</br>
-Digite <b>about:config</b> no navegador</br>
-crie um novo entrada no about:config nomeando como <b>ui.prefersReducedMotion</b> do tipo número e atribua o valor <b>1</b></br>
+1. digite <b>about:config</b> no navegador</br>
+2. crie um novo entrada no about:config nomeando como <b>ui.prefersReducedMotion</b> do tipo número e atribua o valor <b>1</b></br>
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
