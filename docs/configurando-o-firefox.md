@@ -11,10 +11,7 @@ Digite <b>about:config</b> no navegador
 7. procure por <b>browser.cache.disk.enable</b> e ajuste para false
 8. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
 9. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram feitas corretamente
-
-Desativando o zoom da barra endereços do Firefox
-1. digite <b>about:config</b> no navegador</br>
-2. crie um novo entrada no about:config nomeando como <b>ui.prefersReducedMotion</b> do tipo número e atribua o valor <b>1</b></br>
+10. crie uma nova entrada no about:config nomeando como <b>ui.prefersReducedMotion</b>, do tipo número e atribua o valor <b>1, para desativar o zoom da barra de endereços do Firefox</b></br>
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
