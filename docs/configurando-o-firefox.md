@@ -12,6 +12,10 @@ Digite <b>about:config</b> no navegador
 8. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
 9. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram feitas corretamente
 
+Desativando o zoom da barra endereços do Firefox</br>
+Digite <b>about:config</b> no navegador</br>
+crie um novo entrada no about:config nomeando como <b>ui.prefersReducedMotion</b> do tipo número e atribua o valor <b>1</b></br>
+
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
