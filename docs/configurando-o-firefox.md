@@ -14,6 +14,7 @@ Digite <b>about:config</b> no navegador
 10. crie uma nova entrada no about:config nomeando como <b>ui.prefersReducedMotion</b>, do tipo número e atribua o valor <b>1, para desativar o zoom da barra de endereços do Firefox</b></br>
 
 Extensões recomendadas</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
