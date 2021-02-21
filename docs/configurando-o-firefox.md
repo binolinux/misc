@@ -29,9 +29,6 @@ Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 2. Configure a extensão adicionando os mecanismos de busca abaixo
-- Name: Google</br>
-Search URL: https://www.google.com.br/search?&q=%s</br>
-Icon: https://www.google.com.br/favicon.ico</br>
 - Name: YIFY Torrents</br>
 Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
 Icon: /usr/share/pixmaps/yts.png</br>
@@ -66,6 +63,9 @@ https://rarbgproxied.org</br>
 https://wiki.archlinux.org/</br>
 https://www.archlinux.org/packages/</br>
 
+Temas</br>
+https://color.firefox.com/?theme=XQAAAAI0AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPrzPNSHBbC1CGYSabCRGMSkdTEd2piQoYVKCM4IPpBFBeQ5ecZjQhcjSA8GVnv1K-U1CLmfFOIXND4oXXvPyOIIXo8c-G4SqtZDhRx2dnJk4N-bY2r8YwPZs_aHlaMqrehr_fG1qeXcXCLm90tTt-O-Yb9afdfgefJknHqAFnaTSamP2_VRr9pfGm0UrQfrpfwGP1r1_3VKC___1kesAA</br>
+
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
 https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
@@ -73,3 +73,4 @@ https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM</br>
 http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/</br>
 https://unix.stackexchange.com/questions/299850/how-can-i-make-sure-that-firefox-doesnt-use-my-gtk-theme-in-the-non-chrome-part</br>
 https://www.userchrome.org/megabar-styling-firefox-address-bar.html#enlargement</br></br>
+
