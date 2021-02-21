@@ -64,7 +64,8 @@ https://wiki.archlinux.org/</br>
 https://www.archlinux.org/packages/</br>
 
 Temas</br>
-https://color.firefox.com/?theme=XQAAAAI0AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPrzPNSHBbC1CGYSabCRGMSkdTEd2piQoYVKCM4IPpBFBeQ5ecZjQhcjSA8GVnv1K-U1CLmfFOIXND4oXXvPyOIIXo8c-G4SqtZDhRx2dnJk4N-bY2r8YwPZs_aHlaMqrehr_fG1qeXcXCLm90tTt-O-Yb9afdfgefJknHqAFnaTSamP2_VRr9pfGm0UrQfrpfwGP1r1_3VKC___1kesAA</br>
+<a href="
+https://color.firefox.com/?theme=XQAAAAI0AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPrzPNSHBbC1CGYSabCRGMSkdTEd2piQoYVKCM4IPpBFBeQ5ecZjQhcjSA8GVnv1K-U1CLmfFOIXND4oXXvPyOIIXo8c-G4SqtZDhRx2dnJk4N-bY2r8YwPZs_aHlaMqrehr_fG1qeXcXCLm90tTt-O-Yb9afdfgefJknHqAFnaTSamP2_VRr9pfGm0UrQfrpfwGP1r1_3VKC___1kesAA">Tema azul dark</a></br>
 
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
