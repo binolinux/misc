@@ -65,7 +65,7 @@ https://www.archlinux.org/packages/</br>
 
 Temas</br>
 <a href="
-https://color.firefox.com/?theme=XQAAAAI0AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPrzPNSHBbC1CGYSabCRGMSkdTEd2piQoYVKCM4IPpBFBeQ5ecZjQhcjSA8GVnv1K-U1CLmfFOIXND4oXXvPyOIIXo8c-G4SqtZDhRx2dnJk4N-bY2r8YwPZs_aHlaMqrehr_fG1qeXcXCLm90tTt-O-Yb9afdfgefJknHqAFnaTSamP2_VRr9pfGm0UrQfrpfwGP1r1_3VKC___1kesAA"></a>Tema azul dark</br>
+https://color.firefox.com/?theme=XQAAAAI1AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPr1qJSHwgutiuSv-nu52zZ2ZXxbupuBL22_MaHKFJ4CpG01hVompEgI253ujJ_19H6A5UzTU2Ker1Zu-pzMojFdGvZyq6ZhUikPPJsRfwq8uWKFwJIR26AmReZ74fErc-xLwlS7dBLz-SPRebDMGzPREWi0RrKteoxy5mc-yGGQP1MnHvFqxIK1ArsWfJdPngrwxc_wvHnC-orEf_vfsmY"></a>Tema Arc-BLACK</br>
 
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
