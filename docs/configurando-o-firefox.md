@@ -29,6 +29,9 @@ Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 2. Configure a extensão adicionando os mecanismos de busca abaixo
+- Name: RARBG Torrents</br>
+Search URL: https://rarbgproxied.org/torrents.php?search=%s</br>
+Icon: https://rarbgproxied.org/favicon.ico</br>
 - Name: YIFY Torrents</br>
 Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
 Icon: /usr/share/pixmaps/yts.png</br>
