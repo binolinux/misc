@@ -62,7 +62,6 @@ Icon: https://www.zoom.com.br/favicon.ico
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
-https://rarbgproxied.org</br>
 https://wiki.archlinux.org/</br>
 https://www.archlinux.org/packages/</br>
 
