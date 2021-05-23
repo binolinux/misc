@@ -52,7 +52,7 @@ Search URL: https://hqporner.com/?q=%s</br>
 Icon: https://hqporner.com/favicon.ico
 - Name: Hotpornfile</br>
 Search URL: https://www.hotpornfile.org/?s=%s</br>
-Icon: https://pics.me.me/letter-h-png-images-free-download-53252903.png
+Icon: /usr/share/pixmaps/hotpornfile.png</br>
 - Name: Google Tradutor</br>
 Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
 Icon: https://translate.google.com.br/favicon.ico
@@ -75,4 +75,3 @@ https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM</br>
 http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/</br>
 https://unix.stackexchange.com/questions/299850/how-can-i-make-sure-that-firefox-doesnt-use-my-gtk-theme-in-the-non-chrome-part</br>
 https://www.userchrome.org/megabar-styling-firefox-address-bar.html#enlargement</br></br>
-
