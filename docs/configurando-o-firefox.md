@@ -66,7 +66,7 @@ https://wiki.archlinux.org/</br>
 https://www.archlinux.org/packages/</br>
 
 Temas</br>
-[Tema Arch-BLACK](https://color.firefox.com/?theme=XQAAAAI0AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPr5DFqkgwW4GOtSAsBLvzmxZf3j3nEtZeIpz_fuWGa4WpfSOQdmgF5ozvr6hqrnqBXTQomcluHZSjGkDrMmZfgJuY0M7EDuHRp_x1SwazDupmewJUd2mqh5A2oOGbt7CpwzrZsmAKvh676gEBjowCcWKMGGJQluGYZZ60FdcLjGs4DWdKvVAIge4BFC-HeNRILMdcImtqvrbNeKn_62g5s)</br>
+[Tema Arch-BLACK](https://color.firefox.com/?theme=XQAAAAI1AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPr5DFqkgwW4GOtSAsBLvzmxZf3j3nEtZeIpz_fuWGa4WpfSOQdmgF5ozvr6hqrnqBXTQomcluHZSjGkDrMmZfgJuY0M7EDuHRp_x1SwazD0nYLtOMw3xgqJicAWD0OfleC-PJ0YLcerPXhkEdL7tQCPO3gVBpGsN2T6kRG4fd40vVhaqX0SyXRrXBakKLCo1QppWwZZWyLRU4ff__caNEw)</br>
 
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
