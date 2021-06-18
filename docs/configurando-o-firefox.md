@@ -11,15 +11,14 @@ Digite <b>about:config</b> no navegador
 7. procure por <b>browser.cache.disk.enable</b> e ajuste para false
 8. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
 9. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram feitas corretamente
-10. crie uma nova entrada no about:config nomeando como <b>ui.prefersReducedMotion</b>, do tipo número e atribua o valor <b>1, para desativar o zoom da barra de endereços do Firefox</b></br>
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
-https://my.jdownloader.org/apps</br>
 
 Outras extensões</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
+https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
