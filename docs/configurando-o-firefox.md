@@ -23,6 +23,7 @@ https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/tunnelbear-vpn-firefoxc</br>
 
 Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
