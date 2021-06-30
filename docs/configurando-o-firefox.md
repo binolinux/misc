@@ -12,8 +12,9 @@ Digite <b>about:config</b> no navegador
 8. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram feitas corretamente
 
 Extensões recomendadas</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br/</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
 
 Outras extensões</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
