@@ -16,15 +16,6 @@ https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
 
-Outras extensões</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
-https://my.jdownloader.org/apps</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
-https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/tunnelbear-vpn-firefoxc</br>
-
 Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
@@ -38,9 +29,6 @@ Icon: /usr/share/pixmaps/yts.png</br>
 - Name: OpenSubtitles</br>
 Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s</br>
 Icon: /usr/share/pixmaps/opensubtitles.png
-- Name: Legendas.TV</br>
-Search URL: http://legendas.tv/busca/%s</br>
-Icon: http://legendas.tv/favicon.ico
 - Name: IMDb</br>
 Search URL: https://www.imdb.com/find?q=%s</br>
 Icon: https://www.imdb.com/favicon.ico
@@ -59,6 +47,18 @@ Icon: https://translate.google.com.br/favicon.ico
 - Name: Zoom</br>
 Search URL: https://www.zoom.com.br/search?q=%s</br>
 Icon: https://www.zoom.com.br/favicon.ico
+- Name: Legendas.TV</br>
+Search URL: http://legendas.tv/busca/%s</br>
+Icon: http://legendas.tv/favicon.ico
+
+Outras extensões</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
+https://my.jdownloader.org/apps</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
+https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/tunnelbear-vpn-firefoxc</br>
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
