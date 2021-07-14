@@ -57,16 +57,11 @@ https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/tunnelbear-vpn-firefoxc</br>
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
 https://wiki.archlinux.org/</br>
 https://www.archlinux.org/packages/</br>
-
-Temas</br>
-[Tema Arch-BLACK](https://color.firefox.com/?theme=XQAAAAI1AQAAAAAAAABBKYhm849SCia3ftKEGccwS-xMDPr5DFqkgwW4GOtSAsBLvzmxZf3j3nEtZeIpz_fuWGa4WpfSOQdmgF5ozvr6hqrnqBXTQomcluHZSjGkDrMmZfgJuY0M7EDuHRp_x1SwazD0nYLtOMw3xgqJicAWD0OfleC-PJ0YLcerPXhkEdL7tQCPO3gVBpGsN2T6kRG4fd40vVhaqX0SyXRrXBakKLCo1QppWwZZWyLRU4ff__caNEw)</br>
 
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
