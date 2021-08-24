@@ -107,6 +107,8 @@ chmod 755 -R ./gtk-master ./Dracula ./Nordic-master
 chown -R root:root ./gtk-master ./Dracula ./Nordic-master
 mv ./gtk-master /mnt/usr/share/themes/Dracula
 mv ./Dracula /mnt/usr/share/icons ; mv ./Nordic-master /usr/share/themes/Nordic
+wget --no-check-certificate https://github.com/KittyKatt/screenFetch/raw/master/screenfetch-dev -O /usr/local/bin/screenfetch ; chmod +x /usr/local/bin/*
+wget --no-check-certificate https://github.com/dylanaraps/neofetch/raw/master/neofetch -P /usr/local/bin ; chmod +x /usr/local/bin/*
 #
 ##
 ###################################################################################################
