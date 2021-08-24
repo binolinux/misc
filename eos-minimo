@@ -1,0 +1,126 @@
+Elementary OS Minimo (Debootstrap)
+-- -- -- -- -- -- -- -- -- -- -- -- 
+
+contato telegram: @rocker_raccon
+
+# preparação 
+baixe o iso do xubuntu core em https://unit193.net/xubuntu/core/ e crie o live usb com o etcher ou ventoy (recomendo)
+link do etcher: https://www.balena.io/etcher/
+link do ventoy: https://github.com/ventoy/Ventoy/releases
+
+# requerimentos
+sudo su
+cd /home/xubuntu
+apt install --no-install-recommends -y debootstrap arch-install-scripts git geany wget
+#wget https://github.com/binolinux/misc/raw/master/geany.zip ; unzip geany.zip
+
+# montagem
+swapon /dev/sda1
+mount /dev/sda2 /mnt
+
+# debootstrap
+debootstrap --variant=minbase --arch=amd64 focal /mnt http://archive.ubuntu.com/ubuntu/
+#debootstrap focal /mnt http://archive.ubuntu.com/ubuntu
+
+genfstab -U /mnt >> /mnt/etc/fstab ; sed -i 's/discard,/nodiscard,/' /mnt/etc/fstab
+
+# sources
+cat << EOF > /mnt/etc/apt/sources.list
+deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse 
+deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse 
+deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse
+EOF
+
+# preferences
+cat << EOF > /mnt/etc/apt/preferences.d/99-disabled
+Package: snapd
+Pin: release *
+Pin-Priority: -1
+
+Package: unattended-upgrades
+Pin: release *
+Pin-Priority: -1
+
+Package: apport
+Pin: release *
+Pin-Priority: -1
+EOF
+
+# apt.conf
+cat << EOF > /mnt/etc/apt/apt.conf
+APT::Install-Recommends "0";
+APT::Install-Suggests "0";
+EOF
+
+# chroot
+arch-chroot /mnt /bin/bash
+
+# update
+apt update -y && apt upgrade -y
+
+# pacotes base
+apt install -y ubuntu-minimal linux-generic xserver-xorg-core xserver-xorg-input-all x11-xserver-utils iputils-arping grub-pc software-properties-common pulseaudio network-manager fonts-dejavu fonts-ubuntu wget p7zip-full
+
+# elementary os odin + pantheon tweaks
+add-apt-repository -y ppa:elementary-os/stable
+add-apt-repository -y ppa:philip.scott/pantheon-tweaks
+apt update && apt upgrade -y && apt dist-upgrade -y
+apt install elementary-desktop
+#removidos: elementary-theme elementary-icon-theme elementary-default-settings
+apt install -y pantheon-tweaks
+
+# usuarios
+passwd
+sudo usermod -aG sudo rocker
+passwd rocker
+
+# configura locales
+apt install -y locales ; dpkg-reconfigure locales
+
+# regiao
+dpkg-reconfigure tzdata
+
+# hostname
+echo "eos-modificado" > /etc/hostname
+
+# instala o grub
+grub install /dev/sdX
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# serviços
+systemctl enable {lightdm,networkmanager}
+
+###################################################################################################
+##
+# 									O P C I O N A L  !!!!!!
+#
+# temas instalados fora do repositorio: icones papirus e dracula + tema dracula e nordic
+wget -qO- https://git.io/papirus-icon-theme-install | sh
+wget -qO- https://git.io/papirus-folders-install | sh
+papirus-folders --color nordic
+
+cd /tmp ; wget https://github.com/dracula/gtk/archive/master.zip
+wget https://github.com/dracula/gtk/files/5214870/Dracula.zip
+wget https://github.com/EliverLara/Nordic/archive/refs/heads/master.zip -O nordic.zip
+unzip Dracula.zip ; unzip master.zip ; unzip nordic.zip ; rm -f *.zip
+chmod 755 -R ./gtk-master ./Dracula ./Nordic-master
+chown -R root:root ./gtk-master ./Dracula ./Nordic-master
+mv ./gtk-master /mnt/usr/share/themes/Dracula
+mv ./Dracula /mnt/usr/share/icons ; mv ./Nordic-master /usr/share/themes/Nordic
+#
+##
+###################################################################################################
+
+# encerrando chroot
+exit
+
+# reiniciando
+umount -R /mnt && reboot -f
+
+
+
+# links:
+https://gist.github.com/niflostancu/03810a8167edc533b1712551d4f90a14
+https://gist.github.com/shinycore/d02f3968e02b7f548c68c039277912aa
+https://launchpad.net/~elementary-os/+archive/ubuntu/stable/
+https://github.com/pantheon-tweaks/pantheon-tweaks
