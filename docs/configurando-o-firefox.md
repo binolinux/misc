@@ -5,8 +5,8 @@ Digite <b>about:config</b> no navegador
 1. procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false
 2. procure por <b>layers.acceleration.force-enabled</b> e ajuste para true
 3. procure por <b>gfx.webrender.all</b> e ajuste para true
-4. procure por <b>extensions.pocket.enabled</b> e ajuste para false
-5. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true
+4. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true
+5. procure por <b>extensions.pocket.enabled</b> e ajuste para false
 6. procure por <b>browser.cache.disk.enable</b> e ajuste para false
 7. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou defina como -1 para que o navegador ajuste automaticamente
 8. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram feitas corretamente
