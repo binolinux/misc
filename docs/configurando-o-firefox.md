@@ -64,7 +64,7 @@ https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 
 <b>Editar as configurações Firefox</b></br>
-Vá em Editar / Configurações</br>
+Vá em Editar / Configurações
 1. Em <b>Geral</b> marque a opção <b>Reproduzir conteúdo controlado por DRM</b>
 2. desmarque <b>Usar as configurações de desempenho recomendadas</b>
 3. marque <b>Usar aceleração de hardware quando disponível</b></br> e deixe a opção <b>Limite de processos de conteúdo</b> em 2</br>
