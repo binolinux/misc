@@ -51,6 +51,11 @@ Icon: https://www.zoom.com.br/favicon.ico
 Search URL: http://legendas.tv/busca/%s</br>
 Icon: http://legendas.tv/favicon.ico
 
+Adicione as pesquisas dos links abaixo</br>
+https://www.youtube.com</br>
+https://wiki.archlinux.org/</br>
+https://www.archlinux.org/packages/</br>
+
 Outras extensões</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
@@ -58,10 +63,11 @@ https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 
-Adicione as pesquisas dos links abaixo</br>
-https://www.youtube.com</br>
-https://wiki.archlinux.org/</br>
-https://www.archlinux.org/packages/</br>
+<b>Editar as configurações Firefox</b></br>
+Vá em Editar / Configurações</br>
+Em <b>Geral</b> marque a opção <b>Reproduzir conteúdo controlado por DRM</b></br>
+desmarque <b>Usar as configurações de desempenho recomendadas</b></br>
+marque <b>Usar aceleração de hardware quando disponível</b></br> e deixe a opção <b>Limite de processos de conteúdo</b> em 2</br>
 
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
