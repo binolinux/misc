@@ -23,7 +23,7 @@ https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 - Name: RARBG Torrents</br>
 Search URL: https://rarbgproxied.org/torrents.php?search=%s</br>
 Icon: https://rarbgproxied.org/favicon.ico</br>
-- Name: YIFY Torrents</br>
+- Name: YTS Torrents</br>
 Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
 Icon: /usr/share/pixmaps/yts.png</br>
 - Name: OpenSubtitles</br>
