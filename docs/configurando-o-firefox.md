@@ -55,6 +55,7 @@ Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
 https://wiki.archlinux.org/</br>
 https://www.archlinux.org/packages/</br>
+https://play.google.com/store</br>
 
 Outras extensões</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
