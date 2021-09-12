@@ -58,6 +58,7 @@ https://www.archlinux.org/packages/</br>
 https://play.google.com/store</br>
 
 Outras extensões</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/plussub/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
