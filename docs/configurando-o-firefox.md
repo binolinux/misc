@@ -76,5 +76,4 @@ https://wiki.archlinux.org/index.php/Firefox</br>
 https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
 https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM</br>
 http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/</br>
-https://unix.stackexchange.com/questions/299850/how-can-i-make-sure-that-firefox-doesnt-use-my-gtk-theme-in-the-non-chrome-part</br>
-https://www.userchrome.org/megabar-styling-firefox-address-bar.html#enlargement</br></br>
+
