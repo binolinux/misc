@@ -10,9 +10,6 @@ Digite <b>about:config</b> no navegador
 6. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente
 7. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas
 
-Extensões recomendadas</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
-
 Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
