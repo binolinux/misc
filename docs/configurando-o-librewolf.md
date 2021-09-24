@@ -14,6 +14,9 @@ Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 2. Configure a extensão adicionando os mecanismos de busca abaixo
+- Name: DuckDuckGo (dark theme)</br>
+Search URL: https://duckduckgo.com/?q=%s&kae=d&kad=pt_BR&kp=-2&kav=1&kn=1&k1=-1&kaj=m&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&t=hx&va=g&ia=web</br>
+Icon: https://duckduckgo.com/favicon.ico</br>
 - Name: RARBG Torrents</br>
 Search URL: https://rarbgproxied.org/torrents.php?search=%s</br>
 Icon: https://rarbgproxied.org/favicon.ico</br>
@@ -22,31 +25,31 @@ Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
 Icon: /usr/share/pixmaps/yts.png</br>
 - Name: OpenSubtitles</br>
 Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s</br>
-Icon: /usr/share/pixmaps/opensubtitles.png
+Icon: /usr/share/pixmaps/opensubtitles.png</br>
 - Name: IMDb</br>
 Search URL: https://www.imdb.com/find?q=%s</br>
-Icon: https://www.imdb.com/favicon.ico
+Icon: https://www.imdb.com/favicon.ico</br>
 - Name: NAUGHTYBLOG.org</br>
 Search URL: https://www.naughtyblog.org/?s=%s</br>
-Icon: https://www.naughtyblog.org/favicon.ico
+Icon: https://www.naughtyblog.org/favicon.ico</br>
 - Name: HQ Porner</br>
 Search URL: https://hqporner.com/?q=%s</br>
-Icon: https://hqporner.com/favicon.ico
+Icon: https://hqporner.com/favicon.ico</br>
 - Name: Hotpornfile</br>
 Search URL: https://www.hotpornfile.org/?s=%s</br>
 Icon: /usr/share/pixmaps/hotpornfile.png</br>
 - Name: Google Tradutor</br>
 Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
-Icon: https://translate.google.com.br/favicon.ico
+Icon: https://translate.google.com.br/favicon.ico</br>
 - Name: Zoom</br>
 Search URL: https://www.zoom.com.br/search?q=%s</br>
-Icon: https://www.zoom.com.br/favicon.ico
+Icon: https://www.zoom.com.br/favicon.ico</br>
 - Name: Mercado Livre</br>
 Search URL: https://lista.mercadolivre.com.br/%s</br>
-Icon: https://www.mercadolivre.com.br/favicon.ico
+Icon: https://www.mercadolivre.com.br/favicon.ico</br>
 - Name: Legendas.TV</br>
 Search URL: http://legendas.tv/busca/%s</br>
-Icon: http://legendas.tv/favicon.ico
+Icon: http://legendas.tv/favicon.ico</br>
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
