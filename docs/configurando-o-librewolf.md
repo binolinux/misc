@@ -38,15 +38,15 @@ Icon: https://hqporner.com/favicon.ico</br>
 - Name: Hotpornfile</br>
 Search URL: https://www.hotpornfile.org/?s=%s</br>
 Icon: /usr/share/pixmaps/hotpornfile.png</br>
-- Name: Google Tradutor</br>
-Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
-Icon: https://translate.google.com.br/favicon.ico</br>
-- Name: Zoom</br>
-Search URL: https://www.zoom.com.br/search?q=%s</br>
-Icon: https://www.zoom.com.br/favicon.ico</br>
 - Name: Mercado Livre</br>
 Search URL: https://lista.mercadolivre.com.br/%s</br>
 Icon: https://www.mercadolivre.com.br/favicon.ico</br>
+- Name: Zoom</br>
+Search URL: https://www.zoom.com.br/search?q=%s</br>
+Icon: https://www.zoom.com.br/favicon.ico</br>
+- Name: Google Tradutor</br>
+Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
+Icon: https://translate.google.com.br/favicon.ico</br>
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
