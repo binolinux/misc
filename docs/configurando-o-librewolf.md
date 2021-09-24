@@ -47,9 +47,6 @@ Icon: https://www.zoom.com.br/favicon.ico</br>
 - Name: Mercado Livre</br>
 Search URL: https://lista.mercadolivre.com.br/%s</br>
 Icon: https://www.mercadolivre.com.br/favicon.ico</br>
-- Name: Legendas.TV</br>
-Search URL: http://legendas.tv/busca/%s</br>
-Icon: http://legendas.tv/favicon.ico</br>
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
