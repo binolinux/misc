@@ -56,16 +56,16 @@ Icon: http://legendas.tv/favicon.ico
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
-https://wiki.archlinux.org/</br>
-https://www.archlinux.org/packages/</br>
+https://wiki.archlinux.org</br>
+https://www.archlinux.org/packages</br>
 https://play.google.com/store</br>
 
 Outras extensões</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/plussub/</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/plussub</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
-https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
+https://addons.mozilla.org/en-US/firefox/addon/pywalfox</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 
 <b>Editar as configurações Firefox</b></br>
@@ -78,5 +78,5 @@ Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
 https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
 https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM</br>
-http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/</br>
+http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram</br>
 
