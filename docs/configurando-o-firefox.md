@@ -7,7 +7,7 @@ Digite <b>about:config</b> no navegador</br>
 3. procure por <b>gfx.webrender.all</b> e ajuste para true</br>
 4. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true</br>
 5. procure por <b>media.navigator.mediadatadecoder_vpx_enabled</b> e ajuste para true</br>
-6. procure por <b>media.ffvpx.enabled</b> e ajuste para false</br>
+6. procure por <b>media.ffvpx.enabled</b> e ajuste para false (pode não funcioar bem com placas nvidia)</br>
 7. procure por <b>media.rdd-vpx.enabled</b> e ajuste para false</br>
 8. procure por <b>extensions.pocket.enabled</b> e ajuste para false</br>
 9. procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
