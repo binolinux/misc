@@ -1,17 +1,20 @@
 <b>Configurando o LibreWolf</b></br>
 Contato Telegram: @rocker_raccoon
 
-Digite <b>about:config</b> no navegador
-1. procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false
-2. procure por <b>layers.acceleration.force-enabled</b> e ajuste para true
-3. procure por <b>gfx.webrender.all</b> e ajuste para true
-4. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true
-5. procure por <b>browser.cache.disk.enable</b> e ajuste para false
-6. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente
-7. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas
+Digite <b>about:config</b> no navegador</br>
+1. procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false</br>
+2. procure por <b>layers.acceleration.force-enabled</b> e ajuste para true</br>
+3. procure por <b>gfx.webrender.all</b> e ajuste para true</br>
+4. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true</br>
+5. procure por <b>media.navigator.mediadatadecoder_vpx_enabled</b> e ajuste para true</br>
+6. procure por <b>media.ffvpx.enabled</b> e ajuste para false (pode não funcioar bem com placas nvidia)</br>
+7. procure por <b>media.rdd-vpx.enabled</b> e ajuste para false</br>
+8. procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
+9. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
+10. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
 
 Extensões recomendadas</br>
-https://addons.mozilla.org/en-US/firefox/addon/browsec/</br>
+https://addons.mozilla.org/en-US/firefox/addon/browsec</br>
 
 Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
@@ -56,16 +59,16 @@ Icon: https://translate.google.com.br/favicon.ico</br>
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
-https://wiki.archlinux.org/</br>
-https://www.archlinux.org/packages/</br>
+https://wiki.archlinux.org</br>
+https://www.archlinux.org/packages</br>
 https://play.google.com/store</br>
 
 Outras extensões</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/plussub/</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/plussub</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
-https://addons.mozilla.org/en-US/firefox/addon/pywalfox/</br>
+https://addons.mozilla.org/en-US/firefox/addon/pywalfox</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 
 <b>Editar as configurações LibreWolf</b></br>
@@ -78,5 +81,5 @@ Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
 https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
 https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM</br>
-http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram/</br>
+http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram</br>
 
