@@ -1,15 +1,18 @@
 <b>Configurando o Firefox</b></br>
 Contato Telegram: @rocker_raccoon
 
-Digite <b>about:config</b> no navegador
-1. procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false
-2. procure por <b>layers.acceleration.force-enabled</b> e ajuste para true
-3. procure por <b>gfx.webrender.all</b> e ajuste para true
-4. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true
-5. procure por <b>extensions.pocket.enabled</b> e ajuste para false
-6. procure por <b>browser.cache.disk.enable</b> e ajuste para false
-7. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente
-8. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas
+Digite <b>about:config</b> no navegador</br>
+1. procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false</br>
+2. procure por <b>layers.acceleration.force-enabled</b> e ajuste para true</br>
+3. procure por <b>gfx.webrender.all</b> e ajuste para true</br>
+4. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true</br>
+5. procure por <b>media.navigator.mediadatadecoder_vpx_enabled</b> e ajuste para true</br>
+6. procure por <b>media.ffvpx.enabled</b> e ajuste para false</br>
+7. procure por <b>media.rdd-vpx.enabled</b> e ajuste para false</br>
+8. procure por <b>extensions.pocket.enabled</b> e ajuste para false</br>
+9. procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
+10. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
+11. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
