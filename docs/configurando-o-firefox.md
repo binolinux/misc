@@ -72,6 +72,7 @@ Vá em Editar / Configurações
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
 https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
+https://wiki.archlinux.org/title/Firefox#Hardware_video_acceleration</br>
 https://wiki.archlinux.org/index.php/Firefox/Profile_on_RAM</br>
 http://ubuntuhandbook.org/index.php/2014/12/speed-up-firefox-ubuntu-14-04-cache-to-ram</br>
 
