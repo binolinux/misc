@@ -7,17 +7,14 @@ Digite <b>about:config</b> no navegador</br>
 3. procure por <b>layers.acceleration.force-enabled</b> e ajuste para true</br>
 4. procure por <b>gfx.webrender.all</b> e ajuste para true</br>
 5. procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true</br>
-6. procure por <b>media.navigator.mediadatadecoder_vpx_enabled</b> e ajuste para true</br>
-7. procure por <b>media.ffvpx.enabled</b> e ajuste para false (pode não funcioar bem com placas nvidia)</br>
-8. procure por <b>media.rdd-vpx.enabled</b> e ajuste para false</br>
-9. procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
-10. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
-11. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
+6. procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
+7. procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
+8. feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/browsec/</br>
 
 Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
@@ -50,9 +47,6 @@ Icon: https://translate.google.com.br/favicon.ico
 - Name: Zoom</br>
 Search URL: https://www.zoom.com.br/search?q=%s</br>
 Icon: https://www.zoom.com.br/favicon.ico
-- Name: Legendas.TV</br>
-Search URL: http://legendas.tv/busca/%s</br>
-Icon: http://legendas.tv/favicon.ico
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
@@ -62,6 +56,7 @@ https://play.google.com/store</br>
 
 Outras extensões</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/plussub</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
