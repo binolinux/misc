@@ -50,17 +50,13 @@ Icon: https://www.mercadolivre.com.br/favicon.ico</br>
 - Name: Zoom</br>
 Search URL: https://www.zoom.com.br/search?q=%s</br>
 Icon: https://www.zoom.com.br/favicon.ico</br>
-- Name: Wikipedia (pt)</br>
-Search URL: https://pt.wikipedia.org/wiki/%s</br>
-Icon: https://pt.wikipedia.org/favicon.ico</br>
-- Name: Google Tradutor</br>
-Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
-Icon: https://translate.google.com.br/favicon.ico</br>
 
 Adicione as pesquisas dos links abaixo</br>
 https://www.youtube.com</br>
 https://wiki.archlinux.org</br>
 https://www.archlinux.org/packages</br>
+https://pt.wikipedia.org</br>
+https://translate.google.com.br</br>
 https://play.google.com/store</br>
 
 Outras extensões</br>
