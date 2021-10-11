@@ -17,7 +17,7 @@ Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 2. Configure a extensão adicionando os mecanismos de busca abaixo
-- Name: Google
+- Name: Google</br>
 Search URL: https://www.google.com.br/search?q=%s</br>
 Icon: https://www.google.com.br/favicon.ico</br>
 - Name: DuckDuckGo (dark theme)</br>
