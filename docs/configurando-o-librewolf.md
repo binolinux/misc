@@ -26,9 +26,6 @@ Icon: https://duckduckgo.com/favicon.ico</br>
 - Name: RARBG Torrents</br>
 Search URL: https://rarbgproxied.org/torrents.php?search=%s</br>
 Icon: https://rarbgproxied.org/favicon.ico</br>
-- Name: YTS Torrents</br>
-Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
-Icon: /usr/share/pixmaps/yts.png</br>
 - Name: OpenSubtitles</br>
 Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s</br>
 Icon: /usr/share/pixmaps/opensubtitles.png</br>
