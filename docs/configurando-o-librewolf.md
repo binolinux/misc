@@ -8,7 +8,7 @@ Digite <b>about:config</b> no navegador</br>
 - procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true</br>
 - procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
 - procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
-- feche o Firefox, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
+- feche o navegador, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/en-US/firefox/addon/browsec</br>
