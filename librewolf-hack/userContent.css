@@ -1,4 +1,0 @@
-/*CHANGE NEW TAB BACKGROUND COLOUR*/
-@-moz-document url(about:blank), url(about:preferences), url(about:config), url(about:newtab) {
- body { background-color: #353c4a !important;}
-}
