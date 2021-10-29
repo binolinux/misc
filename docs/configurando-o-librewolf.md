@@ -11,6 +11,8 @@ Digite <b>about:config</b> no navegador</br>
 - procure por <b>media.rdd-vpx.enabled</b> e ajuste para false</br>
 - procure por <b>media.rdd-process.enabled</b> e ajuste para false</br>
 - procure por <b>toolkit.legacyUserProfileCustomizations.stylesheets</b> e ajuste para true</br>
+- procure por <b>browser.preferences.defaultPerformanceSettings.enabled</b> e ajuste para false</br>
+- procure por <b>dom.ipc.processCount</b> e ajuste para 2</br>
 - procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
 - procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
 - feche o navegador, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
