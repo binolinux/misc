@@ -34,9 +34,6 @@ Icon: https://rarbgproxied.org/favicon.ico</br>
 - Name: YTS Torrents</br>
 Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
 Icon: /usr/share/pixmaps/yts.png</br>
-- Name: OpenSubtitles</br>
-Search URL: https://www.opensubtitles.org/pb/search2/sublanguageid-por,pob/moviename-%s</br>
-Icon: /usr/share/pixmaps/opensubtitles.png
 - Name: IMDb</br>
 Search URL: https://www.imdb.com/find?q=%s</br>
 Icon: https://www.imdb.com/favicon.ico
@@ -57,6 +54,7 @@ Search URL: https://www.zoom.com.br/search?q=%s</br>
 Icon: https://www.zoom.com.br/favicon.ico
 
 Adicione as pesquisas dos links abaixo</br>
+https://www.opensubtitles.org</br>
 https://www.youtube.com</br>
 https://wiki.archlinux.org</br>
 https://www.archlinux.org/packages</br>
