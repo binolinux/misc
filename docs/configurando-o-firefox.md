@@ -19,7 +19,7 @@ Digite <b>about:config</b> no navegador</br>
 - procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
 - feche o navegador, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
 - para aplicar essas alterações de uma unica vez, baixe o arquivo prefs.js desse link https://raw.githubusercontent.com/binolinux/misc/master/docs/prefs.js, salve e feche o firefox</br>
-- acesse a pasta do seu perfil do firefox e substitua o arquivo prefs.js original pelo arquivo baixado do github.</br>
+- acesse a pasta do seu perfil do firefox e substitua o arquivo <b>prefs.js</b> original pelo arquivo baixado do github.</br>
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
@@ -61,7 +61,7 @@ https://translate.google.com.br</br>
 https://play.google.com/store</br>
 
 - para adicionar todas as pesquisas de uma única vez, baixe o arquivo desse link https://github.com/binolinux/misc/raw/master/docs/search.json.mozlz4, salve e feche o firefox</br>
-- acesse a pasta do seu perfil do firefox e substitua o arquivo search.json.mozlz4 original pelo arquivo baixado do github.</br>
+- acesse a pasta do seu perfil do firefox e substitua o arquivo <b>search.json.mozlz4</b> original pelo arquivo baixado do github.</br>
 
 <hr>
 
