@@ -18,7 +18,8 @@ Digite <b>about:config</b> no navegador</br>
 - procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
 - procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
 - feche o navegador, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
-- para aplicar essas alterações de uma unica vez, baixe o arquivo prefs.js desse link https://raw.githubusercontent.com/binolinux/misc/master/docs/prefs.js, salve e feche o firefox. acesse a pasta do seu perfil do firefox e substitua o arquivo prefs.js original pelo arquivo baixado do github.
+- para aplicar essas alterações de uma unica vez, baixe o arquivo prefs.js desse link https://raw.githubusercontent.com/binolinux/misc/master/docs/prefs.js, salve e feche o firefox</br>
+- acesse a pasta do seu perfil do firefox e substitua o arquivo prefs.js original pelo arquivo baixado do github.</br>
 
 Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
@@ -59,6 +60,11 @@ https://www.archlinux.org/packages</br>
 https://translate.google.com.br</br>
 https://play.google.com/store</br>
 
+- para adicionar todas as pesquisas de uma única vez, baixe o arquivo desse link https://github.com/binolinux/misc/raw/master/docs/search.json.mozlz4, salve e feche o firefox</br>
+- acesse a pasta do seu perfil do firefox e substitua o arquivo search.json.mozlz4 original pelo arquivo baixado do github.</br>
+
+<hr>
+
 Outras extensões</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/plussub</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
@@ -67,12 +73,6 @@ https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 https://addons.mozilla.org/en-US/firefox/addon/pywalfox</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
-
-<b>Editar as configurações Firefox</b></br>
-Vá em Editar / Configurações
-1. Em <b>Geral</b> marque a opção <b>Reproduzir conteúdo controlado por DRM</b>
-2. desmarque <b>Usar as configurações de desempenho recomendadas</b>
-3. marque <b>Usar aceleração de hardware quando disponível</b></br> e deixe a opção <b>Limite de processos de conteúdo</b> em 2</br>
 
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
