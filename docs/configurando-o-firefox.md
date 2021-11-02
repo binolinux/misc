@@ -33,7 +33,7 @@ Search URL: https://rarbgproxied.org/torrents.php?search=%s</br>
 Icon: https://rarbgproxied.org/favicon.ico</br>
 - Name: YTS Torrents</br>
 Search URL: https://yts.mx/browse-movies/%s/all/all/0/latest/0/all</br>
-Icon: /usr/share/pixmaps/yts.png</br>
+Icon: https://github.com/binolinux/misc/raw/master/icons/yts.png</br>
 - Name: IMDb</br>
 Search URL: https://www.imdb.com/find?q=%s</br>
 Icon: https://www.imdb.com/favicon.ico
@@ -45,7 +45,7 @@ Search URL: https://hqporner.com/?q=%s</br>
 Icon: https://hqporner.com/favicon.ico
 - Name: Hotpornfile</br>
 Search URL: https://www.hotpornfile.org/?s=%s</br>
-Icon: /usr/share/pixmaps/hotpornfile.png</br>
+Icon: https://github.com/binolinux/misc/raw/master/icons/hotpornfile.png</br>
 - Name: Zoom</br>
 Search URL: https://www.zoom.com.br/search?q=%s</br>
 Icon: https://www.zoom.com.br/favicon.ico
