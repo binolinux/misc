@@ -46,9 +46,6 @@ Icon: https://hqporner.com/favicon.ico
 - Name: Hotpornfile</br>
 Search URL: https://www.hotpornfile.org/?s=%s</br>
 Icon: /usr/share/pixmaps/hotpornfile.png</br>
-- Name: Google Tradutor</br>
-Search URL: https://translate.google.com.br/?hl=pt-BR&tab=wT#view=home&op=translate&sl=auto&tl=pt&text=%s</br>
-Icon: https://translate.google.com.br/favicon.ico
 - Name: Zoom</br>
 Search URL: https://www.zoom.com.br/search?q=%s</br>
 Icon: https://www.zoom.com.br/favicon.ico
@@ -58,6 +55,7 @@ https://www.opensubtitles.org</br>
 https://www.youtube.com</br>
 https://wiki.archlinux.org</br>
 https://www.archlinux.org/packages</br>
+https://translate.google.com.br</br>
 https://play.google.com/store</br>
 
 Outras extensões</br>
