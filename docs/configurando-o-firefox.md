@@ -52,7 +52,7 @@ Icon: https://github.com/binolinux/misc/raw/master/icons/hotpornfile.png</br>
 Search URL: https://www.zoom.com.br/search?q=%s</br>
 Icon: https://www.zoom.com.br/favicon.ico
 
-Adicione as pesquisas dos links abaixo</br>
+- Adicione as pesquisas dos links abaixo</br>
 https://www.opensubtitles.org</br>
 https://www.youtube.com</br>
 https://wiki.archlinux.org</br>
