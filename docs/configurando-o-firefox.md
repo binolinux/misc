@@ -3,6 +3,7 @@ Contato Telegram: @rocker_raccoon
 
 Digite <b>about:config</b> no navegador</br>
 - procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false</br>
+- procure por <b>eidentity.fxaccounts.enabled</b> e ajuste para false</br>
 - procure por <b>extensions.pocket.enabled</b> e ajuste para false</br>
 - procure por <b>layers.acceleration.force-enabled</b> e ajuste para true</br>
 - procure por <b>gfx.webrender.all</b> e ajuste para true</br>
