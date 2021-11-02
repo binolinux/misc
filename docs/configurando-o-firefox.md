@@ -21,11 +21,13 @@ Digite <b>about:config</b> no navegador</br>
 - para aplicar essas alterações de uma unica vez, baixe o arquivo prefs.js desse link https://raw.githubusercontent.com/binolinux/misc/master/docs/prefs.js, salve e feche o firefox</br>
 - acesse a pasta do seu perfil do firefox e substitua o arquivo <b>prefs.js</b> original pelo arquivo baixado do github.</br>
 
+<hr>
+
 - Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/browsec/</br>
-
+<hr>
 - Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
@@ -73,6 +75,8 @@ https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
 https://addons.mozilla.org/en-US/firefox/addon/pywalfox</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
+
+<hr>
 
 Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
