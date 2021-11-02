@@ -27,11 +27,13 @@ Digite <b>about:config</b> no navegador</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/browsec/</br>
+
 <hr>
-- Extensão Add Custom Search Engines
+
+- Extensão Add Custom Search Engines</br>
 1. Obtenha a extensão no link abaixo</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
-2. Configure a extensão adicionando os mecanismos de busca abaixo
+https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/</br>
+2. Configure a extensão adicionando os mecanismos de busca abaixo</br>
 - Name: RARBG Torrents</br>
 Search URL: https://rarbgproxied.org/torrents.php?search=%s</br>
 Icon: https://rarbgproxied.org/favicon.ico</br>
