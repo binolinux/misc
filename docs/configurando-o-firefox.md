@@ -21,12 +21,12 @@ Digite <b>about:config</b> no navegador</br>
 - para aplicar essas alterações de uma unica vez, baixe o arquivo prefs.js desse link https://raw.githubusercontent.com/binolinux/misc/master/docs/prefs.js, salve e feche o firefox</br>
 - acesse a pasta do seu perfil do firefox e substitua o arquivo <b>prefs.js</b> original pelo arquivo baixado do github.</br>
 
-Extensões recomendadas</br>
+- Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/browsec/</br>
 
-Extensão Add Custom Search Engines
+- Extensão Add Custom Search Engines
 1. Obtenha a extensão no link abaixo</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/add-custom-search-engine/
 2. Configure a extensão adicionando os mecanismos de busca abaixo
@@ -60,7 +60,7 @@ https://www.archlinux.org/packages</br>
 https://translate.google.com.br</br>
 https://play.google.com/store</br>
 
-- para adicionar todas as pesquisas de uma única vez, baixe o arquivo desse link https://github.com/binolinux/misc/raw/master/docs/search.json.mozlz4, salve e feche o firefox</br>
+- para adicionar todos os mecanismos de pesquisas de uma única vez, baixe o arquivo desse link https://github.com/binolinux/misc/raw/master/docs/search.json.mozlz4, salve e feche o firefox</br>
 - acesse a pasta do seu perfil do firefox e substitua o arquivo <b>search.json.mozlz4</b> original pelo arquivo baixado do github.</br>
 
 <hr>
