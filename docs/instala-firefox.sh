@@ -2,7 +2,7 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 02.11.2021
+# atualizado em: 03.11.2021
 
 clear
 killall firefox >/dev/null 2>&1
@@ -18,8 +18,7 @@ sudo rm -rf $HOME/.cache/firefox >/dev/null 2>&1
 sudo rm -rf /opt/firefox >/dev/null 2>&1
 sudo rm -rf /tmp/firefox >/dev/null 2>&1
 mkdir -p $HOME/.cache/firefox ; cd $HOME/.cache/firefox
-#wget https://archlinux.org/packages/extra/x86_64/firefox/download -O firefox.pkg.tar.zst
-wget http://omniverse.artixlinux.org/x86_64/firefox-94.0-1-x86_64.pkg.tar.zst -O firefox.pkg.tar.zst
+wget https://archlinux.org/packages/extra/x86_64/firefox/download -O firefox.pkg.tar.zst
 tar -I zstd -xvf firefox.pkg.tar.zst
 rm -f usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
 sudo mv usr/lib/firefox /opt ; sudo ln -sf /opt/firefox/firefox /usr/local/bin ; sudo ln -sf /opt/firefox/firefox /usr/local/bin/browser
@@ -56,16 +55,16 @@ fi
 CONFIGURAR(){
 echo -n "Configurar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
 if [[ $RDK = [sSyY] ]]; then
-PERFIL=`ls /home | sed -n '1p'` ; LOCAL=`pwd`
-rm -rf $HOME/.mozilla/firefox/{"$PERFIL",anon}
-mkdir -p $HOME/.local/bin $HOME/.mozilla/firefox/{"$PERFIL",anon}
-cp -rT "$LOCAL"/perfil/ $HOME/.mozilla/firefox/"$PERFIL"/
+LOCAL=`pwd`
+rm -rf $HOME/.mozilla.backup >/dev/null 2>&1 ; mv $HOME/.mozilla $HOME/.mozilla.backup
+mkdir -p $HOME/.local/bin $HOME/.mozilla/firefox/{"$USER",anon}
+cp -rT "$LOCAL"/perfil/ $HOME/.mozilla/firefox/"$USER"/
 cp -rT "$LOCAL"/perfil/ $HOME/.mozilla/firefox/anon/
 cp -rT "$LOCAL"/anon/ $HOME/.mozilla/firefox/anon/
 rm -rf $HOME/.mozilla/firefox/anon/chrome
 cat << EOF > $HOME/.mozilla/firefox/installs.ini
 [6AFDA46A1A8AD48]
-Default=$PERFIL
+Default=$USER
 Locked=0
 EOF
 cat << EOF > $HOME/.mozilla/firefox/profiles.ini
@@ -75,9 +74,9 @@ IsRelative=1
 Path=anon
 
 [Profile0]
-Name=$PERFIL
+Name=$USER
 IsRelative=1
-Path=$PERFIL
+Path=$USER
 Default=1
 
 [General]
@@ -85,7 +84,7 @@ StartWithLastProfile=1
 Version=2
 
 [Install6AFDA46A1A8AD48]
-Default=$PERFIL
+Default=$USER
 Locked=1
 EOF
 cat << EOF > $HOME/.local/bin/anon
@@ -94,12 +93,12 @@ firefox --private-window --profile "$HOME/.mozilla/firefox/anon"
 exit
 EOF
 chmod +x $HOME/.local/bin/anon
-cat << EOF > $HOME/.local/bin/"$PERFIL"
+cat << EOF > $HOME/.local/bin/"$USER"
 #!/bin/bash
-firefox --profile "$HOME/.mozilla/firefox/$PERFIL"
+firefox --profile "$HOME/.mozilla/firefox/$USER"
 exit
 EOF
-chmod +x $HOME/.local/bin/"$PERFIL"
+chmod +x $HOME/.local/bin/"$USER"
 fi
 }
 
