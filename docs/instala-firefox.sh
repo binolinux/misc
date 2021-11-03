@@ -56,7 +56,7 @@ CONFIGURAR(){
 echo -n "Configurar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
 if [[ $RDK = [sSyY] ]]; then
 LOCAL=`pwd`
-rm -rf $HOME/.mozilla.backup >/dev/null 2>&1 ; mv $HOME/.mozilla $HOME/.mozilla.backup
+rm -rf $HOME/.mozilla.backup >/dev/null 2>&1 ; mv $HOME/.mozilla $HOME/.mozilla.backup >/dev/null 2>&1
 mkdir -p $HOME/.local/bin $HOME/.mozilla/firefox/{"$USER",anon}
 cp -rT "$LOCAL"/perfil/ $HOME/.mozilla/firefox/"$USER"/
 cp -rT "$LOCAL"/perfil/ $HOME/.mozilla/firefox/anon/
