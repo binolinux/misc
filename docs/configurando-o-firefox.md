@@ -70,7 +70,7 @@ https://play.google.com/store</br>
 
 <hr>
 
-Outras extensões</br>
+- Outras extensões</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/plussub</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
@@ -81,7 +81,7 @@ https://addons.mozilla.org/pt-BR/firefox/addon/facebook-container</br>
 
 <hr>
 
-Links</br>
+- Links</br>
 https://wiki.archlinux.org/index.php/Firefox</br>
 https://wiki.archlinux.org/index.php/Firefox/Tweaks</br>
 https://wiki.archlinux.org/title/Firefox#Hardware_video_acceleration</br>
