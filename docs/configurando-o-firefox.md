@@ -21,7 +21,7 @@ Digite <b>about:config</b> no navegador</br>
 - para aplicar essas alterações de uma unica vez, baixe o arquivo prefs.js desse link https://github.com/binolinux/misc/blob/master/docs/prefs.js, salve e feche o firefox</br>
 - acesse a pasta do seu perfil do firefox e substitua o arquivo <b>prefs.js</b> original pelo arquivo baixado do github.</br>
 - mais tweaks aqui nesse link https://github.com/binolinux/misc/blob/master/docs/firefox-tweaks-telemetry.md
-- 
+
 <hr>
 
 - Extensões recomendadas</br>
