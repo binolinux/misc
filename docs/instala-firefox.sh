@@ -2,7 +2,7 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 05.11.2021
+# atualizado em: 09.11.2021
 
 clear
 killall firefox >/dev/null 2>&1
@@ -10,24 +10,26 @@ killall firefox-bin >/dev/null 2>&1
 killall /usr/local/bin/firefox >/dev/null 2>&1
 killall /usr/bin/firefox >/dev/null 2>&1
 killall /opt/firefox/firefox >/dev/null 2>&1
+LOCAL=`pwd`
 
 INSTALAR() {
 echo ; echo -n "Instalar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
 if [[ $RDK = [sSyY] ]]; then
-sudo rm -rf $HOME/.cache/firefox >/dev/null 2>&1
-sudo rm -rf /opt/firefox >/dev/null 2>&1
-sudo rm -rf /tmp/firefox >/dev/null 2>&1
-mkdir -p $HOME/.cache/firefox ; cd $HOME/.cache/firefox
+rm -rf $HOME/.local/share/firefox ; rm -rf $HOME/.cache/firefox-setup
+mkdir -p $HOME/.cache/firefox-setup ; cd $HOME/.cache/firefox-setup
 wget https://archlinux.org/packages/extra/x86_64/firefox/download -O firefox.pkg.tar.zst
-tar -I zstd -xvf firefox.pkg.tar.zst
+wget https://archlinux.org/packages/extra/x86_64/dbus-glib/download -O dbus-glib.pkg.tar.zst
+for i in *.* ;do tar -I zstd -xvf "$i"; done
 rm -f usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
-sudo mv usr/lib/firefox /opt ; sudo ln -sf /opt/firefox/firefox /usr/local/bin ; sudo ln -sf /opt/firefox/firefox /usr/local/bin/browser
+mv usr/lib/firefox $HOME/.local/share
+ln -sf $HOME/.local/share/firefox/firefox $HOME/.local/bin ; ln -sf $HOME/.local/share/firefox/firefox $HOME/.local/bin/browser
+mv usr/lib/libdbus-glib-1.so.2.3.5 $HOME/.local/lib/libdbus-glib-1.so.2
 cat << EOF > $HOME/.local/share/applications/firefox.desktop
 [Desktop Entry]
 Version=1.0
 Name=Firefox
 Keywords=Internet;WWW;Browser;Web;Explorer;Explorador;Navegador
-Exec=/opt/firefox/firefox %u
+Exec=$HOME/.local/share/firefox/firefox %u
 Icon=firefox
 Terminal=false
 X-MultipleArgs=false
@@ -41,21 +43,22 @@ Actions=new-window;new-private-window;
 [Desktop Action new-window]
 Name=New Window
 Name[pt_BR]=Nova janela
-Exec=/opt/firefox/firefox --new-window %u
+Exec=$HOME/.local/share/firefox/firefox --new-window %u
 
 [Desktop Action new-private-window]
 Name=New Private Window
 Name[pt_BR]=Nova janela privativa
-Exec=/opt/firefox/firefox --private-window %u
+Exec=$HOME/.local/share/firefox/firefox --private-window %u
 EOF
 chmod +x $HOME/.local/share/applications/firefox.desktop
+rm -rf $HOME/.cache/firefox-setup
 fi
 }
 
 CONFIGURAR(){
-echo -n "Configurar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
+clear ; echo ; echo -n "Configurar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
 if [[ $RDK = [sSyY] ]]; then
-LOCAL=`pwd`
+cd "$LOCAL"
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/perfil/prefs.js
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/anon/prefs.js
 rm -rf $HOME/.mozilla.backup >/dev/null 2>&1 ; mv $HOME/.mozilla $HOME/.mozilla.backup >/dev/null 2>&1
@@ -91,13 +94,13 @@ Locked=1
 EOF
 cat << EOF > $HOME/.local/bin/anon
 #!/bin/bash
-/opt/firefox/firefox --private-window --profile "$HOME/.mozilla/firefox/anon"
+$HOME/.local/share/firefox/firefox --private-window --profile "$HOME/.mozilla/firefox/anon"
 exit
 EOF
 chmod +x $HOME/.local/bin/anon
 cat << EOF > $HOME/.local/bin/"$USER"
 #!/bin/bash
-/opt/firefox/firefox --profile "$HOME/.mozilla/firefox/$USER"
+$HOME/.local/share/firefox/firefox --profile "$HOME/.mozilla/firefox/$USER"
 exit
 EOF
 chmod +x $HOME/.local/bin/"$USER"
@@ -107,7 +110,7 @@ fi
 INSTALAR
 CONFIGURAR
 
-/opt/firefox/firefox --setDefaultBrowser --ProfileManager
+$HOME/.local/share/firefox/firefox --setDefaultBrowser --ProfileManager
 
 cd $HOME
 
