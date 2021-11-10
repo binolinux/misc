@@ -94,16 +94,15 @@ Locked=1
 EOF
 cat << EOF > $HOME/.local/bin/anon
 #!/bin/bash
-/opt/firefox/firefox --private-window --profile "$HOME/.mozilla/firefox/anon"
+firefox --private-window --profile "$HOME/.mozilla/firefox/anon"
 exit
 EOF
-chmod +x $HOME/.local/bin/anon
 cat << EOF > $HOME/.local/bin/"$USER"
 #!/bin/bash
-/opt/firefox/firefox --profile "$HOME/.mozilla/firefox/$USER"
+firefox --profile "$HOME/.mozilla/firefox/$USER"
 exit
 EOF
-chmod +x $HOME/.local/bin/"$USER"
+chmod +x $HOME/.local/bin/{anon,"$USER"}
 fi
 }
 
