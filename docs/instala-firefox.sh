@@ -2,7 +2,7 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 10.11.2021
+# atualizado em: 13.11.2021
 
 clear
 killall firefox >/dev/null 2>&1
@@ -103,13 +103,18 @@ firefox --profile "$HOME/.mozilla/firefox/$USER"
 exit
 EOF
 chmod +x $HOME/.local/bin/{anon,"$USER"}
+
+if [ -f /opt/firefox/firefox ]; then
+sudo ln -sf /opt/firefox/firefox /usr/local/bin
+sudo ln -sf /opt/firefox/firefox /usr/local/bin/browser
+/opt/firefox/firefox --setDefaultBrowser --ProfileManager
+fi
+
 fi
 }
 
 INSTALAR
 CONFIGURAR
-
-/opt/firefox/firefox --setDefaultBrowser --ProfileManager
 
 cd $HOME
 
