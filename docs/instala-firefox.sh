@@ -2,7 +2,7 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 17.11.2021
+# atualizado em: 28.11.2021
 
 clear
 killall firefox >/dev/null 2>&1
@@ -18,9 +18,12 @@ if [[ $RDK = [sSyY] ]]; then
 sudo rm -rf /opt/firefox ; rm -rf $HOME/.cache/firefox-setup
 mkdir -p $HOME/.cache/firefox-setup ; cd $HOME/.cache/firefox-setup
 wget https://archlinux.org/packages/extra/x86_64/firefox/download -O firefox.pkg.tar.zst
+wget https://archlinux.org/packages/extra/any/firefox-i18n-pt-br/download -O firefox-ptbr.pkg.tar.zst
+if [ ! -f /usr/local/lib/libdbus-glib-1.so.2 ]; then
 wget https://archlinux.org/packages/extra/x86_64/dbus-glib/download -O dbus-glib.pkg.tar.zst
+fi
 for i in *.* ;do tar -I zstd -xvf "$i"; done
-rm -f usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
+#rm -f usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
 sudo mv usr/lib/firefox /opt
 sudo ln -sf /opt/firefox/firefox /usr/local/bin ; sudo ln -sf /opt/firefox/firefox /usr/local/bin/browser
 sudo mv usr/lib/libdbus-glib-1.so.2.3.5 /usr/local/lib/libdbus-glib-1.so.2
@@ -61,7 +64,8 @@ if [[ $RDK = [sSyY] ]]; then
 cd "$LOCAL"
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/perfil/prefs.js
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/anon/prefs.js
-rm -rf $HOME/.mozilla.backup >/dev/null 2>&1 ; mv $HOME/.mozilla $HOME/.mozilla.backup >/dev/null 2>&1
+rm -rf $HOME/.mozilla/extensions >/dev/null 2>&1 ; 
+mv $HOME/.mozilla/firefox $HOME/.mozilla/firefox-backup >/dev/null 2>&1
 mkdir -p $HOME/.local/bin $HOME/.mozilla/firefox/{"$USER",anon}
 cp -rT "$LOCAL"/perfil/ $HOME/.mozilla/firefox/"$USER"/
 cp -rT "$LOCAL"/perfil/ $HOME/.mozilla/firefox/anon/
