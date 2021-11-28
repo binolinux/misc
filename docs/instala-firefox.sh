@@ -19,6 +19,7 @@ sudo rm -rf /opt/firefox ; rm -rf $HOME/.cache/firefox-setup
 mkdir -p $HOME/.cache/firefox-setup ; cd $HOME/.cache/firefox-setup
 wget https://archlinux.org/packages/extra/x86_64/firefox/download -O firefox.pkg.tar.zst
 wget https://archlinux.org/packages/extra/any/firefox-i18n-pt-br/download -O firefox-ptbr.pkg.tar.zst
+wget https://archlinux.org/packages/community/any/firefox-ublock-origin/download -O ublock.pkg.tar.zst
 if [ ! -f /usr/local/lib/libdbus-glib-1.so.2 ]; then
 wget https://archlinux.org/packages/extra/x86_64/dbus-glib/download -O dbus-glib.pkg.tar.zst
 fi
