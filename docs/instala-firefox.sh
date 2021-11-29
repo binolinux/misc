@@ -65,7 +65,7 @@ if [[ $RDK = [sSyY] ]]; then
 cd "$LOCAL"
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/perfil/prefs.js
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/anon/prefs.js
-rm -rf $HOME/.mozilla/extensions >/dev/null 2>&1 ; 
+rm -rf $HOME/.mozilla/extensions >/dev/null 2>&1 ; rm -rf $HOME/.mozilla/firefox-backup >/dev/null 2>&1
 mv $HOME/.mozilla/firefox $HOME/.mozilla/firefox-backup >/dev/null 2>&1
 mkdir -p $HOME/.local/bin $HOME/.mozilla/firefox/{"$USER",anon}
 cp -rT "$LOCAL"/perfil/ $HOME/.mozilla/firefox/"$USER"/
