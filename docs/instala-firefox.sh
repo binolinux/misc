@@ -2,7 +2,7 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 28.11.2021
+# atualizado em: 29.11.2021
 
 clear
 killall firefox >/dev/null 2>&1
@@ -25,6 +25,7 @@ wget https://archlinux.org/packages/extra/x86_64/dbus-glib/download -O dbus-glib
 fi
 for i in *.* ;do tar -I zstd -xvf "$i"; done
 rm -f usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
+wget --content-disposition https://addons.mozilla.org/firefox/downloads/file/3869267 -O usr/lib/firefox/browser/extensions/browsec@browsec.com.xpi
 sudo mv usr/lib/firefox /opt
 sudo ln -sf /opt/firefox/firefox /usr/local/bin ; sudo ln -sf /opt/firefox/firefox /usr/local/bin/browser
 sudo mv usr/lib/libdbus-glib-1.so.2.3.5 /usr/local/lib/libdbus-glib-1.so.2
