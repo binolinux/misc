@@ -25,7 +25,6 @@ wget https://archlinux.org/packages/extra/x86_64/dbus-glib/download -O dbus-glib
 fi
 for i in *.* ;do tar -I zstd -xvf "$i"; done
 rm -f usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
-wget --content-disposition https://addons.mozilla.org/firefox/downloads/file/3869267 -O usr/lib/firefox/browser/extensions/browsec@browsec.com.xpi
 sudo mv usr/lib/firefox /opt
 sudo ln -sf /opt/firefox/firefox /usr/local/bin ; sudo ln -sf /opt/firefox/firefox /usr/local/bin/browser
 sudo mv usr/lib/libdbus-glib-1.so.2.3.5 /usr/local/lib/libdbus-glib-1.so.2
@@ -64,6 +63,7 @@ CONFIGURAR(){
 clear ; echo ; echo -n "Configurar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
 if [[ $RDK = [sSyY] ]]; then
 cd "$LOCAL"
+wget --content-disposition https://addons.mozilla.org/firefox/downloads/file/3869267 -O "$LOCAL"/perfil/extensions/browsec@browsec.com.xpi
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/perfil/prefs.js
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/anon/prefs.js
 rm -rf $HOME/.mozilla/extensions >/dev/null 2>&1 ; rm -rf $HOME/.mozilla/firefox-backup >/dev/null 2>&1
