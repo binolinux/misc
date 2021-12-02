@@ -27,7 +27,7 @@ Digite <b>about:config</b> no navegador</br>
 - Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/touch-vpn</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
 
 <hr>
 
@@ -73,6 +73,7 @@ https://play.google.com/store</br>
 - Outras extensões</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/plussub</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/touch-vpn</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
