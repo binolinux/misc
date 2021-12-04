@@ -2,7 +2,7 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 29.11.2021
+# atualizado em: 04.12.2021
 
 clear
 killall firefox >/dev/null 2>&1
@@ -63,6 +63,7 @@ CONFIGURAR(){
 clear ; echo ; echo -n "Configurar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
 if [[ $RDK = [sSyY] ]]; then
 cd "$LOCAL"
+mkdir -p "$LOCAL"/perfil/extensions
 wget --content-disposition https://addons.mozilla.org/firefox/downloads/file/3869267 -O "$LOCAL"/perfil/extensions/browsec@browsec.com.xpi
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/perfil/prefs.js
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/anon/prefs.js
