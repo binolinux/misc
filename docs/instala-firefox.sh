@@ -2,38 +2,30 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 04.12.2021
+# atualizado em: 10.12.2021
 
 clear
 killall firefox >/dev/null 2>&1
 killall firefox-bin >/dev/null 2>&1
-killall /usr/local/bin/firefox >/dev/null 2>&1
-killall /usr/bin/firefox >/dev/null 2>&1
-killall /opt/firefox/firefox >/dev/null 2>&1
 LOCAL=`pwd`
 
 INSTALAR() {
 echo ; echo -n "Instalar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
 if [[ $RDK = [sSyY] ]]; then
-sudo rm -rf /opt/firefox ; rm -rf $HOME/.cache/firefox-setup
+sudo pacman -Syudd --needed --noconfirm firefox dbus-glib
 mkdir -p $HOME/.cache/firefox-setup ; cd $HOME/.cache/firefox-setup
-wget https://archlinux.org/packages/extra/x86_64/firefox/download -O firefox.pkg.tar.zst
 wget https://archlinux.org/packages/extra/any/firefox-i18n-pt-br/download -O firefox-ptbr.pkg.tar.zst
 wget https://archlinux.org/packages/community/any/firefox-ublock-origin/download -O ublock.pkg.tar.zst
-if [ ! -f /usr/local/lib/libdbus-glib-1.so.2 ]; then
-wget https://archlinux.org/packages/extra/x86_64/dbus-glib/download -O dbus-glib.pkg.tar.zst
-fi
 for i in *.* ;do tar -I zstd -xvf "$i"; done
-rm -f usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
-sudo mv usr/lib/firefox /opt
-sudo ln -sf /opt/firefox/firefox /usr/local/bin ; sudo ln -sf /opt/firefox/firefox /usr/local/bin/browser
-sudo mv usr/lib/libdbus-glib-1.so.2.3.5 /usr/local/lib/libdbus-glib-1.so.2
+sudo rm -f /usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
+sudo cp -ar usr/lib/firefox/browser/extensions /usr/lib/firefox/browser
+sudo ln -sf /usr/lib/firefox/firefox /usr/local/bin/browser
 cat << EOF > $HOME/.local/share/applications/firefox.desktop
 [Desktop Entry]
 Version=1.0
 Name=Firefox
 Keywords=Internet;WWW;Browser;Web;Explorer;Explorador;Navegador
-Exec=/opt/firefox/firefox %u
+Exec=/usr/lib/firefox %u
 Icon=firefox
 Terminal=false
 X-MultipleArgs=false
@@ -47,12 +39,12 @@ Actions=new-window;new-private-window;
 [Desktop Action new-window]
 Name=New Window
 Name[pt_BR]=Nova janela
-Exec=/opt/firefox/firefox --new-window %u
+Exec=/usr/lib/firefox --new-window %u
 
 [Desktop Action new-private-window]
 Name=New Private Window
 Name[pt_BR]=Nova janela privativa
-Exec=/opt/firefox/firefox --private-window %u
+Exec=/usr/lib/firefox --private-window %u
 EOF
 chmod +x $HOME/.local/share/applications/firefox.desktop
 rm -rf $HOME/.cache/firefox-setup
@@ -111,9 +103,8 @@ exit
 EOF
 chmod +x $HOME/.local/bin/{anon,"$USER"}
 
-if [ -f /opt/firefox/firefox ]; then
-sudo ln -sf /opt/firefox/firefox /usr/local/bin
-sudo ln -sf /opt/firefox/firefox /usr/local/bin/browser
+if [ -f /usr/lib/firefox/firefox ]; then
+sudo ln -sf /usr/lib/firefox/firefox /usr/local/bin/browser
 `which firefox` --setDefaultBrowser --ProfileManager
 fi
 
