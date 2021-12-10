@@ -20,6 +20,7 @@ for i in *.* ;do tar -I zstd -xvf "$i"; done
 sudo rm -f /usr/lib/firefox/browser/features/{doh-rollout@mozilla.org.xpi,screenshots@mozilla.org.xpi,webcompat-reporter@mozilla.org.xpi,webcompat@mozilla.org.xpi}
 sudo cp -ar usr/lib/firefox/browser/extensions /usr/lib/firefox/browser
 sudo ln -sf /usr/lib/firefox/firefox /usr/local/bin/browser
+sudo rm -f /usr/share/applications/firefox.desktop
 cat << EOF > $HOME/.local/share/applications/firefox.desktop
 [Desktop Entry]
 Version=1.0
@@ -102,11 +103,6 @@ firefox --profile "$HOME/.mozilla/firefox/$USER"
 exit
 EOF
 chmod +x $HOME/.local/bin/{anon,"$USER"}
-
-if [ -f /usr/lib/firefox/firefox ]; then
-sudo ln -sf /usr/lib/firefox/firefox /usr/local/bin/browser
-`which firefox` --setDefaultBrowser --ProfileManager
-fi
 
 fi
 }
