@@ -2,7 +2,7 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 10.12.2021
+# atualizado em: 11.12.2021
 
 clear
 killall firefox >/dev/null 2>&1
@@ -12,7 +12,7 @@ LOCAL=`pwd`
 INSTALAR() {
 echo ; echo -n "Instalar o Firefox? [ S ou s = SIM ] " ; read RDK ; echo
 if [[ $RDK = [sSyY] ]]; then
-sudo pacman -Syudd --needed --noconfirm firefox dbus-glib
+sudo pacman -Syu --needed --noconfirm extra/firefox extra/dbus-glib
 mkdir -p $HOME/.cache/firefox-setup ; cd $HOME/.cache/firefox-setup
 wget https://archlinux.org/packages/extra/any/firefox-i18n-pt-br/download -O firefox-ptbr.pkg.tar.zst
 wget https://archlinux.org/packages/community/any/firefox-ublock-origin/download -O ublock.pkg.tar.zst
@@ -103,7 +103,7 @@ firefox --profile "$HOME/.mozilla/firefox/$USER"
 exit
 EOF
 chmod +x $HOME/.local/bin/{anon,"$USER"}
-
+firefox --ProfileManager
 fi
 }
 
