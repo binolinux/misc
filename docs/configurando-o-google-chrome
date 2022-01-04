@@ -1,0 +1,8 @@
+Configurando o Google Chrome
+
+- instale as extensões abaixo:
+https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=pt-BR
+https://chrome.google.com/webstore/detail/browsec-vpn-free-vpn-for/omghfjlpggmjjaagoclmmobgdodcjboh/related?hl=pt-BR
+- configure essas extensões para funcionar em modo anonimo
+- crie um atalho de teclado contendo o valor abaixo e defina as teclas super + alt + w
+google-chrome-stable --incognito
