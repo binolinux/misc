@@ -2,7 +2,7 @@
 
 # instala e configura o firefox
 # contato telegram: @rocker_raccoon
-# atualizado em: 04.01.2022
+# atualizado em: 07.01.2022
 
 clear
 killall firefox >/dev/null 2>&1
@@ -59,6 +59,7 @@ timeout 6s firefox
 DEFAULT=`ls $HOME/.mozilla/firefox | grep default-release | sed -n '1p'`
 cd "$LOCAL"
 mkdir -p "$LOCAL"/perfil/extensions ; rm -f "$LOCAL"/perfil/browsec@browsec.com.xpi
+wget --content-disposition https://addons.mozilla.org/firefox/downloads/file/3886236 -O "$LOCAL"/perfil/extensions/uBlock0@raymondhill.net.xpi
 wget --content-disposition https://addons.mozilla.org/firefox/downloads/file/3869267 -O "$LOCAL"/perfil/extensions/browsec@browsec.com.xpi
 echo 'user_pref("browser.download.dir", "'$HOME'/.cache");' >> "$LOCAL"/perfil/prefs.js
 rm -rf $HOME/.mozilla/firefox/"$DEFAULT" ; mkdir -p $HOME/.local/bin $HOME/.mozilla/firefox/"$DEFAULT"
