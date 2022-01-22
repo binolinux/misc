@@ -71,7 +71,6 @@ https://play.google.com/store</br>
 <hr>
 
 - Outras extensões</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/plussub</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/touch-vpn</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
