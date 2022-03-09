@@ -5,6 +5,7 @@ Digite <b>about:config</b> no navegador</br>
 - procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false</br>
 - procure por <b>identity.fxaccounts.enabled</b> e ajuste para false</br>
 - procure por <b>extensions.pocket.enabled</b> e ajuste para false</br>
+- procure por <b>browser.preferences.moreFromMozilla</b> e ajuste para false</br>
 - procure por <b>layers.acceleration.force-enabled</b> e ajuste para true</br>
 - procure por <b>gfx.webrender.all</b> e ajuste para true</br>
 - procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true</br>
@@ -18,8 +19,6 @@ Digite <b>about:config</b> no navegador</br>
 - procure por <b>browser.cache.disk.enable</b> e ajuste para false</br>
 - procure por <b>browser.cache.memory.capacity</b> e defina o valor 150000 = 150MB ou use o valor -1 para que o navegador ajuste automaticamente</br>
 - feche o navegador, reabra e digite <b>about:cache</b> para verificar se as alterações foram aplicadas</br>
-- para aplicar essas alterações de uma unica vez, baixe o arquivo prefs.js desse link https://github.com/binolinux/misc/blob/master/docs/prefs.js, salve e feche o firefox</br>
-- acesse a pasta do seu perfil do firefox e substitua o arquivo <b>prefs.js</b> original pelo arquivo baixado do github.</br>
 - mais tweaks aqui nesse link https://github.com/binolinux/misc/blob/master/docs/firefox-tweaks-telemetry.md
 
 <hr>
