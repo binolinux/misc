@@ -6,6 +6,7 @@ Digite <b>about:config</b> no navegador</br>
 - procure por <b>identity.fxaccounts.enabled</b> e ajuste para false</br>
 - procure por <b>extensions.pocket.enabled</b> e ajuste para false</br>
 - procure por <b>browser.preferences.moreFromMozilla</b> e ajuste para false</br>
+- procure por <b>browser.download.saveLinkAsFilenameTimeout</b> e ajuste para 0 (zero)</br>
 - procure por <b>layers.acceleration.force-enabled</b> e ajuste para true</br>
 - procure por <b>gfx.webrender.all</b> e ajuste para true</br>
 - procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true</br>
