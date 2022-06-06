@@ -73,9 +73,9 @@ https://play.google.com/store</br>
 <hr>
 
 - Outras extensões</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/video-downloadhelper</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/the-media-player</br>
-https://addons.mozilla.org/pt-BR/firefox/addon/touch-vpn</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/browsec</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://my.jdownloader.org/apps</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/new-tab-homepage</br>
