@@ -9,6 +9,9 @@ Digite <b>about:config</b> no navegador</br>
 - procure por <b>browser.download.alwaysOpenPanel</b> e ajuste para false</br>
 - procure por <b>browser.download.animateNotifications</b> e ajuste para false</br>
 - procure por <b>browser.download.saveLinkAsFilenameTimeout</b> e ajuste para 0 (zero)</br>
+- procure por <b>browser.tabs.loadBookmarksInTabs</b> e ajuste para true</br>
+- procure por <b>browser.search.openintab</b> e ajuste para true</br>
+- procure por <b>browser.urlbar.openintab</b> e ajuste para true</br>
 - procure por <b>layers.acceleration.force-enabled</b> e ajuste para true</br>
 - procure por <b>gfx.webrender.all</b> e ajuste para true</br>
 - procure por <b>media.ffmpeg.vaapi.enabled</b> e ajuste para true</br>
