@@ -4,6 +4,7 @@ Contato Telegram: @rocker_raccoon
 Digite <b>about:config</b> no navegador</br>
 - procure por <b>browser.tabs.insertRelatedAfterCurrent</b> e ajuste para false</br>
 - procure por <b>identity.fxaccounts.enabled</b> e ajuste para false</br>
+- procure por <b>extensions.unifiedExtensions.enabled</b> e ajuste para false</br>
 - procure por <b>extensions.pocket.enabled</b> e ajuste para false</br>
 - procure por <b>browser.preferences.moreFromMozilla</b> e ajuste para false</br>
 - procure por <b>browser.download.alwaysOpenPanel</b> e ajuste para false</br>
