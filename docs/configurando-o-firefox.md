@@ -33,6 +33,7 @@ Digite <b>about:config</b> no navegador</br>
 - Extensões recomendadas</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-br</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/adblock-for-firefox/</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/cyberghost-vpn-free-proxy</br>
 
 <hr>
