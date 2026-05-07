@@ -35,6 +35,7 @@ https://addons.mozilla.org/pt-BR/firefox/addon/ublock-origin</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/firefox-color</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/contextsearch-web-ext</br>
 https://addons.mozilla.org/pt-BR/firefox/addon/video-downloadhelper</br>
+https://addons.mozilla.org/pt-BR/firefox/addon/traduzir-paginas-web</br>
 
 <hr>
 
